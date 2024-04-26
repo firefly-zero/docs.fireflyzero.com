@@ -4,3 +4,4 @@ MD007:          # unordered list indentation
   indent: 2
 MD013: false    # do not validate line length
 MD014: false    # allow $ before command output
+MD033: false    # allow inline HTML

@@ -27,14 +27,39 @@ Each frame is stored in memory as one of 4 shades of grey. When the time comes t
 
 The default color palette is [kirokaze gameboy](https://lospec.com/palette-list/kirokaze-gameboy):
 
-1. 332C50
-1. 46878F
-1. 94E344
-1. E2F3E4
+1. <span style="background-color: #332C50; min-width: 40px; height: 1em; display: inline-block"></span> #332C50
+1. <span style="background-color: #46878F; min-width: 40px; height: 1em; display: inline-block"></span> #46878F
+1. <span style="background-color: #94E344; min-width: 40px; height: 1em; display: inline-block"></span> #94E344
+1. <span style="background-color: #E2F3E4; min-width: 40px; height: 1em; display: inline-block"></span> #E2F3E4
 
 You can modify colors in the palette by calling `set_color` or `set_colors` function (depending on if you want to change one or all of the colors).
 
-You can set any colors you want in any combination you want. However, the best practice is to set colors in the order from darkest to the lightest. The first color is usually almost black, the last is almost white, and the second and the third colors are "colorful" ones for when you need to put an accent on something. Hence for convenience each of the colors in palette has a name: `DARK`, `ACCENT`, `SECONDARY`, and `LIGHT`.
+You can set any colors you want in any combination you want. However, the best practice is to set colors in the order from darkest to the lightest. The first color is usually almost black, the last is almost white, and the second and the third colors are "colorful" ones for when you need to put an accent on something. Hence for convenience each of the colors in palette has a name:
+
+`DARK`, `ACCENT`, `SECONDARY`, and `LIGHT`
+
+{{< tabs "colors" >}}
+{{< tab "Rust" >}}
+
+```rust
+firefly::Color::DARK;
+firefly::Color::ACCENT;
+firefly::Color::SECONDARY;
+firefly::Color::LIGHT;
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+firefly.ColorDark
+firefly.ColorAccent
+firefly.ColorSecondary
+firefly.ColorLight
+```
+
+{{< /tab >}}
+{{< /tabs >}}
 
 Looking for inspiration? Check out [lospec.com](https://lospec.com/palette-list/) for nice-looking color palettes.
 
@@ -83,7 +108,22 @@ Where `img` is the name of the image in the ROM.
 
 Next, load the image from ROM into the memory:
 
-...
+{{< tabs "load-image" >}}
+{{< tab "Rust" >}}
+
+```rust
+let file = firefly::rom::load_buf("img");
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+// TODO
+```
+
+{{< /tab >}}
+{{< /tabs >}}
 
 Lastly, call `draw_image` with the image you loaded earlier. The function also accepts `ImageColors` argument which specifies the color to use for each color in the image. The most common use for it is to set one color to zero (`None`) to make background transparent.
 
@@ -96,6 +136,6 @@ First, go to [fonts.fireflyzero.com](https://fonts.fireflyzero.com/) and downloa
 img = { path = "eg_6x9.fff" }
 ```
 
-Now you can load the fornt from ROM as you load images and call `draw_text` with the text you want to render and the font.
+Now you can load the font from ROM as you load images and call `draw_text` with the text you want to render and the font.
 
 The text does not automatically wrap. If you need word wrapping, you should add new lines into the text yourself.
