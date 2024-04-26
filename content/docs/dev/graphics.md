@@ -1,4 +1,7 @@
-# Graphics
+---
+title: 🎨 Graphics
+weight: 10
+---
 
 ## Pixels
 
