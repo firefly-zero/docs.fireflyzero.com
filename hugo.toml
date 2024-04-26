@@ -3,3 +3,6 @@ languageCode = "en-us"
 title = "Firefly Zero docs"
 paginate = 40
 theme = "hugo-book"
+
+[params]
+BookSection = "*"
