@@ -1,6 +1,6 @@
 # docs.fireflyzero.com
 
-The source code for [Firefly Zero](https://fireflyzero.com/). Hosted at [docs.fireflyzero.com](https://docs.fireflyzero.com/).
+The source code for [Firefly Zero](https://fireflyzero.com/) docs. Hosted at [docs.fireflyzero.com](https://docs.fireflyzero.com/).
 
 ## Running locally
 
