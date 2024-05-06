@@ -15,7 +15,7 @@ Coordinates: x=0 is left, x=320 is right, y=0 is top, and y=160 is bottom.
 
 Each update of the image on the screen is called "frame". Before each frame is rendered, the `render` callback function is called. This is where you should call all drawing functions you need.
 
-Don't draw from the `update` callback: while `update` is called 60 times per second, `render` might be called less often if there are not enough resources. So, if you draw from `update`, you'll waste resources on updating a frame that will be never rendered on the screen.
+Don't draw from the `update` callback: while `update` is called 30.30 times per second (will be soon changed to 60), `render` might be called less often if there are not enough resources. So, if you draw from `update`, you'll waste resources on updating a frame that will be never rendered on the screen.
 
 The frame that you had at the previous update is not cleared. So, if only a small region on the screen needs to be changed, you can redraw only that region and leave the rest intact. If it's not what you want and you'd prefer to redraw the whole frame each time, call `clear_screen`, and it will fill the whole frame with the color you specified.
 
