@@ -5,9 +5,9 @@ weight: 15
 
 ## Pixels
 
-The screen size 320x160 pixels, just like GameBoy Advance. Pixels are quite big, so it's safe to draw one pixel wide lines and letters, they will be visible.
+The screen size 240x160 pixels, just like GameBoy Advance. Pixels are quite big, so it's safe to draw one pixel wide lines and letters, they will be visible.
 
-Coordinates: x=0 is left, x=320 is right, y=0 is top, and y=160 is bottom.
+Coordinates: x=0 is left, x=240 is right, y=0 is top, and y=160 is bottom.
 
 ## Frames
 
