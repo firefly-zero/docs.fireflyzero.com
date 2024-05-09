@@ -1,6 +1,6 @@
 ---
 title: 🎮 Input
-weight: 15
+weight: 20
 ---
 
 ## Buttons

@@ -1,6 +1,6 @@
 ---
 title: 🔊 Audio
-weight: 20
+weight: 25
 ---
 
 (⌛ Coming soon)

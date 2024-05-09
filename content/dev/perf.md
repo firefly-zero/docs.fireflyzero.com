@@ -1,6 +1,6 @@
 ---
 title: 🐎 Performance
-weight: 25
+weight: 30
 ---
 
 1. Only draw on the screen from the `render` callback. It is possible for `update` to be called more often than `render`, and so anything you draw in there won't be rendered until the next update.

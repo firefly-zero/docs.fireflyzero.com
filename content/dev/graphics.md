@@ -1,6 +1,6 @@
 ---
 title: 🎨 Graphics
-weight: 10
+weight: 15
 ---
 
 ## Pixels
@@ -42,10 +42,10 @@ You can set any colors you want in any combination you want. However, the best p
 {{< tab "Rust" >}}
 
 ```rust
-firefly::Color::DARK;
-firefly::Color::ACCENT;
-firefly::Color::SECONDARY;
-firefly::Color::LIGHT;
+firefly_rust::Color::DARK;
+firefly_rust::Color::ACCENT;
+firefly_rust::Color::SECONDARY;
+firefly_rust::Color::LIGHT;
 ```
 
 {{< /tab >}}
@@ -95,6 +95,37 @@ For a reference, here is the list of available functions for drawing shapes:
 1. `draw_arc(Point, Diameter, Angle, Angle, Style)`
 1. `draw_sector(Point, Diameter, Angle, Angle, Style)`
 
+{{< tabs "draw-triangle" >}}
+{{< tab "Rust" >}}
+
+```rust
+ff::draw_triangle(
+    ff::Point { x: 60, y: 10 },
+    ff::Point { x: 40, y: 40 },
+    ff::Point { x: 80, y: 40 },
+    ff::Style {
+        fill_color:   ff::Color::Accent,
+        stroke_color: ff::Color::Secondary,
+        stroke_width: 1,
+    },
+);
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+firefly.DrawTriangle(
+    firefly.Point{X: 60, Y: 10},
+    firefly.Point{X: 40, Y: 40},
+    firefly.Point{X: 80, Y: 40},
+    firefly.Style{FillColor: 2, StrokeColor: 3, StrokeWidth: 1},
+)
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
 ## Images
 
 Draw the image you want to render and save it in the project as a grayscale PNG image with up to 4 colors. Then link the image in `firefly.toml`:
@@ -112,7 +143,7 @@ Next, load the image from ROM into the memory:
 {{< tab "Rust" >}}
 
 ```rust
-let file = firefly::rom::load_buf("img");
+let file = firefly_rust::rom::load_buf("img");
 ```
 
 {{< /tab >}}
