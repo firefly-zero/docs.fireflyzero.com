@@ -110,7 +110,7 @@ extern fn render() {
 ```go
 package main
 
-import "github.com/life4/firefly-go/firefly"
+import "github.com/firefly-zero/firefly-go/firefly"
 
 var font firefly.Font
 

@@ -18,7 +18,7 @@ Subjective comparison:
 | -------- | ---------- | ----------- | --------|
 | ⚡️ Zig    | 💻 3/5     | 🐎 5/5      | 🔓 2/5  |
 | 🦀 Rust  | 🔬 1/5     | 🐎 5/5      | 🔒 5/5  |
-| 🐹 Go    | 🔨 4/5     | 🐇 4/5      | 🔐 4/5  |
+| 🏃 Go    | 🔨 4/5     | 🐇 4/5      | 🔐 4/5  |
 
 ## 📥 Install tools
 
@@ -109,7 +109,7 @@ extern fn render() {
 ```go
 package main
 
-import "github.com/life4/firefly-go/firefly"
+import "github.com/firefly-zero/firefly-go/firefly"
 
 func init() {
     firefly.Render = render
@@ -147,3 +147,13 @@ func render() {
     ```bash
     firefly_cli import ./joearms.hello-world.zip
     ```
+
+## 🧠 Further reading
+
+There are several things you should know to make a game:
+
+1. How the runtime works in general. Start by reading about [Callbacks](./callbacks.md) and then go through all other pages in this documentation in order.
+1. What functions the SDK for the programming language that you choose provides:
+    1. [🦀 Rust](https://docs.rs/firefly-rust/latest/firefly_rust/)
+    1. [🏃 Go](https://pkg.go.dev/github.com/firefly-zero/firefly-go)
+1. How to make games and what patterns make it easier. We recommend reading [Game Programming Patterns](http://gameprogrammingpatterns.com/contents.html).
