@@ -23,39 +23,47 @@ The frame that you had at the previous update is not cleared. So, if only a smal
 
 > The enemy of art is the absence of limitations.
 
-Each frame is stored in memory as one of 4 shades of grey. When the time comes to draw the frame on the screen, each of these shades is mapped to one of 4 colors in the color palette.
+Each frame is stored in memory as one of 16 shades of gray. When the time comes to draw the frame on the screen, each of these shades is mapped to one of 16 colors in the color palette.
 
-The default color palette is [kirokaze gameboy](https://lospec.com/palette-list/kirokaze-gameboy):
+The default color palette is [Sweetie 16](https://lospec.com/palette-list/sweetie-16):
 
-1. <span style="background-color: #332C50; min-width: 40px; height: 1em; display: inline-block"></span> #332C50
-1. <span style="background-color: #46878F; min-width: 40px; height: 1em; display: inline-block"></span> #46878F
-1. <span style="background-color: #94E344; min-width: 40px; height: 1em; display: inline-block"></span> #94E344
-1. <span style="background-color: #E2F3E4; min-width: 40px; height: 1em; display: inline-block"></span> #E2F3E4
+1. <span style="background-color: #1a1c2c; min-width: 40px; height: 1em; display: inline-block"></span> #1A1C2C: `Black`
+1. <span style="background-color: #5d275d; min-width: 40px; height: 1em; display: inline-block"></span> #5D275D: `Purple`
+1. <span style="background-color: #b13e53; min-width: 40px; height: 1em; display: inline-block"></span> #B13E53: `Red`
+1. <span style="background-color: #ef7d57; min-width: 40px; height: 1em; display: inline-block"></span> #EF7D57: `Orange`
+1. <span style="background-color: #ffcd75; min-width: 40px; height: 1em; display: inline-block"></span> #FFCD75: `Yellow`
+1. <span style="background-color: #a7f070; min-width: 40px; height: 1em; display: inline-block"></span> #A7F070: `LightGreen`
+1. <span style="background-color: #38b764; min-width: 40px; height: 1em; display: inline-block"></span> #38B764: `Green`
+1. <span style="background-color: #257179; min-width: 40px; height: 1em; display: inline-block"></span> #257179: `DarkGreen`
+1. <span style="background-color: #29366f; min-width: 40px; height: 1em; display: inline-block"></span> #29366F: `DarkBlue`
+1. <span style="background-color: #3b5dc9; min-width: 40px; height: 1em; display: inline-block"></span> #3B5DC9: `Blue`
+1. <span style="background-color: #41a6f6; min-width: 40px; height: 1em; display: inline-block"></span> #41A6F6: `LightBlue`
+1. <span style="background-color: #73eff7; min-width: 40px; height: 1em; display: inline-block"></span> #73EFF7: `Cyan`
+1. <span style="background-color: #f4f4f4; min-width: 40px; height: 1em; display: inline-block"></span> #F4F4F4: `White`
+1. <span style="background-color: #94b0c2; min-width: 40px; height: 1em; display: inline-block"></span> #94B0C2: `LightGray`
+1. <span style="background-color: #566c86; min-width: 40px; height: 1em; display: inline-block"></span> #566C86: `Gray`
+1. <span style="background-color: #333c57; min-width: 40px; height: 1em; display: inline-block"></span> #333C57: `DarkGray`
 
-You can modify colors in the palette by calling `set_color` or `set_colors` function (depending on if you want to change one or all of the colors).
+You can modify colors in the palette by calling the `set_color` function:
 
-You can set any colors you want in any combination you want. However, the best practice is to set colors in the order from darkest to the lightest. The first color is usually almost black, the last is almost white, and the second and the third colors are "colorful" ones for when you need to put an accent on something. Hence for convenience each of the colors in palette has a name:
-
-`DARK`, `ACCENT`, `SECONDARY`, and `LIGHT`
-
-{{< tabs "colors" >}}
+{{< tabs "set-color" >}}
 {{< tab "Rust" >}}
 
 ```rust
-firefly_rust::Color::DARK;
-firefly_rust::Color::ACCENT;
-firefly_rust::Color::SECONDARY;
-firefly_rust::Color::LIGHT;
+firefly_rust::set_color(
+    firefly_rust::Color::Red,
+    firefly_rust::RGB{r: 0xff, g: 0x00, b: 0x00},
+);
 ```
 
 {{< /tab >}}
 {{< tab "Go" >}}
 
 ```go
-firefly.ColorDark
-firefly.ColorAccent
-firefly.ColorSecondary
-firefly.ColorLight
+firefly.SetColor(
+    firefly.ColorRed,
+    firefly.RGB{R: 0xff, G: 0x00, B: 0x00},
+);
 ```
 
 {{< /tab >}}
@@ -65,7 +73,7 @@ Looking for inspiration? Check out [lospec.com](https://lospec.com/palette-list/
 
 ## More colors
 
-It is possible to render more than 4 colors on a single frame. First, you need to divide the elements on the screen to horizontal regions:
+It is possible to render more than 16 colors on a single frame. First, you need to divide the elements on the screen to horizontal regions:
 
 ... (TODO: add an image with an example)
 
@@ -85,15 +93,15 @@ The runtime provides a bunch of functions that you can call to draw primitive sh
 
 For a reference, here is the list of available functions for drawing shapes:
 
-1. `draw_point(Point, Size, Color)`
-1. `draw_line(Point, Size, LineStyle)`
-1. `draw_rect(Point, Size, Style)`
-1. `draw_rounded_rect(Point, Size, Size, Style)`
-1. `draw_circle(Point, Diameter, Style)`
-1. `draw_ellipse(Point, Size, Style)`
-1. `draw_triangle(Point, Point, Point, Style)`
-1. `draw_arc(Point, Diameter, Angle, Angle, Style)`
-1. `draw_sector(Point, Diameter, Angle, Angle, Style)`
+1. `draw_point(👉 Point, 📦 Size, 💄 Color)`
+1. `draw_line(👉 Point, 📦 Size, 💄 LineStyle)`
+1. `draw_rect(👉 Point, 📦 Size, 💄 Style)`
+1. `draw_rounded_rect(👉 Point, 📦 Size, 📦 Size, 💄 Style)`
+1. `draw_circle(👉 Point, ⭕ Diameter, 💄 Style)`
+1. `draw_ellipse(👉 Point, 📦 Size, 💄 Style)`
+1. `draw_triangle(👉 Point, 👉 Point, 👉 Point, 💄 Style)`
+1. `draw_arc(👉 Point, ⭕ Diameter, 📐 Angle, 📐 Angle, 💄 Style)`
+1. `draw_sector(👉 Point, ⭕ Diameter, 📐 Angle, 📐 Angle, 💄 Style)`
 
 {{< tabs "draw-triangle" >}}
 {{< tab "Rust" >}}
@@ -128,7 +136,15 @@ firefly.DrawTriangle(
 
 ## Images
 
-Draw the image you want to render and save it in the project as a grayscale PNG image with up to 4 colors. Then link the image in `firefly.toml`:
+Draw the image you want using the default ([Sweetie 16](https://lospec.com/palette-list/sweetie-16)) color palette. You can also use a transparent background. Save the image as a PNG file.
+
+{{< hint info >}}
+
+[Lospec Pixel Editor](https://apps.lospec.com/pixel-editor/) is a good online editor for pixel art. On the left panel, specify the image size you want, select "Sweetie 16" as the color palette, and press "Create". Draw your art, press "File" and then "Export".
+
+{{< /hint >}}
+
+Link the saved file in `firefly.toml`:
 
 ```toml
 [files]
@@ -150,13 +166,13 @@ let file = firefly_rust::rom::load_buf("img");
 {{< tab "Go" >}}
 
 ```go
-// TODO
+file := firefly.LoadROMFile("img");
 ```
 
 {{< /tab >}}
 {{< /tabs >}}
 
-Lastly, call `draw_image` with the image you loaded earlier. The function also accepts `ImageColors` argument which specifies the color to use for each color in the image. The most common use for it is to set one color to zero (`None`) to make background transparent.
+Lastly, call `draw_image` with the image you loaded earlier.
 
 ## Text
 
