@@ -186,3 +186,5 @@ img = { path = "eg_6x9.fff" }
 Now you can load the font from ROM as you load images and call `draw_text` with the text you want to render and the font.
 
 The text does not automatically wrap. If you need word wrapping, you should add new lines into the text yourself.
+
+{{< button relref="./input.md" >}}➡️ Input{{< /button >}}

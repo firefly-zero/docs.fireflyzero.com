@@ -18,3 +18,5 @@ When using the emulator with a gamepad, you have to press the stick down (or pre
 ## Multiplayer
 
 (⌛ Coming soon)
+
+{{< button relref="./audio.md" >}}➡️ Audio{{< /button >}}

@@ -3,9 +3,14 @@ languageCode = "en-us"
 title = "Firefly Zero docs"
 paginate = 40
 theme = "hugo-book"
+enableGitInfo = true
 
 [params]
 BookSection = "*"
+BookRepo = 'https://github.com/firefly-zero/docs.fireflyzero.com'
+BookCommitPath = 'commit'
+BookEditPath = 'edit/main'
+BookDateFormat = '2006-01-02'
 
 [markup.goldmark.renderer]
 unsafe = true
