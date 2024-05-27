@@ -10,7 +10,7 @@ Callback is a function with a specific name that you define in your code and the
 Firefly Zero supports the following callbacks:
 
 1. `boot` is called only once, after all the memory is initialized and all runtime functions are available but before any other callback is called. This is the best place to load fonts, sprites, and other assets, initialize the default state, read configurations, etc.
-1. `update` is called 30.30 times per second (will be soon changed to 60). It is guaranteed to be never called more often, and it won't be called less often if the game doesn't consume too much resources. This is the best place to update the state of objects, position of NPCs, read and handle user input, etc.
+1. `update` is called ~60 times per second. It is guaranteed to be never called more often, and it won't be called less often if the game doesn't consume too much resources. This is the best place to update the state of objects, position of NPCs, read and handle user input, etc.
 1. `render` is called before updating the image on the screen. It might be called less often than `update` if the device sees that the game is slow and needs more resources. This is the best place to call all drawing functions.
 1. `render_line` is called before updating a line of pixels on the screen. It accepts the line for each it is called and returns the next line before which it should be called again. For example, it is called with 0 first time and if it then returns 100, it will be called again before rendering the line 100. If then it returns 0, it will be called again only when rendering the next frame. Use it to update the color palette on the fly if you want to display more than 16 colors on one frame.
 

@@ -8,3 +8,4 @@ weight: 30
 1. Prefer using 32 bit float over 64 bit float.
 1. Avoid allocations.
 1. Carefully choose the allocator and garbage collector.
+1. "An ounce of image is worth a pound of performance." Using primitives instead of images might save quite a bit of RAM and performance.
