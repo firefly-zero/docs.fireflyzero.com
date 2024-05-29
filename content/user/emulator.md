@@ -5,7 +5,10 @@ weight: 5
 
 ## 📥 Installation
 
-[Download emulator binary](https://github.com/firefly-zero/firefly-emulator-bin/releases) and put it into `$PATH`. Now you can run it by running `firefly_emulator` in the terminal.
+1. [Download emulator binary](https://github.com/firefly-zero/firefly-emulator-bin/releases) and put it into `$PATH`.
+1. Install [firefly-cli](https://github.com/firefly-zero/firefly-cli): `cargo install firefly-cli`
+1. Install a game: `firefly_cli import firefly.snek`
+1. Run `firefly_emulator`.
 
 ## 🕹 Input
 
