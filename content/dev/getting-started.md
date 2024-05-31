@@ -23,7 +23,7 @@ Subjective comparison:
 ## 📥 Install tools
 
 1. [Install rust and cargo](https://www.rust-lang.org/tools/install): `curl https://sh.rustup.rs -sSf | sh`
-1. Install [firefly-cli](https://github.com/firefly-zero/firefly-cli): `cargo install firefly-cli`
+1. Install [firefly-cli](https://github.com/firefly-zero/firefly-cli): `cargo install firefly_cli`
 1. [Download emulator binary](https://github.com/firefly-zero/firefly-emulator-bin/releases) and put it into `$PATH`
 1. Install [WebAssembly](https://webassembly.org/) compiler for your language:
 
