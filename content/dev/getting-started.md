@@ -52,6 +52,7 @@ Create an empty project:
 
 ```bash
 cargo new hello-world
+cd hello-world
 cargo add firefly_rust
 ```
 
@@ -141,12 +142,14 @@ func render() {
     firefly_cli export --author joearms --app hello-world
     ```
 
-1. Publish the file anywhere you like. A centralized catalog is coming soon.
+1. Publish the file anywhere you like. For open-source projects, a good option is Github Releases.
 1. People then can download and install the app:
 
     ```bash
     firefly_cli import ./joearms.hello-world.zip
     ```
+
+1. Optional: add your app into the catalog: [catalog.fireflyzero.com](https://catalog.fireflyzero.com/).
 
 ## 🧠 Further reading
 
