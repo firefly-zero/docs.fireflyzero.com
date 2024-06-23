@@ -182,7 +182,7 @@ First, go to [fonts.fireflyzero.com](https://fonts.fireflyzero.com/) and downloa
 
 ```toml
 [files]
-img = { path = "eg_6x9.fff" }
+font = { path = "eg_6x9.fff" }
 ```
 
 Now you can load the font from ROM as you load images and call `draw_text` with the text you want to render and the font.
