@@ -134,6 +134,8 @@ func render() {
 1. Build and install the app: `firefly_cli build`
 1. Run the last built app: `firefly_emulator`
 
+Have troubles using emulator? Check out the [emulator user guide](../user/emulator.md).
+
 ## 📦 Distribute
 
 1. Create a file for an installed app:
