@@ -3,6 +3,8 @@ title: 🎮 Input
 weight: 20
 ---
 
+## 🎮 Input
+
 ## Buttons
 
 The `read_buttons` function returns which buttons are currently pressed. The SDKs also provide convenience methods to compare two states to get which buttons were just pressed or just released.

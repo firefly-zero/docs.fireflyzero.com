@@ -3,6 +3,8 @@ title: ▶️ Getting started
 weight: 5
 ---
 
+## ▶️ Getting started
+
 ## 👉 Pick the language
 
 Firefly Zero supports lots of programming languages. For simple apps and games, it's a good idea to stick to what you already know. But if you're ready to learn something new for a better results, there are some recommendations:

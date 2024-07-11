@@ -3,6 +3,8 @@ title: 🎨 Graphics
 weight: 15
 ---
 
+## 🎨 Graphics
+
 ## Pixels
 
 The screen size 240x160 pixels, just like GameBoy Advance. Pixels are quite big, so it's safe to draw one pixel wide lines and letters, they will be visible.
