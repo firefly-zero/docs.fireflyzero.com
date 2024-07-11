@@ -98,8 +98,8 @@ extern fn render() {
         Point { x: 40, y: 40 },
         Point { x: 80, y: 40 },
         Style {
-            fill_color:   Color::Accent,
-            stroke_color: Color::Secondary,
+            fill_color:   Color::LightGray,
+            stroke_color: Color::DarkBlue,
             stroke_width: 1,
         },
     );
@@ -123,7 +123,11 @@ func render() {
         firefly.Point{X: 60, Y: 10},
         firefly.Point{X: 40, Y: 40},
         firefly.Point{X: 80, Y: 40},
-        firefly.Style{FillColor: 2, StrokeColor: 3, StrokeWidth: 1},
+        firefly.Style{
+            FillColor:   firefly.ColorDarkBlue,
+            StrokeColor: firefly.ColorBlue,
+            StrokeWidth: 1,
+        },
     )
 }
 ```

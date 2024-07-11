@@ -114,8 +114,8 @@ ff::draw_triangle(
     ff::Point { x: 40, y: 40 },
     ff::Point { x: 80, y: 40 },
     ff::Style {
-        fill_color:   ff::Color::Accent,
-        stroke_color: ff::Color::Secondary,
+        fill_color:   Color::LightGray,
+        stroke_color: Color::DarkBlue,
         stroke_width: 1,
     },
 );
@@ -129,7 +129,11 @@ firefly.DrawTriangle(
     firefly.Point{X: 60, Y: 10},
     firefly.Point{X: 40, Y: 40},
     firefly.Point{X: 80, Y: 40},
-    firefly.Style{FillColor: 2, StrokeColor: 3, StrokeWidth: 1},
+    firefly.Style{
+        FillColor:   firefly.ColorDarkBlue,
+        StrokeColor: firefly.ColorBlue,
+        StrokeWidth: 1,
+    },
 )
 ```
 
