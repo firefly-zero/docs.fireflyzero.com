@@ -50,7 +50,7 @@ if let Some(pad) = pad {
 ```go
 pad, pressed := firefly.ReadPad(firefly.Combined)
 if pressed {
-    // TODO
+    // ...
 }
 ```
 
