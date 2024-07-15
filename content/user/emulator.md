@@ -1,7 +1,9 @@
 ---
-title: 💻 emulator
+title: 💻 Emulator
 weight: 5
 ---
+
+## 💻 Emulator
 
 ## 📥 Installation
 
