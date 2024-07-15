@@ -15,12 +15,8 @@ To establish a multiplayer connection, take 2 or more devices (or launch 2 or mo
 
 Then on any of the devices select and launch the app you want to play together. That's it! The app should start on all devices and you all should have control.
 
-<iframe
-    title="Demo of establishing a multiplayer connection"
-    src="https://gram.social/p/firefly/717270806578606609/embed?caption=false&likes=false&layout=compact"
-    class="pixelfed__embed"
-    style="max-width: 100%; border: 0"
-    width="400"
-    allowfullscreen="allowfullscreen"
-></iframe>
-<script async defer src="https://gram.social/embed.js"></script>
+{{< hint info >}}
+
+🎥 Stuck? Check out this demo: [gram.social/i/web/post/717270806578606609](https://gram.social/i/web/post/717270806578606609).
+
+{{< /hint >}}
