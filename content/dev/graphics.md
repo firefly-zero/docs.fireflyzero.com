@@ -5,13 +5,13 @@ weight: 15
 
 ## 🎨 Graphics
 
-## Pixels
+## 🔬 Pixels
 
 The screen size 240x160 pixels, just like GameBoy Advance. Pixels are quite big, so it's safe to draw one pixel wide lines and letters, they will be visible.
 
 Coordinates: x=0 is left, x=240 is right, y=0 is top, and y=160 is bottom.
 
-## Frames
+## 🖼 Frames
 
 > All those moments will be lost in time.
 
@@ -21,13 +21,19 @@ Don't draw from the `update` callback: while `update` is called ~60 times per se
 
 The frame that you had at the previous update is not cleared. So, if only a small region on the screen needs to be changed, you can redraw only that region and leave the rest intact. If it's not what you want and you'd prefer to redraw the whole frame each time, call `clear_screen`, and it will fill the whole frame with the color you specified.
 
-## Colors
+## 🎨 Colors
 
 > The enemy of art is the absence of limitations.
 
 Each frame is stored in memory as one of 16 shades of gray. When the time comes to draw the frame on the screen, each of these shades is mapped to one of 16 colors in the color palette.
 
 The default color palette is [Sweetie 16](https://lospec.com/palette-list/sweetie-16):
+
+{{< hint warning >}}
+
+If you use Dark Reader extension in your browser, make sure to turn it off when viewing the palette below. Otherwise, you'll see incorrect colors!
+
+{{< /hint >}}
 
 1. <span style="background-color: #1a1c2c; min-width: 40px; height: 1em; display: inline-block"></span> #1A1C2C: `Black`
 1. <span style="background-color: #5d275d; min-width: 40px; height: 1em; display: inline-block"></span> #5D275D: `Purple`
@@ -73,7 +79,7 @@ firefly.SetColor(
 
 Looking for inspiration? Check out [lospec.com](https://lospec.com/palette-list/) for nice-looking color palettes.
 
-## More colors
+## 🌈 More colors
 
 It is possible to render more than 16 colors on a single frame. First, you need to divide the elements on the screen to horizontal regions:
 
@@ -83,7 +89,7 @@ Then you can provide a `render_line` callback function. The callback accepts the
 
 This callback must be as fast as possible and all it should do is change the colors in the palette. In other words, the callback can be used to swap the colors in the palette on the go, as lines are rendered on the screen.
 
-## Shapes
+## 🔳 Shapes
 
 > It is the sculptor's power, so often alluded to, of finding the perfect form and features of a goddess, in the shapeless block of marble.
 
@@ -140,7 +146,7 @@ firefly.DrawTriangle(
 {{< /tab >}}
 {{< /tabs >}}
 
-## Images
+## 📸 Images
 
 > A picture is worth a thousand words.
 
@@ -182,7 +188,7 @@ file := firefly.LoadROMFile("img");
 
 Lastly, call `draw_image` with the image you loaded earlier.
 
-## Text
+## 🔤 Text
 
 First, go to [fonts.fireflyzero.com](https://fonts.fireflyzero.com/) and download the font that you'd like to use. Then add it into `firefly.toml` as you add images:
 
