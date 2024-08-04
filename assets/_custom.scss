@@ -1,0 +1,11 @@
+.hint-icon.warning {
+    display: inline-block;
+    max-width: 100px;
+    margin-top: 0px;
+    vertical-align: top;
+}
+
+.book-hint.warning {
+    display: inline-block;
+    max-width: calc(100% - 100px - 10px);
+}
