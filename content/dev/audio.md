@@ -7,4 +7,4 @@ weight: 25
 
 (⌛ Coming soon)
 
-{{< button relref="./errors.md" >}}➡️ Common errors{{< /button >}}
+{{< button relref="./debugging.md" >}}➡️ Debugging{{< /button >}}
