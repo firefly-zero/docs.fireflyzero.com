@@ -146,10 +146,50 @@ wasm-objdump -h \
 
 ## 💔 Finding the point of failure
 
-When an app explodes (`panic` in Rust and Go, `except` in Python, etc), the runtime logs will tell you in which app callback it happened and what's the last runtime function that was called. In many cases, this is enough to find where the code failed. If it's not, add `log_debug` function calls before and after each line of code that you suspect fails. If you see in logs the message printed before the call but not after, your suspicion is correct and you found the point of failure. You can then print values of all variables before the failure to see which input causes the issues.
+When an app explodes (`panic` in Rust and Go, `except` in Python, etc), the runtime logs will tell you in which app callback it happened and what's the last runtime function that was called. In many cases, this is enough to find where the code failed. If it's not, add `log_debug` function calls before and after each line of code that you suspect might fail:
+
+{{< tabs "log-debug" >}}
+{{< tab "🦀 Rust" >}}
+
+```rust
+firefly_rust::log_debug("before foo")
+foo()
+firefly_rust::log_debug("before bar")
+bar()
+firefly_rust::log_debug("after bar")
+```
+
+{{< /tab >}}
+{{< tab "🏃 Go" >}}
+
+```go
+firefly.LogDebug("before foo")
+foo()
+firefly.LogDebug("before bar")
+bar()
+firefly.LogDebug("after bar")
+```
+
+{{< /tab >}}
+{{< tab "⚡️ Zig" >}}
+
+```go
+const ff = @import("firefly");
+
+ff.logDebug("before foo")
+foo()
+ff.logDebug("before bar")
+bar()
+ff.logDebug("after bar")
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
+If you see in logs the message printed before the call but not after, your suspicion is correct and you found the point of failure. You can then print values of all variables before the failure to see which input causes the issues.
 
 {{< hint info >}}
-**Better debugging with "wolf fence" (aka "bisecting")**
+**Debugging big functions with "wolf fence" (aka "bisect")**
 
 If there is a lot of code that might be failing, it might be hard to add `log_debug` before every line. In that case, you can do a [binary search](https://en.wikipedia.org/wiki/Binary_search) of the point of failure. First, add one log message in the middle of failing function and run the code. If you see the message, the failure happens after that point. If you don't see, it fails before. Now, insert a message in the middle of the failing region and repeat the process until you find the exact failing line.
 
