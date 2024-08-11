@@ -75,6 +75,17 @@ firefly.SetColor(
 ```
 
 {{< /tab >}}
+{{< tab "⚡️ Zig" >}}
+
+```go
+const ff = @import("firefly");
+ff.setColor(
+    ff.Color.red,
+    ff.RGB{.r = 0xff, .g = 0x00, .b = 0x00},
+);
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 Looking for inspiration? Check out [lospec.com](https://lospec.com/palette-list/) for nice-looking color palettes.
@@ -142,6 +153,23 @@ firefly.DrawTriangle(
         StrokeWidth: 1,
     },
 )
+```
+
+{{< /tab >}}
+{{< tab "⚡️ Zig" >}}
+
+```go
+const ff = @import("firefly");
+ff.drawTriangle(
+    ff.Point{ .x = 60, .y = 10 },
+    ff.Point{ .x = 40, .y = 40 },
+    ff.Point{ .x = 80, .y = 40 },
+    ff.Style{
+        .fill_color = ff.Color.light_gray,
+        .stroke_color = ff.Color.dark_blue,
+        .stroke_width = 1,
+    },
+);
 ```
 
 {{< /tab >}}
