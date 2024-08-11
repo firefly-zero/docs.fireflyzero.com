@@ -55,7 +55,7 @@ If you use Dark Reader extension in your browser, make sure to turn it off when 
 You can modify colors in the palette by calling the `set_color` function:
 
 {{< tabs "set-color" >}}
-{{< tab "Rust" >}}
+{{< tab "🦀 Rust" >}}
 
 ```rust
 firefly_rust::set_color(
@@ -65,7 +65,7 @@ firefly_rust::set_color(
 ```
 
 {{< /tab >}}
-{{< tab "Go" >}}
+{{< tab "🏃 Go" >}}
 
 ```go
 firefly.SetColor(
@@ -112,15 +112,16 @@ For a reference, here is the list of available functions for drawing shapes:
 1. `draw_sector(👉 Point, ⭕ Diameter, 📐 Angle, 📐 Angle, 💄 Style)`
 
 {{< tabs "draw-triangle" >}}
-{{< tab "Rust" >}}
+{{< tab "🦀 Rust" >}}
 
 ```rust
-ff::draw_triangle(
-    ff::Point { x: 60, y: 10 },
-    ff::Point { x: 40, y: 40 },
-    ff::Point { x: 80, y: 40 },
-    ff::Style {
-        fill_color:   Color::LightGray,
+use firefly_rust::*;
+draw_triangle(
+    Point { x: 60, y: 10 },
+    Point { x: 40, y: 40 },
+    Point { x: 80, y: 40 },
+    Style {
+        fill_color: Color::LightGray,
         stroke_color: Color::DarkBlue,
         stroke_width: 1,
     },
@@ -128,7 +129,7 @@ ff::draw_triangle(
 ```
 
 {{< /tab >}}
-{{< tab "Go" >}}
+{{< tab "🏃 Go" >}}
 
 ```go
 firefly.DrawTriangle(
@@ -170,14 +171,14 @@ Where `img` is the name of the image in the ROM.
 Next, load the image from ROM into the memory:
 
 {{< tabs "load-image" >}}
-{{< tab "Rust" >}}
+{{< tab "🦀 Rust" >}}
 
 ```rust
 let file = firefly_rust::rom::load_buf("img");
 ```
 
 {{< /tab >}}
-{{< tab "Go" >}}
+{{< tab "🏃 Go" >}}
 
 ```go
 file := firefly.LoadROMFile("img");
