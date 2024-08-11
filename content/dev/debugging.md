@@ -196,6 +196,40 @@ If there is a lot of code that might be failing, it might be hard to add `log_de
 This debugging technique is called [Wolf Fence](https://dl.acm.org/doi/pdf/10.1145/358690.358695) or [Bisect](https://research.swtch.com/bisect).
 {{< /hint >}}
 
+## 👣 Tracebacks
+
+There are no tracebacks (aka "stack traces" or "back traces") yet. See this issue: [wasmi#538](https://github.com/wasmi-labs/wasmi/issues/538). To find the point of failure, use the debugging techniques covered above.
+
+## 🐌 Monitoring performance
+
+Run `firefly_cli monitor` to launch a dashboard showing the runtime stats for a running app. It looks something like this:
+
+```text
+ ┌╴cpu╶───────────────┐ ┌╴memory╶────────────┐
+ │ lag      0 ns   0% │ │ floor 1089 KB      │
+ │ busy   313 ms  31% │ │ ceil  1152 KB 18p  │
+ │ idle   693 ms  69% │ └────────────────────┘
+ └────────────────────┘
+
+ ┌╴fuel: update╶──────┐ ┌╴fuel: render╶──────┐
+ │ min    276         │ │ min    663         │
+ │ max    276         │ │ max    663         │
+ │ mean   276         │ │ mean   663         │
+ │ stdev    0         │ │ stdev    0         │
+ └────────────────────┘ └────────────────────┘
+```
+
+* `cpu` shows the CPU usage.
+  * `lag` shows the total time (per second) that the app was lagging behind. If it's not zero, the `update` and `render` callbacks are too slow, at least sometimes. Big values may cause visual lag and annoy players. Optimize!
+  * `busy` is how much time was spent running code, including system operations.
+  * `idle` is how much time the runtime was sleeping and doing nothing. If it's zero, every single update was lagging.
+* `memory` shows RAM usage.
+  * `floor` shows the position of the last non-zero byte in memory. Depending on the allocator used by the app, it might either show the actual memory usage or mean absolutely nothing.
+  * `ceil` is how many memory pages are allocated. One page is 64 KB.
+* `fuel` is the number of instructions executed per second.
+
+Keep `lag` zero and `busy`, `memory`, and `fuel` low.
+
 ## 💢 Common errors
 
 Below are some of the common errors related to Firefly Zero that you may encounter.
