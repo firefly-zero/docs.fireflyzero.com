@@ -20,6 +20,7 @@ Optional:
 * `compile_args` (array of strings): an array of additional CLI arguments to pass into the command used to build the WebAssembly binary. The command is language-specific: it will be `cargo` for Rust, `tinygo` for Go, `zig` for Zig, etc.
 * `launcher` (boolean): set to `true` if the app is a launcher. The launcher is the first app that starts when the device (or emulator) is launched. Its job is to provide means for launching all other apps on the device.
 * `sudo` (boolean): set to `true` if the app needs access to privilieged functions, like reading files in other apps or starting other apps.
+* `cheats` (table): specifies how a cheat code should be converted to a number. For example, `set-health = 3` means that when you call `firefly_cli cheat set-health 100`, the `cheat` callback in the running app will be called with values `3` and `100`.
 * `files` (table): covered below.
 
 ## files

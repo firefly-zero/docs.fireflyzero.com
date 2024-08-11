@@ -11,6 +11,7 @@ BookRepo = 'https://github.com/firefly-zero/docs.fireflyzero.com'
 BookCommitPath = 'commit'
 BookEditPath = 'edit/main'
 BookDateFormat = '2006-01-02'
+BookSearch = true
 
 [markup.goldmark.renderer]
 unsafe = true
