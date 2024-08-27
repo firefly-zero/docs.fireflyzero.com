@@ -7,4 +7,4 @@ weight: 25
 
 (⌛ Coming soon)
 
-{{< button relref="./terms.md" >}}➡️ Terms{{< /button >}}
+{{< button relref="./debugging.md" >}}➡️ Debugging{{< /button >}}

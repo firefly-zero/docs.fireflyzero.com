@@ -55,7 +55,7 @@ If you use Dark Reader extension in your browser, make sure to turn it off when 
 You can modify colors in the palette by calling the `set_color` function:
 
 {{< tabs "set-color" >}}
-{{< tab "Rust" >}}
+{{< tab "🦀 Rust" >}}
 
 ```rust
 firefly_rust::set_color(
@@ -65,12 +65,23 @@ firefly_rust::set_color(
 ```
 
 {{< /tab >}}
-{{< tab "Go" >}}
+{{< tab "🏃 Go" >}}
 
 ```go
 firefly.SetColor(
     firefly.ColorRed,
     firefly.RGB{R: 0xff, G: 0x00, B: 0x00},
+);
+```
+
+{{< /tab >}}
+{{< tab "⚡️ Zig" >}}
+
+```go
+const ff = @import("firefly");
+ff.setColor(
+    ff.Color.red,
+    ff.RGB{.r = 0xff, .g = 0x00, .b = 0x00},
 );
 ```
 
@@ -112,15 +123,16 @@ For a reference, here is the list of available functions for drawing shapes:
 1. `draw_sector(👉 Point, ⭕ Diameter, 📐 Angle, 📐 Angle, 💄 Style)`
 
 {{< tabs "draw-triangle" >}}
-{{< tab "Rust" >}}
+{{< tab "🦀 Rust" >}}
 
 ```rust
-ff::draw_triangle(
-    ff::Point { x: 60, y: 10 },
-    ff::Point { x: 40, y: 40 },
-    ff::Point { x: 80, y: 40 },
-    ff::Style {
-        fill_color:   Color::LightGray,
+use firefly_rust::*;
+draw_triangle(
+    Point { x: 60, y: 10 },
+    Point { x: 40, y: 40 },
+    Point { x: 80, y: 40 },
+    Style {
+        fill_color: Color::LightGray,
         stroke_color: Color::DarkBlue,
         stroke_width: 1,
     },
@@ -128,7 +140,7 @@ ff::draw_triangle(
 ```
 
 {{< /tab >}}
-{{< tab "Go" >}}
+{{< tab "🏃 Go" >}}
 
 ```go
 firefly.DrawTriangle(
@@ -141,6 +153,23 @@ firefly.DrawTriangle(
         StrokeWidth: 1,
     },
 )
+```
+
+{{< /tab >}}
+{{< tab "⚡️ Zig" >}}
+
+```go
+const ff = @import("firefly");
+ff.drawTriangle(
+    ff.Point{ .x = 60, .y = 10 },
+    ff.Point{ .x = 40, .y = 40 },
+    ff.Point{ .x = 80, .y = 40 },
+    ff.Style{
+        .fill_color = ff.Color.light_gray,
+        .stroke_color = ff.Color.dark_blue,
+        .stroke_width = 1,
+    },
+);
 ```
 
 {{< /tab >}}
@@ -170,14 +199,14 @@ Where `img` is the name of the image in the ROM.
 Next, load the image from ROM into the memory:
 
 {{< tabs "load-image" >}}
-{{< tab "Rust" >}}
+{{< tab "🦀 Rust" >}}
 
 ```rust
 let file = firefly_rust::rom::load_buf("img");
 ```
 
 {{< /tab >}}
-{{< tab "Go" >}}
+{{< tab "🏃 Go" >}}
 
 ```go
 file := firefly.LoadROMFile("img");

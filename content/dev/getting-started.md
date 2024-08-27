@@ -9,9 +9,9 @@ weight: 5
 
 Firefly Zero supports lots of programming languages. For simple apps and games, it's a good idea to stick to what you already know. But if you're ready to learn something new for a better results, there are some recommendations:
 
-1. (⌛ Coming soon) ⚡️ [Zig](https://ziglang.org/) is simple and gives the best performance but you need to be careful to avoid bugs and memory leaks.
-1. 🦀 [Rust](https://www.rust-lang.org/) gives performance close to Zig and it's hard to use it wrong, but it's also the most difficult language to learn on the list.
-1. 🐹 [Go](https://go.dev/) is slower than Rust or Zig but very simple to use and doesn't have memory leaks.
+1. (⌛ Coming soon) [⚡️ Zig](https://ziglang.org/) is simple and gives the best performance but you need to be careful to avoid bugs and memory leaks.
+1. [🦀 Rust](https://www.rust-lang.org/) gives performance close to Zig and it's hard to use it wrong, but it's also the most difficult language to learn on the list.
+1. [🏃 Go](https://go.dev/) is slower than Rust or Zig but very simple to use and doesn't have memory leaks.
 1. (⌛ Coming soon) More languages.
 
 Subjective comparison:
@@ -30,14 +30,14 @@ Subjective comparison:
 1. Install [WebAssembly](https://webassembly.org/) compiler for your language:
 
 {{< tabs "install-compiler" >}}
-{{< tab "Rust" >}}
+{{< tab "🦀 Rust" >}}
 
 ```bash
 rustup target add wasm32-unknown-unknown
 ```
 
 {{< /tab >}}
-{{< tab "Go" >}}
+{{< tab "🏃 Go" >}}
 
 1. [Install Go](https://go.dev/dl/)
 1. [Install TinyGo](https://tinygo.org/getting-started/install/)
@@ -50,7 +50,7 @@ rustup target add wasm32-unknown-unknown
 Create an empty project:
 
 {{< tabs "create-project" >}}
-{{< tab "Rust" >}}
+{{< tab "🦀 Rust" >}}
 
 ```bash
 cargo new hello-world
@@ -59,7 +59,7 @@ cargo add firefly_rust
 ```
 
 {{< /tab >}}
-{{< tab "Go" >}}
+{{< tab "🏃 Go" >}}
 
 ```bash
 mkdir hello-world
@@ -84,7 +84,7 @@ app_name = "Hello World"
 Write some code:
 
 {{< tabs "write-code" >}}
-{{< tab "Rust" >}}
+{{< tab "🦀 Rust" >}}
 
 ```rust
 #![no_std]
@@ -107,7 +107,7 @@ extern fn render() {
 ```
 
 {{< /tab >}}
-{{< tab "Go" >}}
+{{< tab "🏃 Go" >}}
 
 ```go
 package main
@@ -129,6 +129,26 @@ func render() {
             StrokeWidth: 1,
         },
     )
+}
+```
+
+{{< /tab >}}
+{{< tab "⚡️ Zig" >}}
+
+```go
+const ff = @import("firefly");
+
+pub export fn render() void {
+    ff.drawTriangle(
+        ff.Point{ .x = 60, .y = 10 },
+        ff.Point{ .x = 40, .y = 40 },
+        ff.Point{ .x = 80, .y = 40 },
+        ff.Style{
+            .fill_color = ff.Color.light_gray,
+            .stroke_color = ff.Color.dark_blue,
+            .stroke_width = 1,
+        },
+    );
 }
 ```
 
@@ -163,7 +183,7 @@ Have troubles using emulator? Check out the [emulator user guide](../user/emulat
 
 There are several things you should know to make a game:
 
-1. How the runtime works in general. Start by reading about [Callbacks](./callbacks.md) and then go through all other pages in this documentation in order.
+1. How the runtime works in general. Start by reading about [firefly.toml](./config.md) and then go through all other pages in this documentation in order.
 1. What functions the SDK for the programming language that you choose provides:
     1. [🦀 Rust](https://docs.rs/firefly-rust/latest/firefly_rust/)
     1. [🏃 Go](https://pkg.go.dev/github.com/firefly-zero/firefly-go)
