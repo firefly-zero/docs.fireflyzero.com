@@ -4,8 +4,19 @@
     margin-top: 0px;
     vertical-align: top;
 }
+.hint-icon.info {
+    display: inline-block;
+    max-width: 100px;
+    margin-top: 0px;
+    vertical-align: top;
+}
 
 .book-hint.warning {
+    display: inline-block;
+    max-width: calc(100% - 100px - 10px);
+}
+
+.book-hint.info {
     display: inline-block;
     max-width: calc(100% - 100px - 10px);
 }
