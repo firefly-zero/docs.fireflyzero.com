@@ -1,9 +1,9 @@
 ---
 title: ▶️ Getting started
 weight: 5
+params:
+  art: /hello.png
 ---
-
-<img alt="Lux (Firefly Zero mascot) saying 'Hello'" src="/hello.png" class="lead-art" />
 
 ## 👉 Pick the language
 

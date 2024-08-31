@@ -1,9 +1,9 @@
 ---
 title: 🎨 Graphics
 weight: 15
+params:
+  art: /graphics.png
 ---
-
-<img alt="Lux (Firefly Zero mascot) with a palette and a paintbrush" src="/graphics.png" class="lead-art" />
 
 ## 🔬 Pixels
 
