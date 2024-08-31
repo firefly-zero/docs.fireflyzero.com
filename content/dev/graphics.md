@@ -5,8 +5,6 @@ weight: 15
 
 <img alt="Lux (Firefly Zero mascot) with a palette and a paintbrush" src="/graphics.png" class="lead-art" />
 
-## 🎨 Graphics
-
 ## 🔬 Pixels
 
 The screen size 240x160 pixels, just like GameBoy Advance. Pixels are quite big, so it's safe to draw one pixel wide lines and letters, they will be visible.

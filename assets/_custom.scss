@@ -23,3 +23,9 @@ img.lead-art {
         max-width: 100%;
     }
 }
+
+@media screen and (max-width: $mobile-breakpoint) {
+    .page-title {
+        display: none;
+    }
+}

@@ -3,8 +3,6 @@ title: 🔃 Multiplayer
 weight: 10
 ---
 
-## 🔃 Multiplayer
-
 To establish a multiplayer connection, take 2 or more devices (or launch 2 or more copies of the emulator) and on each device:
 
 1. Open the launcher.
