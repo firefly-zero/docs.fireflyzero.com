@@ -3,8 +3,6 @@ title: 💻 Emulator
 weight: 5
 ---
 
-## 💻 Emulator
-
 ## 📥 Installation
 
 1. [Download emulator binary](https://github.com/firefly-zero/firefly-emulator-bin/releases) and put it into `$PATH`.

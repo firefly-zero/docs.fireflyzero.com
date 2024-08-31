@@ -10,9 +10,11 @@ tasks:
   install:hugo:
     status:
       - test -f bin/hugo
+    vars:
+      ARCH: '{{if eq OS "darwin"}}universal{{else}}{{ARCH}}{{end}}'
     cmds:
       - mkdir -p bin
-      - wget {{.HUGO_RELEASES}}v{{.HUGO_VERSION}}/hugo_extended_{{.HUGO_VERSION}}_{{OS}}-{{ARCH}}.tar.gz
+      - wget {{.HUGO_RELEASES}}v{{.HUGO_VERSION}}/hugo_extended_{{.HUGO_VERSION}}_{{OS}}-{{.ARCH}}.tar.gz
       - defer: rm hugo_*.tar.gz
       - tar -xvf hugo_*.tar.gz -C bin
       - ./bin/hugo version

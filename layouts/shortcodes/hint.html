@@ -1,0 +1,9 @@
+{{ if eq (.Get 0) "warning" }}
+    <img src="/warn.png" class="hint-icon {{ .Get 0 }}" />
+{{ end }}
+{{ if eq (.Get 0) "info" }}
+    <img src="/info.png" class="hint-icon {{ .Get 0 }}" />
+{{ end }}
+<blockquote class="book-hint {{ .Get 0 }}">
+    {{ .Inner | .Page.RenderString }}
+</blockquote>

@@ -3,8 +3,6 @@ title: 🔃 Multiplayer
 weight: 22
 ---
 
-## 🔃 Multiplayer
-
 Firefly Zero has a very unique approach to multiplayer: every game (or app) can be played together! The only question is how the app handles multiple inputs. And this section covers how you can do that. And don't worry, it's very simple.
 
 ## ⚙️ How it works

@@ -3,8 +3,6 @@ title: 🔔 Callbacks
 weight: 10
 ---
 
-## 🔔 Callbacks
-
 Callback is a function with a specific name that you define in your code and then the runtime calls it in the right time. None of the callbacks are required but you'll need to define at least one of them for your app to actually do something.
 
 ## 📚 Supported callbacks

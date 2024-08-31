@@ -1,9 +1,9 @@
 ---
 title: ▶️ Getting started
 weight: 5
+params:
+  art: /hello.png
 ---
-
-## ▶️ Getting started
 
 ## 👉 Pick the language
 

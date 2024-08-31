@@ -3,8 +3,6 @@ title: 🐞 Debugging
 weight: 55
 ---
 
-## 🐞 Debugging
-
 This page covers how to find bugs in your apps.
 
 ## 😎 Cheat codes

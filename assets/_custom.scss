@@ -1,0 +1,31 @@
+.hint-icon.warning,
+.hint-icon.info {
+    display: inline-block;
+    max-width: 100px;
+    margin-top: 0px;
+    vertical-align: top;
+}
+
+.book-hint.warning,
+.book-hint.info {
+    display: inline-block;
+    max-width: calc(100% - 100px - 10px);
+}
+
+img.lead-art {
+    float: right;
+    max-width: 25%;
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+    img.lead-art {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+    .page-title {
+        display: none;
+    }
+}

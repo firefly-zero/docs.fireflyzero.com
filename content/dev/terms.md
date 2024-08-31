@@ -3,8 +3,6 @@ title: 📕 Terms
 weight: 60
 ---
 
-## 📕 Terms
-
 Below are different terms that the documentation uses. If there is a technical word in the ocumentation that you don't understand, it should be in there. If it's not, send us a pull request or open an issue!
 
 * **Asset** is a file that an app needs but which isn't the code. It includes sprites, music, sounds, sometimes dialogs and configurations, etc.
