@@ -1,9 +1,4 @@
-.hint-icon.warning {
-    display: inline-block;
-    max-width: 100px;
-    margin-top: 0px;
-    vertical-align: top;
-}
+.hint-icon.warning,
 .hint-icon.info {
     display: inline-block;
     max-width: 100px;
@@ -11,12 +6,13 @@
     vertical-align: top;
 }
 
-.book-hint.warning {
+.book-hint.warning,
+.book-hint.info {
     display: inline-block;
     max-width: calc(100% - 100px - 10px);
 }
 
-.book-hint.info {
-    display: inline-block;
-    max-width: calc(100% - 100px - 10px);
+img.lead-art {
+    float: right;
+    max-width: 25%;
 }
