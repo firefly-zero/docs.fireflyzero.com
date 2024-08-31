@@ -16,3 +16,10 @@ img.lead-art {
     float: right;
     max-width: 25%;
 }
+
+@media screen and (max-width: $mobile-breakpoint) {
+    img.lead-art {
+        width: 100%;
+        max-width: 100%;
+    }
+}
