@@ -56,5 +56,3 @@ if pressed {
 {{< /tabs >}}
 
 When using the emulator with a gamepad, you have to press the stick down (or press LB) for the input to be recognized. This is because we need a way to distinguish between not touching the touch pad and touching it in the middle.
-
-{{< button relref="./net.md" >}}➡️ Multiplayer{{< /button >}}

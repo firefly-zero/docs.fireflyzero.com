@@ -33,5 +33,3 @@ The value is an inline table that may have the following keys:
 * `url` (string): the URL from which to download the file if it doesn't exist in `path`.
 * `sha256` (string): the [SHA-256](https://en.wikipedia.org/wiki/SHA-2) hash of the file. Validated only when downloading the file from the `url`. If the specified hash doesn't match the actual one, the `build` command will fail. It's not required but recommended to always include it if you specify `url`.
 * `copy` (bool): set to `true` to copy the file as-is without any modifications. If not specified, the `build` command will try to convert the file into a native format. For example, PNG images will be converted into the native Firefly image format.
-
-{{< button relref="./callbacks.md" >}}➡️ Callbacks{{< /button >}}

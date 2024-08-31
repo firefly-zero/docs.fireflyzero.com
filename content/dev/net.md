@@ -132,5 +132,3 @@ peer := peers.Slice()[idx]
 
 {{< /tab >}}
 {{< /tabs >}}
-
-{{< button relref="./audio.md" >}}➡️ Audio{{< /button >}}

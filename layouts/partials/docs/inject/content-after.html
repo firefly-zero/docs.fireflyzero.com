@@ -1,0 +1,12 @@
+<p class="markdown">
+  {{with .NextInSection}}
+    <a href="{{.RelPermalink}}" class="book-btn">
+      ⬅️ {{.Title}}
+    </a>
+  {{end}}
+  {{with .PrevInSection}}
+    <a href="{{.RelPermalink}}" class="book-btn">
+      ➡️ {{.Title}}
+    </a>
+  {{end}}
+</p>

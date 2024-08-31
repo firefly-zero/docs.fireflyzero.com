@@ -137,5 +137,3 @@ func render() {
 
 {{< /tab >}}
 {{< /tabs >}}
-
-{{< button relref="./graphics.md" >}}➡️ Graphics{{< /button >}}

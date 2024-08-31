@@ -188,5 +188,3 @@ There are several things you should know to make a game:
     1. [🦀 Rust](https://docs.rs/firefly-rust/latest/firefly_rust/)
     1. [🏃 Go](https://pkg.go.dev/github.com/firefly-zero/firefly-go)
 1. How to make games and what patterns make it easier. We recommend reading [Game Programming Patterns](http://gameprogrammingpatterns.com/contents.html).
-
-{{< button relref="./config.md" >}}➡️ firefly.toml{{< /button >}}
