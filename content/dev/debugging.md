@@ -20,7 +20,7 @@ set-health = 2
 Next, define the `cheat` callback in the app:
 
 {{< tabs "cheat-callback" >}}
-{{< tab "🦀 Rust" >}}
+{{< tab "Rust" >}}
 
 ```rust
 #[no_mangle]
@@ -37,7 +37,7 @@ extern fn cheat(cmd: i32, val: i32) -> i32 {
 ```
 
 {{< /tab >}}
-{{< tab "🏃 Go" >}}
+{{< tab "Go" >}}
 
 ```go
 package main
@@ -62,7 +62,7 @@ func cheat(cmd, val int) int {
 ```
 
 {{< /tab >}}
-{{< tab "⚡️ Zig" >}}
+{{< tab "Zig" >}}
 
 ```go
 pub export fn cheat(cmd: i32, val: i32) i32 {
@@ -147,7 +147,7 @@ wasm-objdump -h \
 When an app explodes (`panic` in Rust and Go, `except` in Python, etc), the runtime logs will tell you in which app callback it happened and what's the last runtime function that was called. In many cases, this is enough to find where the code failed. If it's not, add `log_debug` function calls before and after each line of code that you suspect might fail:
 
 {{< tabs "log-debug" >}}
-{{< tab "🦀 Rust" >}}
+{{< tab "Rust" >}}
 
 ```rust
 firefly_rust::log_debug("before foo")
@@ -158,7 +158,7 @@ firefly_rust::log_debug("after bar")
 ```
 
 {{< /tab >}}
-{{< tab "🏃 Go" >}}
+{{< tab "Go" >}}
 
 ```go
 firefly.LogDebug("before foo")
@@ -169,7 +169,7 @@ firefly.LogDebug("after bar")
 ```
 
 {{< /tab >}}
-{{< tab "⚡️ Zig" >}}
+{{< tab "Zig" >}}
 
 ```go
 const ff = @import("firefly");

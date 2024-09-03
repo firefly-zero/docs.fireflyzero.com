@@ -10,7 +10,7 @@ The `read_buttons` function returns which buttons are currently pressed. The SDK
 The function requires a `Peer` argument. It defines which input should be read in multiplayer and is covered in more details on the [Multiplayer](./net.md) page. For a simple single-player game, you can ask it for a combined input from all devices (which is in a single-player game just the input from a single device):
 
 {{< tabs "read-buttons" >}}
-{{< tab "🦀 Rust" >}}
+{{< tab "Rust" >}}
 
 ```rust
 use firefly_rust::*;
@@ -18,7 +18,7 @@ let buttons = read_buttons(Peer::COMBINED);
 ```
 
 {{< /tab >}}
-{{< tab "🏃 Go" >}}
+{{< tab "Go" >}}
 
 ```go
 buttons := firefly.ReadButtons(firefly.Combined)
@@ -32,7 +32,7 @@ buttons := firefly.ReadButtons(firefly.Combined)
 The `read_pad` function returns the coordinates of the finger on the touch pad if user currently presses it. The coordinates are expressed as a pair of X and Y values in the range from -1000 to 1000 (both ends included). SDKs also provide a way to convert it into [polar coordinates](https://en.wikipedia.org/wiki/Polar_coordinate_system) using `radius` and `azimuth` methods.
 
 {{< tabs "read-pad" >}}
-{{< tab "🦀 Rust" >}}
+{{< tab "Rust" >}}
 
 ```rust
 use firefly_rust::*;
@@ -43,7 +43,7 @@ if let Some(pad) = pad {
 ```
 
 {{< /tab >}}
-{{< tab "🏃 Go" >}}
+{{< tab "Go" >}}
 
 ```go
 pad, pressed := firefly.ReadPad(firefly.Combined)

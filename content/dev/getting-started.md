@@ -30,14 +30,14 @@ Subjective comparison:
 1. Install [WebAssembly](https://webassembly.org/) compiler for your language:
 
 {{< tabs "install-compiler" >}}
-{{< tab "🦀 Rust" >}}
+{{< tab "Rust" >}}
 
 ```bash
 rustup target add wasm32-unknown-unknown
 ```
 
 {{< /tab >}}
-{{< tab "🏃 Go" >}}
+{{< tab "Go" >}}
 
 1. [Install Go](https://go.dev/dl/)
 1. [Install TinyGo](https://tinygo.org/getting-started/install/)
@@ -50,7 +50,7 @@ rustup target add wasm32-unknown-unknown
 Create an empty project:
 
 {{< tabs "create-project" >}}
-{{< tab "🦀 Rust" >}}
+{{< tab "Rust" >}}
 
 ```bash
 cargo new hello-world
@@ -59,7 +59,7 @@ cargo add firefly_rust
 ```
 
 {{< /tab >}}
-{{< tab "🏃 Go" >}}
+{{< tab "Go" >}}
 
 ```bash
 mkdir hello-world
@@ -84,7 +84,7 @@ app_name = "Hello World"
 Write some code:
 
 {{< tabs "write-code" >}}
-{{< tab "🦀 Rust" >}}
+{{< tab "Rust" >}}
 
 ```rust
 #![no_std]
@@ -107,7 +107,7 @@ extern fn render() {
 ```
 
 {{< /tab >}}
-{{< tab "🏃 Go" >}}
+{{< tab "Go" >}}
 
 ```go
 package main
@@ -133,7 +133,7 @@ func render() {
 ```
 
 {{< /tab >}}
-{{< tab "⚡️ Zig" >}}
+{{< tab "Zig" >}}
 
 ```go
 const ff = @import("firefly");
