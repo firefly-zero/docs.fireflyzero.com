@@ -1,6 +1,8 @@
 ---
 title: 💻 Emulator
 weight: 5
+params:
+  art: /emulator.png
 ---
 
 ## 📥 Installation
