@@ -29,7 +29,7 @@ Subjective comparison:
 1. [Download emulator binary](https://github.com/firefly-zero/firefly-emulator-bin/releases) and put it into `$PATH`
 1. Install [WebAssembly](https://webassembly.org/) compiler for your language:
 
-{{< tabs "install-compiler" >}}
+{{< tabs >}}
 {{< tab "Rust" >}}
 
 ```bash
@@ -49,7 +49,7 @@ rustup target add wasm32-unknown-unknown
 
 Create an empty project:
 
-{{< tabs "create-project" >}}
+{{< tabs >}}
 {{< tab "Rust" >}}
 
 ```bash
@@ -83,7 +83,7 @@ app_name = "Hello World"
 
 Write some code:
 
-{{< tabs "write-code" >}}
+{{< tabs >}}
 {{< tab "Rust" >}}
 
 ```rust

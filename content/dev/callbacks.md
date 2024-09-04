@@ -27,7 +27,7 @@ Remember: update state from `update`, draw things on the screen from `render`.
 
 This is how you can define a callback:
 
-{{< tabs "define-callback" >}}
+{{< tabs >}}
 {{< tab "Rust" >}}
 
 ```rust
@@ -67,7 +67,7 @@ So, you can think about Firefly Zero apps more like classes/structs rather than 
 
 Here is how to load a font from a file in `boot` and then use it in `render`:
 
-{{< tabs "global-state" >}}
+{{< tabs >}}
 {{< tab "Rust" >}}
 
 ```rust
