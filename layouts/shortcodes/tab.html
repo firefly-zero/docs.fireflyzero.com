@@ -1,9 +1,5 @@
 {{ $name := .Get 0 }}
-{{ $group := .Parent.Scratch.Get "group_name" }}
-{{ if not $group }}
-  {{ $group = printf "tabs-%d" .Parent.Ordinal }}
-  {{- .Parent.Scratch.Set "group_name" $group -}}
-{{ end }}
+{{ $group := printf "tabs-%d" .Parent.Ordinal }}
 
 {{ if not (.Parent.Scratch.Get $group) }}
   {{ .Parent.Scratch.Set $group slice }}
