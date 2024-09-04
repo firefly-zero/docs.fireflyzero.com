@@ -54,7 +54,7 @@ If you use Dark Reader extension in your browser, make sure to turn it off when 
 
 You can modify colors in the palette by calling the `set_color` function:
 
-{{< tabs "set-color" >}}
+{{< tabs >}}
 {{< tab "Rust" >}}
 
 ```rust
@@ -122,7 +122,7 @@ For a reference, here is the list of available functions for drawing shapes:
 1. `draw_arc(👉 Point, ⭕ Diameter, 📐 Angle, 📐 Angle, 💄 Style)`
 1. `draw_sector(👉 Point, ⭕ Diameter, 📐 Angle, 📐 Angle, 💄 Style)`
 
-{{< tabs "draw-triangle" >}}
+{{< tabs >}}
 {{< tab "Rust" >}}
 
 ```rust
@@ -198,7 +198,7 @@ Where `img` is the name of the image in the ROM.
 
 Next, load the image from ROM into the memory:
 
-{{< tabs "load-image" >}}
+{{< tabs >}}
 {{< tab "Rust" >}}
 
 ```rust

@@ -19,7 +19,7 @@ There are two ways to handle user input: you can either read the combined input 
 
 The easiest option is to read the combined input from all devices. This is the best strategy for the apps designed to be played alone. If there is only one device (aka peer), the result will be the input from that device. And if there are multiple devices connected, the result will be the combined input from all devices: if anyone presses a button, it is reported as pressed.
 
-{{< tabs "combined-input" >}}
+{{< tabs >}}
 {{< tab "Rust" >}}
 
 ```rust
@@ -41,7 +41,7 @@ buttons := firefly.ReadButtons(firefly.Combined)
 
 The second option is to read and handle each input individually. This is the best option for when you want to provide a custom logic for multiplayer.
 
-{{< tabs "peer-input" >}}
+{{< tabs >}}
 {{< tab "Rust" >}}
 
 ```rust
@@ -79,7 +79,7 @@ Things are a bit trickier with data files. In a future release of the emulator, 
 
 You can call the `get_me` function to get the `Peer` corresponding to the local device. But be careful! Do not let it affect the game logic. Otherwise, the state of the app will be different on every device, and everyone will be playing a different game. Use it only for visual effects, like a marker showing the player which character is their. Or showing them only their score. Or in a hidden agenda game (like Mafia) showing them only their role.
 
-{{< tabs "get-me" >}}
+{{< tabs >}}
 {{< tab "Rust" >}}
 
 ```rust
@@ -113,7 +113,7 @@ for _, peer := range peers.Slice() {
 
 The peers are sorted based on their MAC address. That means, the same devices connected together always go in the same order. That also means, if you always give the same peer (for example, the first one on the list) a game advantage (like going first in chess), the same player will always have that advantage. To make things fair, pick a random starting player for each game session using the `get_random` function.
 
-{{< tabs "random-peer" >}}
+{{< tabs >}}
 {{< tab "Rust" >}}
 
 ```rust
