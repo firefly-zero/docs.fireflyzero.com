@@ -1,0 +1,12 @@
+{{ $name := .Get 0 }}
+{{ $group := .Parent.Scratch.Get "group_name" }}
+{{ if not $group }}
+  {{ $group = printf "tabs-%s" (.Parent.Get 0) }}
+  {{- .Parent.Scratch.Set "group_name" $group -}}
+{{ end }}
+
+{{ if not (.Parent.Scratch.Get $group) }}
+  {{ .Parent.Scratch.Set $group slice }}
+{{ end }}
+
+{{ .Parent.Scratch.Add $group (dict "Name" $name "Content" .Inner) }}

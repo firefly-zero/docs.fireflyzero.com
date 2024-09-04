@@ -1,6 +1,5 @@
 {{ if .Inner }}{{ end }}
-{{ $id := .Get 0 }}
-{{ $group := printf "tabs-%s" $id }}
+{{ $group := .Scratch.Get "group_name" }}
 
 <div class="book-tabs">
 {{- range $index, $tab := .Scratch.Get $group -}}
