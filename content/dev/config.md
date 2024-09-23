@@ -1,6 +1,8 @@
 ---
 title: ⚙️ firefly.toml
 weight: 6
+params:
+  art: /toml.png
 ---
 
 The `firefly.toml` configuration file tells firefly-cli how to build a ROM for the project. It should be placed at the root of the project (though you can explicitly specify the path using `--config`) and must be in the [TOML](https://toml.io/en/) format.
