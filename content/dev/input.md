@@ -1,6 +1,8 @@
 ---
 title: 🎮 Input
 weight: 20
+params:
+  art: /input.png
 ---
 
 ## Buttons
