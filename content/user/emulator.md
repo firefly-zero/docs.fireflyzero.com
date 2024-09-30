@@ -9,6 +9,7 @@ params:
 
 1. [Download emulator binary](https://github.com/firefly-zero/firefly-emulator-bin/releases) and put it into `$PATH`.
 1. Install [firefly-cli](https://github.com/firefly-zero/firefly-cli): `cargo install firefly_cli`
+1. Install the launcher: `firefly_cli import sys.launcher`
 1. Install a game: `firefly_cli import lux.snek`
 1. Run `firefly_emulator`.
 
