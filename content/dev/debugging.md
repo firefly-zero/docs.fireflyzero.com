@@ -1,6 +1,8 @@
 ---
 title: 🐞 Debugging
 weight: 55
+params:
+  art: /debugging.png
 ---
 
 This page covers how to find bugs in your apps.
