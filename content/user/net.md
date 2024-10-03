@@ -1,6 +1,6 @@
 ---
 title: 🔃 Multiplayer
-weight: 10
+weight: 15
 params:
   art: /multiplayer.png
 ---
