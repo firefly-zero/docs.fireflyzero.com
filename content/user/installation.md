@@ -46,7 +46,7 @@ If you don't, install it from binary releases:
 1. [Download the latest release](https://github.com/firefly-zero/firefly-cli/releases/latest). You need the one ending with `-x86_64-apple-darwin.tar.gz`.
 1. Extract files from the archive.
 1. Right click on `firefly_cli` and press `Open`. This will make the binary trusted.
-1. Open the temrinal and use the `cd` command to go to the directory containing `firefly_cli`.
+1. Open the terminal and use the `cd` command to go to the directory containing `firefly_cli`.
 1. Verify intallation:
 
     ```bash
@@ -58,7 +58,7 @@ If you don't, install it from binary releases:
 
 1. [Download the latest release](https://github.com/firefly-zero/firefly-cli/releases/latest). You need the one containing `-windows-` in the name. If you don't know which one you need, it's probably the one ending with `-x86_64-pc-windows-msvc.zip`.
 1. Extract files from the archive.
-1. Open the temrinal and use the `cd` command to go to the directory containing `firefly_cli`.
+1. Open the terminal and use the `cd` command to go to the directory containing `firefly_cli`.
 1. Verify intallation:
 
     ```bash
@@ -82,12 +82,30 @@ firefly_cli import lux.snek
 {{< tabs >}}
 {{< tab "Linux" >}}
 
-[Download the emulator binary](https://github.com/firefly-zero/firefly-emulator-bin/releases/latest) (you need the one ending with `-x86_64-unknown-linux.tgz.gz`) and put it into `$PATH`.
+1. [Download the latest release](https://github.com/firefly-zero/firefly-emulator-bin/releases/latest). You need the one ending with `-x86_64-unknown-linux.tgz.gz`.
+1. Make sure the `~/.local/bin` directory is in your `$PATH`. Open `~/.bashrc` (or `~/.zshrc` if you use zsh) and add at the end the following:
+
+    ```bash
+    export PATH=$PATH:~/.local/bin
+    ```
+
+1. Extract the binary and place it into your `$PATH`:
+
+    ```bash
+    cd ~/Downloads
+    tar -xvf ./firefly-emulator-*.tgz.gz
+    mv ./firefly-emulator ~/.local/bin
+    chmod +x ~/.local/bin/firefly-emulator
+    ```
+
+1. Launch the emulator: `firefly-emulator`
 
 {{< /tab >}}
 {{< tab "OS X" >}}
 
-[Download the emulator binary](https://github.com/firefly-zero/firefly-emulator-bin/releases/latest) (you need the one ending with `-x86_64-apple-darwin.tgz`) and put it into `$PATH`.
+1. [Download the latest release](https://github.com/firefly-zero/firefly-emulator-bin/releases/latest). You need the one ending with `-x86_64-apple-darwin.tgz`.
+1. Extract files from the archive.
+1. Right click on `firefly_cli` and press `Open`.
 
 {{< /tab >}}
 {{< tab "Windows" >}}
