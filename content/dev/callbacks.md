@@ -89,7 +89,7 @@ fn get_state() -> &'static mut State {
 #[no_mangle]
 extern fn boot() {
     let state = State {
-        font: rom::load_buf("font"),
+        font: load_file_buf("font"),
     };
     unsafe { STATE.set(state) }.ok().unwrap();
 }
@@ -123,7 +123,7 @@ func init() {
 }
 
 func boot() {
-    font = firefly.LoadROMFile("font").Font()
+    font = firefly.LoadFile("font").Font()
 }
 
 func render() {

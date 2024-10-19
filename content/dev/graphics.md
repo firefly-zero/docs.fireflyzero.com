@@ -202,14 +202,14 @@ Next, load the image from ROM into the memory:
 {{< tab "Rust" >}}
 
 ```rust
-let file = firefly_rust::rom::load_buf("img");
+let file = firefly_rust::load_buf("img");
 ```
 
 {{< /tab >}}
 {{< tab "Go" >}}
 
 ```go
-file := firefly.LoadROMFile("img");
+file := firefly.LoadFile("img");
 ```
 
 {{< /tab >}}
