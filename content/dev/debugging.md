@@ -121,27 +121,10 @@ Looking into the wasm2wat output is useful only for compiled languages and for s
 
 ## 🔬 Inspection
 
-Another useful tool that wabt (covered above) has is [wasm-objdump](https://webassembly.github.io/wabt/doc/wasm-objdump.1.html). It allows you to view specific sections of the binary.
-
-Show which runtime functions an app (in this example, the default launcher) imports:
+The `firefly_cli inspect` command shows lots of useful information about the ROM: files, their sizes, metadata, WASM binary sections, elements in them, exported callbacks, imported host functions, etc. For example, to inspect the default system launcher:
 
 ```bash
-wasm-objdump -x -j import \
-    $(firefly_cli vfs)/roms/sys/launcher/_bin
-```
-
-Show which callbacks an app exports:
-
-```bash
-wasm-objdump -x -j export \
-    $(firefly_cli vfs)/roms/sys/launcher/_bin
-```
-
-Show which sections a binary has and how many elements in each:
-
-```bash
-wasm-objdump -h \
-    $(firefly_cli vfs)/roms/sys/launcher/_bin
+firefly_cli inspect sys.launcher
 ```
 
 ## 💔 Finding the point of failure
