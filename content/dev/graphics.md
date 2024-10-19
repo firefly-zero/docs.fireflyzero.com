@@ -229,3 +229,60 @@ font = { path = "eg_6x9.fff" }
 Now you can load the font from ROM as you load images and call `draw_text` with the text you want to render and the font.
 
 The text does not automatically wrap. If you need word wrapping, you should add new lines into the text yourself.
+
+## 🖌 Canvas
+
+Canvas is an image in memory that you can draw on. It is useful for drawing from scratch some complex images that should be persisted between multiple frames. For example, it can dirt on a character, bullet marks on walls, debries on the ground, randomly generated terrain, etc.
+
+After you create a canvas and call `set_canvas`, all almost drawing functions will draw on the canvas instead of the frame buffer. And when you call `unset_canvas`, they will switch back to the frame buffer.
+
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+```rust
+use firefly_zero::*;
+let canvas = CanvasBuf::new(Size::new(120, 120));
+set_canvas(canvas);
+// fill canvas with white color
+clear_screen(Color::White);
+unset_canvas();
+```
+
+Just like for files, there is `Canvas`, which holds a reference, and `CanvasBuf`, which holds ownership. The latter requires the `alloc` feature to be enabled.
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+canvas := firefly.NewCanvas(firefly.Size{W: 120, H: 120})
+firefly.SetCanvas(canvas)
+// fill canvas with white color
+firefly.ClearScreen(firefly.ColorWhite)
+firefly.UnsetCanvas()
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
+{{< hint warning >}}
+Currently, `draw_text`, `draw_image`, and `draw_image_sub` don't support canvas but it might change in the future. Don't call these functions when you have a canvas set!
+{{< /hint >}}
+
+To draw canvas on the screen, convert it to an image and use `draw_image`:
+
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+```rust
+draw_image(canvas.as_image());
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+firefly.DrawImage(canvas.Image())
+```
+
+{{< /tab >}}
+{{< /tabs >}}
