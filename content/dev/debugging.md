@@ -129,7 +129,7 @@ firefly_cli inspect sys.launcher
 
 ## 💔 Finding the point of failure
 
-When an app explodes (`panic` in Rust and Go, `except` in Python, etc), the runtime logs will tell you in which app callback it happened and what's the last runtime function that was called. In many cases, this is enough to find where the code failed. If it's not, add `log_debug` function calls before and after each line of code that you suspect might fail:
+When an app explodes (`panic` in Rust and Go, `raise` in Python, etc), the runtime logs will tell you in which app callback it happened and what's the last runtime function that was called. In many cases, this is enough to find where the code failed. If it's not, add `log_debug` function calls before and after each line of code that you suspect might fail:
 
 {{< tabs >}}
 {{< tab "Rust" >}}
