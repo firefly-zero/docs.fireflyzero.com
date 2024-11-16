@@ -141,12 +141,41 @@ gain.AddSine(audio.A4, 0.)
 
 <audio controls src="/mod-linear-gain.mp3" preload="metadata"></audio>
 
+## 💽 Playing audio files
+
+Apps can play WAV files from ROM. First, include the file into ROM using `firefly.toml`:
+
+```toml
+[files]
+muzak = { path = "muzak.wav" }
+```
+
+Now, pass the file path into `add_file` method of an audio node:
+
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+```rust
+audio::OUT.add_file("muzak");
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+audio.Out.AddFile("muzak")
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
 ## 🧰 Available nodes
 
 Sources:
 
 * `empty`: empty audio source that is always stopped.
 * `zero`: audio source producing silence.
+* `file`: audio file from ROM.
 * `sine`: sine wave generator.
 
   <audio controls src="/sine.mp3" preload="metadata"></audio>
@@ -174,7 +203,7 @@ The sine, square, triangle, sawtooth, and white noise are the most basic sounds.
 Playback control:
 
 * `mute`: consumes the input nodes but produces silence.
-* `pause`: can be paused using modultaion.
+* `pause`: can be paused using modulation.
 * `loop`: resets the input if it stops.
 
 Left and right channel mixing:
