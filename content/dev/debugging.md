@@ -220,3 +220,7 @@ Below are some of the common errors related to Firefly Zero that you may encount
 > unsupported compression method 93
 
 You're trying to manually extract a ROM from a ZIP archive created using `firefly_cli export`. ROMs use ZSTD compression that isn't supported by your archive manager. You should use `firefly_cli import` for installing ROMs instead.
+
+> wasm `unreachable` instruction executed.
+
+The app hit an invalid state. Usually, it would raise an "exception" (or "panic", depending on the language) but WebAssembly used by your language doesn't support exceptions. See [Finding the point of failure](#-finding-the-point-of-failure) and [Tracebacks](#-tracebacks).
