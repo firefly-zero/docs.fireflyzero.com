@@ -173,6 +173,20 @@ ff.drawTriangle(
 ```
 
 {{< /tab >}}
+{{< tab "C++" >}}
+
+```c++
+#include "./vendor/firefly/firefly.c"
+DrawTriangle(
+    {60, 10}, {40, 40}, {80, 40},
+    {
+        .fill_color = LIGHT_GRAY,
+        .stroke_color = DARK_BLUE,
+        .stroke_width = 1,
+    });
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 📸 Images
@@ -274,14 +288,14 @@ To draw canvas on the screen, convert it to an image and use `draw_image`:
 {{< tab "Rust" >}}
 
 ```rust
-draw_image(canvas.as_image());
+draw_image(canvas.as_image(), Point{ x: 10, y: 10 });
 ```
 
 {{< /tab >}}
 {{< tab "Go" >}}
 
 ```go
-firefly.DrawImage(canvas.Image())
+firefly.DrawImage(canvas.Image(), firefly.Point{ X: 10, Y: 10 })
 ```
 
 {{< /tab >}}
