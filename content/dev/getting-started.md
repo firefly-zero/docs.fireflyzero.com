@@ -43,6 +43,15 @@ rustup target add wasm32-unknown-unknown
 1. [Install TinyGo](https://tinygo.org/getting-started/install/)
 
 {{< /tab >}}
+{{< tab "C/C++" >}}
+
+The preferred way to build a C (or C++) app is using [wasi-sdk](https://github.com/WebAssembly/wasi-sdk):
+
+1. Go to [wasi-sdk releases](https://github.com/WebAssembly/wasi-sdk/releases).
+1. Download and install the latest release for your OS.
+1. This should install wasi-sdk into `/opt/wasi-sdk`. If you used an alternative installation method and installed wasi-sdk in a different place, provide the absolute path to it in the `WASI_SDK_PATH` environment variable.
+
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 💻 Create the project
