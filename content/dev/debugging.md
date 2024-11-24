@@ -224,3 +224,11 @@ You're trying to manually extract a ROM from a ZIP archive created using `firefl
 > wasm `unreachable` instruction executed.
 
 The app hit an invalid state. Usually, it would raise an "exception" (or "panic", depending on the language) but WebAssembly used by your language doesn't support exceptions. See [Finding the point of failure](#-finding-the-point-of-failure) and [Tracebacks](#-tracebacks).
+
+> error: no global memory allocator found but one is required; link to std or add `#[global_allocator]` to a static item that implements the GlobalAlloc trait
+
+You're trying to build a Rust app that requires a global allocator but you don't have one configured. The easiest way to fix it is to activate the `talc` crate feature for the SDK in `Cargo.toml`:
+
+```toml
+firefly-rust = { version = "*", features = ["talc"] }
+```

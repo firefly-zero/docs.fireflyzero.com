@@ -299,4 +299,14 @@ firefly.DrawImage(canvas.Image(), firefly.Point{ X: 10, Y: 10 })
 ```
 
 {{< /tab >}}
+{{< tab "C" >}}
+
+```c
+Point point;
+point.x = 10;
+point.y = 10;
+DrawImage(canvas, point);
+```
+
+{{< /tab >}}
 {{< /tabs >}}
