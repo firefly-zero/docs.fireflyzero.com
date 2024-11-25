@@ -21,6 +21,7 @@ Subjective comparison:
 | ⚡️ Zig    | 💻 3/5     | 🐎 5/5      | 🔓 2/5  |
 | 🦀 Rust  | 🔬 1/5     | 🐎 5/5      | 🔒 5/5  |
 | 🏃 Go    | 🔨 4/5     | 🐇 4/5      | 🔐 4/5  |
+| 🐀 C     | 💻 3/5     | 🐎 5/5      | 😕 1/5  |
 
 ## 📥 Install tools
 
@@ -56,147 +57,24 @@ The preferred way to build a C (or C++) app is using [wasi-sdk](https://github.c
 
 ## 💻 Create the project
 
-Create an empty project:
-
-{{< tabs >}}
-{{< tab "Rust" >}}
+A new project can be created using `firefly_cli new`:
 
 ```bash
-cargo new hello-world
-cd hello-world
-cargo add firefly_rust
+firefly_cli new --lang=rust hello-world
 ```
 
-{{< /tab >}}
-{{< tab "Go" >}}
-
-```bash
-mkdir hello-world
-cd hello-world
-go mod init hello-world
-go get github.com/firefly-zero/firefly-go
-echo "package main\n\nfunc main() {}" > main.go
-```
-
-{{< /tab >}}
-{{< /tabs >}}
-
-Create `firefly.toml` config:
-
-```toml
-author_id = "joearms"
-app_id = "hello-world"
-author_name = "Joe Armstrong"
-app_name = "Hello World"
-```
-
-Write some code:
-
-{{< tabs >}}
-{{< tab "Rust" >}}
-
-```rust
-#![no_std]
-#![no_main]
-use firefly_rust::*;
-
-#[no_mangle]
-extern fn render() {
-    draw_triangle(
-        Point { x: 60, y: 10 },
-        Point { x: 40, y: 40 },
-        Point { x: 80, y: 40 },
-        Style {
-            fill_color:   Color::LightGray,
-            stroke_color: Color::DarkBlue,
-            stroke_width: 1,
-        },
-    );
-}
-```
-
-{{< /tab >}}
-{{< tab "Go" >}}
-
-```go
-package main
-
-import "github.com/firefly-zero/firefly-go/firefly"
-
-func init() {
-    firefly.Render = render
-}
-
-func render() {
-    firefly.DrawTriangle(
-        firefly.Point{X: 60, Y: 10},
-        firefly.Point{X: 40, Y: 40},
-        firefly.Point{X: 80, Y: 40},
-        firefly.Style{
-            FillColor:   firefly.ColorDarkBlue,
-            StrokeColor: firefly.ColorBlue,
-            StrokeWidth: 1,
-        },
-    )
-}
-```
-
-{{< /tab >}}
-{{< tab "Zig" >}}
-
-```go
-const ff = @import("firefly");
-
-pub export fn render() void {
-    ff.drawTriangle(
-        ff.Point{ .x = 60, .y = 10 },
-        ff.Point{ .x = 40, .y = 40 },
-        ff.Point{ .x = 80, .y = 40 },
-        ff.Style{
-            .fill_color = ff.Color.light_gray,
-            .stroke_color = ff.Color.dark_blue,
-            .stroke_width = 1,
-        },
-    );
-}
-```
-
-{{< /tab >}}
-{{< tab "C++" >}}
-
-```c++
-#include "./vendor/firefly/firefly.c"
-
-BOOT void boot()
-{
-    DrawTriangle(
-        {60, 10}, {40, 40}, {80, 40},
-        {
-            .fill_color = LIGHT_GRAY,
-            .stroke_color = DARK_BLUE,
-            .stroke_width = 1,
-        });
-}
-```
-
-{{< /tab >}}
-{{< /tabs >}}
+In this example, it will create `hello-world` directory and initialize in it a Rust-powered app called `hello-world`. Don't think about it too hard, you can later change the project name in the config (`hello-world/firefly.toml`).
 
 ## 🏃 Build and run
 
 1. Build and install the app: `firefly_cli build`
 1. Run the last built app: `firefly_emulator`
 
-Have troubles using emulator? Check out the [emulator user guide](../user/emulator.md).
+Have troubles using emulator? Check out the [emulator user guide](https://docs.fireflyzero.com/user/emulator/).
 
 ## 📦 Distribute
 
-1. Create a file for an installed app:
-
-    ```bash
-    firefly_cli export --author joearms --app hello-world
-    ```
-
+1. Export an app into a zip file: `firefly_cli export`.
 1. Publish the file anywhere you like. For open-source projects, a good option is Github Releases.
 1. People then can download and install the app:
 
@@ -210,8 +88,9 @@ Have troubles using emulator? Check out the [emulator user guide](../user/emulat
 
 There are several things you should know to make a game:
 
-1. How the runtime works in general. Start by reading about [firefly.toml](./config.md) and then go through all other pages in this documentation in order.
+1. How the runtime works in general. Start by reading about [firefly.toml](https://docs.fireflyzero.com/dev/config/) and then go through all other pages in this documentation in order.
 1. What functions the SDK for the programming language that you choose provides:
     1. [🦀 Rust](https://docs.rs/firefly-rust/latest/firefly_rust/)
     1. [🏃 Go](https://pkg.go.dev/github.com/firefly-zero/firefly-go)
+    1. [🐀 C](https://github.com/firefly-zero/firefly-c)
 1. How to make games and what patterns make it easier. We recommend reading [Game Programming Patterns](http://gameprogrammingpatterns.com/contents.html).
