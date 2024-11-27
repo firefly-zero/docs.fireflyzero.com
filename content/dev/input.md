@@ -27,6 +27,13 @@ buttons := firefly.ReadButtons(firefly.Combined)
 ```
 
 {{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+Buttons buttons = read_buttons(COMBINED);
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 ## Touch pad
@@ -50,6 +57,17 @@ if let Some(pad) = pad {
 ```go
 pad, pressed := firefly.ReadPad(firefly.Combined)
 if pressed {
+    // ...
+}
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+Pad pad = read_pad(COMBINED);
+if (pad.touched)
+{
     // ...
 }
 ```

@@ -84,6 +84,24 @@ pub export fn cheat(cmd: i32, val: i32) i32 {
 ```
 
 {{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+CHEAT int32_t cheat(int32_t cmd, int32_t val) {
+    if (cmd == 1)
+    {
+        return get_health();
+    }
+    if (cmd == 2)
+    {
+        set_health();
+        return 1;
+    }
+    return 0;
+}
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 Now, you can send cheat codes into a running app using the CLI:
@@ -135,11 +153,12 @@ When an app explodes (`panic` in Rust and Go, `raise` in Python, etc), the runti
 {{< tab "Rust" >}}
 
 ```rust
-firefly_rust::log_debug("before foo")
-foo()
-firefly_rust::log_debug("before bar")
-bar()
-firefly_rust::log_debug("after bar")
+use firefly_rust::*;
+log_debug("before foo");
+foo();
+log_debug("before bar");
+bar();
+log_debug("after bar");
 ```
 
 {{< /tab >}}
@@ -158,12 +177,22 @@ firefly.LogDebug("after bar")
 
 ```go
 const ff = @import("firefly");
+ff.logDebug("before foo");
+foo();
+ff.logDebug("before bar");
+bar();
+ff.logDebug("after bar");
+```
 
-ff.logDebug("before foo")
-foo()
-ff.logDebug("before bar")
-bar()
-ff.logDebug("after bar")
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+log_debug("before foo");
+foo();
+log_debug("before bar");
+bar();
+log_debug("after bar");
 ```
 
 {{< /tab >}}

@@ -54,6 +54,15 @@ const (
 ```
 
 {{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+const Badge BITE_SELF = 1;
+const Badge BITE_OTHER = 2;
+const Badge EAT_100_APPLES = 3;
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 When a relevant event happens in the game, call `add_progress` with 3 arguments:
@@ -74,6 +83,13 @@ let progress = add_progress(peer, EAT_100_APPLES, 1);
 
 ```go
 progress := firefly.AddProgress(peer, Eat100Apples, 1)
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```rust
+Progress progress = add_progress(peer, EAT_100_APPLES, 1);
 ```
 
 {{< /tab >}}
@@ -126,6 +142,14 @@ const (
 ```
 
 {{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+const Board LEVEL_INTRO = 1;
+const Board LEVEL_BEGIN = 2;
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 Use `add_score` to put a player's score on the given board:
@@ -142,6 +166,13 @@ let best = add_score(peer, LEVEL_INTRO, 100);
 
 ```go
 best := firefly.AddScore(peer, LevelIntro, 100)
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+Score best = add_score(peer, LEVEL_INTRO, 100);
 ```
 
 {{< /tab >}}

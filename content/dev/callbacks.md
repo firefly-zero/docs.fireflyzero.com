@@ -53,6 +53,18 @@ func update() {
 ```
 
 {{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+#include "./vendor/firefly/firefly.c"
+
+UPDATE void update()
+{
+    // do something here
+}
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 🌍 Global state
@@ -135,6 +147,25 @@ func render() {
     )
 }
 
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+#include "./vendor/firefly/firefly.c"
+
+Font font;
+
+BOOT void boot()
+{
+    // TODO
+}
+
+RENDER void render()
+{
+    // TODO
+}
 ```
 
 {{< /tab >}}

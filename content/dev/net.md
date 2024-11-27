@@ -37,6 +37,14 @@ buttons := firefly.ReadButtons(firefly.Combined)
 ```
 
 {{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+Pad pad = read_pad(COMBINED);
+Buttons buttons = read_buttons(COMBINED);
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 The second option is to read and handle each input individually. This is the best option for when you want to provide a custom logic for multiplayer.
@@ -50,7 +58,7 @@ let peers = get_peers();
 for peer in peers {
     let pad = read_pad(peer);
     let buttons = read_buttons(peer);
-    todo!()
+    todo!();
 }
 ```
 
@@ -63,6 +71,21 @@ for _, peer := range peers.Slice() {
     pad, pressed := firefly.ReadPad(peer)
     buttons := firefly.ReadButtons(peer)
     // ...
+}
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+Peers peers = get_peers()
+Peer peer;
+for (peer = 0; peer < 32; peer++) {
+    if (is_online(peer)) {
+        Pad pad = read_pad(peer);
+        Buttons buttons = read_buttons(peer);
+        // ...
+    }
 }
 ```
 
@@ -107,6 +130,19 @@ for _, peer := range peers.Slice() {
 ```
 
 {{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+Peers peers = get_peers();
+Peer me = get_me();
+for (peer = 0; peer < 32; peer++) {
+    if (is_online(peer) && peer == me) {
+        // ...
+    }
+}
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 🥇 Peers' order
@@ -128,8 +164,16 @@ let peer = peers.iter().nth(idx).unwrap();
 
 ```go
 peers := firefly.GetPeers()
-idx := firefly.GetRandom() % firefly.Len()
+idx := firefly.GetRandom() % peers.Len()
 peer := peers.Slice()[idx]
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+Peer peers = get_peers();
+// TODO
 ```
 
 {{< /tab >}}

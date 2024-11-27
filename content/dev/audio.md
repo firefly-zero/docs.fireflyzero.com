@@ -50,6 +50,18 @@ func boot() {
 ```
 
 {{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+#include "./vendor/firefly/firefly.c"
+
+BOOT void boot()
+{
+    add_sine(OUT, 440.0, 0.0);
+}
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 <audio controls src="/sine.mp3" preload="metadata"></audio>
@@ -79,6 +91,15 @@ audio.Out.AddSine(audio.G4, 0.)
 ```
 
 {{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+add_sine(OUT, 440.0, 0.0);
+add_sine(OUT, 329.628, 0.0);
+add_sine(OUT, 391.995, 0.0);
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 <audio controls src="/chord.mp3" preload="metadata"></audio>
@@ -99,6 +120,14 @@ gain.add_sine(audio::Freq::A4, 0.);
 ```go
 gain := audio.Out.AddGain(0.5)
 gain.AddSine(audio.A4, 0.)
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+AudioNode gain = add_gain(OUT, 0.5);
+add_sine(gain, 440.0, 0.0);
 ```
 
 {{< /tab >}}
@@ -137,6 +166,19 @@ gain.AddSine(audio.A4, 0.)
 ```
 
 {{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+AudioNode gain = add_gain(OUT, 0.0);
+mod_linear(gain, LinearModulator {
+    .start = 0.0,
+    .end = 1.0,
+    .start_at = seconds(0),
+    .end_at = seconds(2)});
+add_sine(gain, 440.0, 0.0);
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 <audio controls src="/mod-linear-gain.mp3" preload="metadata"></audio>
@@ -164,6 +206,13 @@ audio::OUT.add_file("muzak");
 
 ```go
 audio.Out.AddFile("muzak")
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+add_file(OUT, "muzak")
 ```
 
 {{< /tab >}}

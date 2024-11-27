@@ -58,9 +58,10 @@ You can modify colors in the palette by calling the `set_color` function:
 {{< tab "Rust" >}}
 
 ```rust
-firefly_rust::set_color(
-    firefly_rust::Color::Red,
-    firefly_rust::RGB{r: 0xff, g: 0x00, b: 0x00},
+use firefly_rust::*;
+set_color(
+    Color::Red,
+    RGB{r: 0xff, g: 0x00, b: 0x00},
 );
 ```
 
@@ -83,6 +84,15 @@ ff.setColor(
     ff.Color.red,
     ff.RGB{.r = 0xff, .g = 0x00, .b = 0x00},
 );
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+#include "./vendor/firefly/firefly.c"
+RGB color = {.r = 0xff, .g = 0x00, .b = 0x00};
+set_color(RED, color);
 ```
 
 {{< /tab >}}
@@ -173,11 +183,24 @@ ff.drawTriangle(
 ```
 
 {{< /tab >}}
+{{< tab "C" >}}
+
+```c
+Point p1 = {60, 10};
+Point p2 = {40, 40};
+Point p3 = {80, 40};
+Style s = {
+    .fill_color = LIGHT_GRAY,
+    .stroke_color = DARK_BLUE,
+    .stroke_width = 1};
+draw_triangle(p1, p2, p3, s);
+```
+
+{{< /tab >}}
 {{< tab "C++" >}}
 
 ```c++
-#include "./vendor/firefly/firefly.c"
-DrawTriangle(
+draw_triangle(
     {60, 10}, {40, 40}, {80, 40},
     {
         .fill_color = LIGHT_GRAY,
@@ -224,6 +247,20 @@ let file = firefly_rust::load_buf("img");
 
 ```go
 file := firefly.LoadFile("img");
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+// We know the image size in advance.
+// You can see it when running `firefly_cli build`.
+// You could also use `get_file_size` to detect the file size
+// in runtime but that requires using an allocator.
+const size_t fileSize = 97;
+char head[fileSize];
+Buffer buf = {.head = head, .size = fileSize};
+image = load_file("img", buf);
 ```
 
 {{< /tab >}}
@@ -276,6 +313,13 @@ firefly.UnsetCanvas()
 ```
 
 {{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+// TODO: Canvas not supported by C yet.
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 {{< hint warning >}}
@@ -302,10 +346,15 @@ firefly.DrawImage(canvas.Image(), firefly.Point{ X: 10, Y: 10 })
 {{< tab "C" >}}
 
 ```c
-Point point;
-point.x = 10;
-point.y = 10;
-DrawImage(canvas, point);
+Point point = {10, 10};
+draw_image(canvas, point);
+```
+
+{{< /tab >}}
+{{< tab "C++" >}}
+
+```c++
+draw_image(canvas, {10, 10});
 ```
 
 {{< /tab >}}
