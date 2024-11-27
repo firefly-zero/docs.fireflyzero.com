@@ -66,7 +66,7 @@ func cheat(cmd, val int) int {
 {{< /tab >}}
 {{< tab "Zig" >}}
 
-```go
+```zig
 pub export fn cheat(cmd: i32, val: i32) i32 {
     switch (cmd) {
         1 => {
@@ -174,7 +174,7 @@ firefly.LogDebug("after bar")
 {{< /tab >}}
 {{< tab "Zig" >}}
 
-```go
+```zig
 const ff = @import("firefly");
 ff.logDebug("before foo");
 foo();

@@ -78,7 +78,7 @@ firefly.SetColor(
 {{< /tab >}}
 {{< tab "Zig" >}}
 
-```go
+```zig
 const ff = @import("firefly");
 ff.setColor(
     ff.Color.red,
@@ -168,7 +168,7 @@ firefly.DrawTriangle(
 {{< /tab >}}
 {{< tab "Zig" >}}
 
-```go
+```zig
 const ff = @import("firefly");
 ff.drawTriangle(
     ff.Point{ .x = 60, .y = 10 },
