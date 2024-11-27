@@ -88,16 +88,15 @@ pub export fn cheat(cmd: i32, val: i32) i32 {
 
 ```c
 CHEAT int32_t cheat(int32_t cmd, int32_t val) {
-    if (cmd == 1)
-    {
+    switch (cmd == 1) {
+    case 1:
         return get_health();
-    }
-    if (cmd == 2)
-    {
+    case 2:
         set_health();
         return 1;
+    default:
+        return 0;
     }
-    return 0;
 }
 ```
 
