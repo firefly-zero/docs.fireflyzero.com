@@ -59,11 +59,31 @@ The preferred way to build a C (or C++) app is using [wasi-sdk](https://github.c
 
 A new project can be created using `firefly_cli new`:
 
+{{< tabs >}}
+{{< tab "Rust" >}}
+
 ```bash
 firefly_cli new --lang=rust hello-world
 ```
 
-In this example, it will create `hello-world` directory and initialize in it a Rust-powered app called `hello-world`. Don't think about it too hard, you can later change the project name in the config (`hello-world/firefly.toml`).
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```bash
+firefly_cli new --lang=go hello-world
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```bash
+firefly_cli new --lang=c hello-world
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
+In this example, it will create `hello-world` directory and initialize in it a new app called `hello-world` using your chosen programming language. Don't think about it too hard, you can later change the project name in the config (`hello-world/firefly.toml`).
 
 ## 🏃 Build and run
 
