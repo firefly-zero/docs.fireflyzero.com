@@ -22,8 +22,8 @@ Optional:
 * `sudo` (boolean): set to `true` if the app needs access to privilieged functions, like reading files in other apps or starting other apps.
 * `cheats` (table): specifies how a cheat code should be converted to a number. For example, `set-health = 3` means that when you call `firefly_cli cheat set-health 100`, the `cheat` callback in the running app will be called with values `3` and `100`.
 * `files` (table): covered below.
-* `badges` (table): see [Badges and scores](/dev/stats/).
-* `boards` (table): see [Badges and scores](/dev/stats/).
+* `badges` (table): see [Badges and scores]({{< ref "stats.md#-badges" >}}).
+* `boards` (table): see [Badges and scores]({{< ref "stats.md#-boards" >}}).
 
 ## files
 

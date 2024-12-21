@@ -5,7 +5,7 @@ params:
   art: /emulator.png
 ---
 
-The emulator allows you to run any Firefly Zero apps on your computer. To install it, follow the [Installation](/user/installation/) guide.
+The emulator allows you to run any Firefly Zero apps on your computer. To install it, follow the [Installation]({{< ref "installation.md" >}}) guide.
 
 ## 🕹 Input
 
