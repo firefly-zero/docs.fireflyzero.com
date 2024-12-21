@@ -1,8 +1,10 @@
 ---
-title: 📕 Terms
+title: Terms
 weight: 60
 params:
   art: /terms.png
+  icon: fa-solid fa-book
+  emoji: 📕
 ---
 
 Below are different terms that the documentation uses. If there is a technical word in the ocumentation that you don't understand, it should be in there. If it's not, send us a pull request or open an issue!

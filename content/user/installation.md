@@ -1,8 +1,10 @@
 ---
-title: 📥 Installation
+title: Installation
 weight: 5
 params:
   art: /hello.png
+  icon: fa-solid fa-download
+  emoji: 📥
 ---
 
 ## 🐚 CLI

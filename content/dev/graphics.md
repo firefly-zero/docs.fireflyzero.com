@@ -1,8 +1,10 @@
 ---
-title: 🎨 Graphics
+title: Graphics
 weight: 15
 params:
   art: /graphics.png
+  icon: fa-solid fa-palette
+  emoji: 🎨
 ---
 
 ## 🔬 Pixels

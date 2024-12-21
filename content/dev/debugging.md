@@ -1,8 +1,10 @@
 ---
-title: 🐞 Debugging
+title: Debugging
 weight: 55
 params:
   art: /debugging.png
+  icon: fa-solid fa-bug
+  emoji: 🐞
 ---
 
 This page covers how to find bugs in your apps.

@@ -1,8 +1,10 @@
 ---
-title: 💻 Emulator
+title: Emulator
 weight: 10
 params:
   art: /emulator.png
+  icon: fa-solid fa-computer
+  emoji: 💻
 ---
 
 The emulator allows you to run any Firefly Zero apps on your computer. To install it, follow the [Installation]({{< ref "installation.md" >}}) guide.

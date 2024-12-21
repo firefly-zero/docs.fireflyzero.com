@@ -1,8 +1,10 @@
 ---
-title: 🎮 Input
+title: Input
 weight: 20
 params:
   art: /input.png
+  icon: fa-solid fa-gamepad
+  emoji: 🎮
 ---
 
 ## Buttons

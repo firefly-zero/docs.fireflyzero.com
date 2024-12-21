@@ -1,7 +1,9 @@
 <ul>
   {{ range .Page.Pages.ByTitle }}
-    <li>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <li style="list-style-type: none;">
+      <a href="{{ .RelPermalink }}">
+        {{- partial "docs/menu-title" . -}}
+      </a>
     </li>
   {{ end }}
 </ul>

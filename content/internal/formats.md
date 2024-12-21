@@ -1,6 +1,9 @@
 ---
-title: 📄 File formats
+title: File formats
 weight: 10
+params:
+  icon: fa-solid fa-file
+  emoji: 📄
 ---
 
 For media files, the first byte of the file indicates what type it is:

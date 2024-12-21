@@ -1,8 +1,10 @@
 ---
-title: 🔊 Audio
+title: Audio
 weight: 25
 params:
   art: /audio.png
+  icon: fa-solid fa-music
+  emoji: 🔊
 ---
 
 ## 🧱 Basics

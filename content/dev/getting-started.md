@@ -1,8 +1,10 @@
 ---
-title: ▶️ Getting started
+title: Getting started
 weight: 5
 params:
   art: /hello.png
+  icon: fa-solid fa-play
+  emoji: ▶️
 ---
 
 ## 👉 Pick the language

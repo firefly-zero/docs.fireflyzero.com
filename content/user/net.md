@@ -1,8 +1,10 @@
 ---
-title: 🔃 Multiplayer
+title: Multiplayer
 weight: 15
 params:
   art: /multiplayer.png
+  icon: fa-solid fa-wifi
+  emoji: 🔃
 ---
 
 To establish a multiplayer connection, take 2 or more devices (or launch 2 or more copies of the emulator) and on each device:

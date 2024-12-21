@@ -1,6 +1,9 @@
 ---
-title: 🗃 File system
+title: File system
 weight: 5
+params:
+  icon: fa-solid fa-folder-tree
+  emoji: 🗃
 ---
 
 * `roms/`
