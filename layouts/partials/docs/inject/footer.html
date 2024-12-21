@@ -1,0 +1,18 @@
+<script>
+  function listenToTabs() {
+    const tabs = document.querySelectorAll("input.toggle.tab");
+    switchTab = (e) => {
+      const focusName = e.currentTarget.dataset.name;
+      tabs.forEach((tab) => {
+        if (tab.dataset.name == focusName) {
+          tab.checked = "checked";
+        }
+      });
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("input", switchTab);
+    });
+  }
+  listenToTabs();
+</script>
