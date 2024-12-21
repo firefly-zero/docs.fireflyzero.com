@@ -74,10 +74,17 @@ firefly_cli new --lang=go hello-world
 ```
 
 {{< /tab >}}
-{{< tab "C/C++" >}}
+{{< tab "C" >}}
 
 ```bash
 firefly_cli new --lang=c hello-world
+```
+
+{{< /tab >}}
+{{< tab "C++" >}}
+
+```bash
+firefly_cli new --lang=cpp hello-world
 ```
 
 {{< /tab >}}
