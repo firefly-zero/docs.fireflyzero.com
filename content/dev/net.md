@@ -98,7 +98,52 @@ for (peer = 0; peer < 32; peer++) {
 
 Since all devices run the same app, all files in the ROM are the same, so reading them on every device will give the same result.
 
-Things are a bit trickier with data files. In a future release of the emulator, there will be a way to provide files that are synchronized over the network. For now, all data files are local to each device. So, the best approach is to not use them if there is more than one peer connected. Or use in a way that doesn't impact the gameplay (for example, to remember the user's preferred color scheme).
+Files created using `dump_file` are not accesible in multiplayer. Calling `load_file` for these in multiplayer will emit an error in logs and return nothing. Create files only in single player mode.
+
+If you want to preserve state between app runs and make it available to all peers in multiplayer, use Stash. Stash is a binary file that can be written using `save_stash` and read using `load_stash`:
+
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+```rust
+let stash = load_stash_buf::<4>(peer, &mut buf[..]);
+if let Some(stash) = stash {
+    save_stash(peer, &stash);
+}
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+buf := make([]byte, 4)
+stash := firefly.LoadStash(peer, buf)
+if stash != nil {
+    firefly.SaveStash(peer, stash)
+}
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+Stash stash = load_stash(peer, buf);
+if (stash.size != 0)
+{
+    save_stash(peer, stash);
+}
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
+{{< hint info >}}
+**Working with limited space**
+
+Currently, the stash size is limited to 80 bytes. It doesn't seem like much but there are lots of ways how to use it effectively. Let's say, you make a collectible card game. The first byte of the stash might represent the current level of the player (up to 255 levels) and the remaining 632 bits (79 bytes) each can store if the player has a specific card (1 for "yes", 0 for "no").
+
+You can optimize it even more if some card combination are not possible. For example, if card A can beupgraded to card B and then to card C (making the previous iteration inaccessible), you can use 2 bytes to store the state of all 3 cards: 00 for None, 01 for A, 10 for B, and 11 for C. That way, you can fit up to 948 cards.
+{{< /hint >}}
 
 ## 🙋 Local peer
 
