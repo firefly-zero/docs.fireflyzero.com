@@ -248,7 +248,7 @@ let file = firefly_rust::load_buf("img");
 {{< tab "Go" >}}
 
 ```go
-file := firefly.LoadFile("img");
+file := firefly.LoadFile("img", nil);
 ```
 
 {{< /tab >}}

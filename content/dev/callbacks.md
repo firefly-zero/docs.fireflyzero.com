@@ -137,7 +137,7 @@ func init() {
 }
 
 func boot() {
-    font = firefly.LoadFile("font").Font()
+    font = firefly.LoadFile("font", nil).Font()
 }
 
 func render() {
