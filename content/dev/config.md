@@ -40,6 +40,34 @@ The value is an inline table that may have the following keys:
 * `sha256` (string): the [SHA-256](https://en.wikipedia.org/wiki/SHA-2) hash of the file. Validated only when downloading the file from the `url`. If the specified hash doesn't match the actual one, the `build` command will fail. It's not required but recommended to always include it if you specify `url`.
 * `copy` (bool): set to `true` to copy the file as-is without any modifications. If not specified, the `build` command will try to convert the file into a native format. For example, PNG images will be converted into the native Firefly image format.
 
+There are a few file names that have a special meaning:
+
+* `_bin`: the wasm binary to include instead of trying to build it from source. See the "Customizing builds" section below.
+* `_splash`: the splash screen to be rendered before launching the app. In other words, a static loading screen.
+
+## Example
+
+```toml
+author_id = "lux"
+app_id = "snek"
+author_name = "Lux"
+app_name = "Snek"
+
+[files]
+font = { path = "font.fff", url = "https://fonts.fireflyzero.com/fonts/ascii/eg_4x6.fff", sha256 = "dd90ec6478b7cab75e73abde35e76ef3e7e08a2682be83a5ef859607e41e4e68" }
+_splash = { path = "splash.png" }
+
+[cheats]
+move-apple = 1 # Move apple into a new random position
+inc-score = 2  # Increment the score by the given value
+dec-score = 3  # Decrement the score by the given value
+
+[badges]
+1 = { name = "m i tasti", descr = "bite yourself" }
+2 = { name = "u r tasti", descr = "bite someone else" }
+3 = { name = "apel tasti", descr = "eat 100 apples", steps = 100 }
+```
+
 ## Customizing builds
 
 Does your app require a complicated build process? No problem! There are a few ways to customize the compilation:
