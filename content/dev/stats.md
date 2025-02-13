@@ -56,6 +56,15 @@ const (
 ```
 
 {{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+const biteSelf: ff.Badge = 1;
+const biteOther: ff.Badge = 2;
+const eat100Apples: ff.Badge = 3;
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -85,6 +94,13 @@ let progress = add_progress(peer, EAT_100_APPLES, 1);
 
 ```go
 progress := firefly.AddProgress(peer, Eat100Apples, 1)
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+const progress = ff.addProgress(peer, eat100Apples, 1);
 ```
 
 {{< /tab >}}
@@ -144,6 +160,14 @@ const (
 ```
 
 {{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+const levelIntro: ff.Board = 1;
+const levelBegin: ff.Board = 2;
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -168,6 +192,13 @@ let best = add_score(peer, LEVEL_INTRO, 100);
 
 ```go
 best := firefly.AddScore(peer, LevelIntro, 100)
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+const best = ff.addScore(peer, levelIntro, 100);
 ```
 
 {{< /tab >}}

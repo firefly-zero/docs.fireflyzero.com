@@ -29,6 +29,13 @@ buttons := firefly.ReadButtons(firefly.Combined)
 ```
 
 {{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+const buttons = ff.readButtons(ff.Peer.combined);
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -59,6 +66,16 @@ if let Some(pad) = pad {
 ```go
 pad, pressed := firefly.ReadPad(firefly.Combined)
 if pressed {
+    // ...
+}
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+const maybePad = ff.readPad(ff.Peer.combined);
+if (maybePad) |pad| {
     // ...
 }
 ```

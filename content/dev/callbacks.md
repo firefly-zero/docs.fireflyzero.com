@@ -56,6 +56,15 @@ func update() {
 ```
 
 {{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+pub export fn update() void {
+    // ...
+}
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -150,6 +159,23 @@ func render() {
     )
 }
 
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+const ff = @import("firefly");
+
+var font: ff.Font = undefined;
+
+pub export fn boot() void {
+    // ...
+}
+
+pub export fn render() void {
+    // ...
+}
 ```
 
 {{< /tab >}}

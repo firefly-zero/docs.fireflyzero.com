@@ -39,6 +39,14 @@ buttons := firefly.ReadButtons(firefly.Combined)
 ```
 
 {{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+const maybePad = ff.readPad(ff.Peer.combined);
+const buttons = ff.readButtons(ff.Peer.combined);
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -72,6 +80,18 @@ peers := firefly.GetPeers()
 for _, peer := range peers.Slice() {
     pad, pressed := firefly.ReadPad(peer)
     buttons := firefly.ReadButtons(peer)
+    // ...
+}
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+var peers = ff.getPeers().iter();
+while (peers.next()) |peer| {
+    const maybePad = ff.readPad(peer);
+    const buttons = ff.readButtons(peer);
     // ...
 }
 ```
@@ -120,6 +140,16 @@ buf := make([]byte, 4)
 stash := firefly.LoadStash(peer, buf)
 if stash != nil {
     firefly.SaveStash(peer, stash)
+}
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+var maybeStash = ff.loadStash(peer, buf);
+if (maybeStash) |stash| {
+    ff.saveStash(peer, stash)
 }
 ```
 
@@ -177,6 +207,19 @@ for _, peer := range peers.Slice() {
 ```
 
 {{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+const me = ff.getMe();
+var peers = ff.getPeers().iter();
+while (peers.next()) |peer| {
+    if (peer.eq(me)) {
+        // ...
+    }
+}
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -213,6 +256,15 @@ let peer = peers.iter().nth(idx).unwrap();
 peers := firefly.GetPeers()
 idx := firefly.GetRandom() % peers.Len()
 peer := peers.Slice()[idx]
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+var peers = ff.getPeers();
+const idx = ff.getRandom() % peers.len();
+// ...
 ```
 
 {{< /tab >}}

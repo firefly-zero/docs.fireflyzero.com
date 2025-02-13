@@ -252,6 +252,13 @@ file := firefly.LoadFile("img", nil);
 ```
 
 {{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+const file = ff.loadFile("img");
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -315,6 +322,13 @@ firefly.UnsetCanvas()
 ```
 
 {{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+// TODO: Canvas not fully supported by Zig yet.
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -342,6 +356,13 @@ draw_image(canvas.as_image(), Point{ x: 10, y: 10 });
 
 ```go
 firefly.DrawImage(canvas.Image(), firefly.Point{ X: 10, Y: 10 })
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+ff.drawImage(canvas.image(), ff.Point{ .x = 10, .y = 10 })
 ```
 
 {{< /tab >}}

@@ -20,16 +20,14 @@ Subjective comparison:
 
 | Language | Simplicity | Performance | Safety  |
 | -------- | ---------- | ----------- | --------|
-| ⚡️ Zig    | 💻 3/5     | 🐎 5/5      | 🔓 2/5  |
-| 🦀 Rust  | 🔬 1/5     | 🐎 5/5      | 🔒 5/5  |
 | 🏃 Go    | 🔨 4/5     | 🐇 4/5      | 🔐 4/5  |
+| 🦀 Rust  | 🔬 1/5     | 🐎 5/5      | 🔒 5/5  |
+| ⚡️ Zig    | 💻 3/5     | 🐎 5/5      | 🔓 2/5  |
 | 🐀 C     | 💻 3/5     | 🐎 5/5      | 😕 1/5  |
 
 ## 📥 Install tools
 
-1. [Install rust and cargo](https://www.rust-lang.org/tools/install): `curl https://sh.rustup.rs -sSf | sh`
-1. Install [firefly-cli](https://github.com/firefly-zero/firefly-cli): `cargo install firefly_cli`
-1. [Download emulator binary](https://github.com/firefly-zero/firefly-emulator-bin/releases) and put it into `$PATH`
+1. [Install firefly-cli and firefly-emulator]({{< ref "/user/installation/" >}})
 1. Install [WebAssembly](https://webassembly.org/) compiler for your language:
 
 {{< tabs >}}
@@ -44,6 +42,11 @@ rustup target add wasm32-unknown-unknown
 
 1. [Install Go](https://go.dev/dl/)
 1. [Install TinyGo](https://tinygo.org/getting-started/install/)
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+[Install Zig](https://ziglang.org/download/). Make sure to select the latest stable release, NOT a "master" build.
 
 {{< /tab >}}
 {{< tab "C/C++" >}}
@@ -73,6 +76,13 @@ firefly_cli new --lang=rust hello-world
 
 ```bash
 firefly_cli new --lang=go hello-world
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```bash
+firefly_cli new --lang=zig hello-world
 ```
 
 {{< /tab >}}
