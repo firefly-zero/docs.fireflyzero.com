@@ -11,7 +11,7 @@ params:
 
 Firefly Zero supports lots of programming languages. For simple apps and games, it's a good idea to stick to what you already know. But if you're ready to learn something new for a better results, there are some recommendations:
 
-1. (⌛ Coming soon) [⚡️ Zig](https://ziglang.org/) is simple and gives the best performance but you need to be careful to avoid bugs and memory leaks.
+1. [⚡️ Zig](https://ziglang.org/) is simple and gives the best performance but you need to be careful to avoid bugs and memory leaks.
 1. [🦀 Rust](https://www.rust-lang.org/) gives performance close to Zig and it's hard to use it wrong, but it's also the most difficult language to learn on the list.
 1. [🏃 Go](https://go.dev/) is slower than Rust or Zig but very simple to use and doesn't have memory leaks.
 1. (⌛ Coming soon) More languages.
