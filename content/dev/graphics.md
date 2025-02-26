@@ -218,7 +218,7 @@ draw_triangle(
 
 > A picture is worth a thousand words.
 
-Draw the image you want using the default ([Sweetie 16](https://lospec.com/palette-list/sweetie-16)) color palette. You can also use a transparent background. Save the image as a PNG file.
+Draw the image you want using the default ([Sweetie 16](https://lospec.com/palette-list/sweetie-16)) color palette. You can also use a transparent background but then the maximum number of colors is limited to 15. Save the image as a PNG file.
 
 {{< hint info >}}
 
