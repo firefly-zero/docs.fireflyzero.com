@@ -72,10 +72,11 @@ If you don't, install it from binary releases:
 
 ## 🚀 Launcher and games
 
-The `firefly_cli import` command can be used to install any app from the [catalog](https://catalog.fireflyzero.com/). Start by installing the default launcher and the snake game:
+The `firefly_cli import` command can be used to install any app from the [catalog](https://catalog.fireflyzero.com/). Start by installing the default launcher, multiplayer UI, and the snake game:
 
 ```bash
 firefly_cli import sys.launcher
+firefly_cli import sys.connector
 firefly_cli import lux.snek
 ```
 
