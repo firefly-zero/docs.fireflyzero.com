@@ -102,16 +102,6 @@ set_color(RED, color);
 
 Looking for inspiration? Check out [lospec.com](https://lospec.com/palette-list/) for nice-looking color palettes.
 
-## 🌈 More colors
-
-It is possible to render more than 16 colors on a single frame. First, you need to divide the elements on the screen to horizontal regions:
-
-... (TODO: add an image with an example)
-
-Then you can provide a `render_line` callback function. The callback accepts the line for each it is called and returns the next line before which it should be called again. For example, it is called with 0 first time and if it then returns 100, it will be called again before rendering the line 100. If then it returns 0, it will be called again only when rendering the next frame.
-
-This callback must be as fast as possible and all it should do is change the colors in the palette. In other words, the callback can be used to swap the colors in the palette on the go, as lines are rendered on the screen.
-
 ## 🔳 Shapes
 
 > It is the sculptor's power, so often alluded to, of finding the perfect form and features of a goddess, in the shapeless block of marble.
