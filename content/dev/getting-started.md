@@ -34,6 +34,7 @@ Subjective comparison:
 {{< tab "Rust" >}}
 
 ```bash
+rustup update nightly
 rustup target add wasm32-unknown-unknown
 ```
 
