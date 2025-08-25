@@ -35,6 +35,7 @@ Subjective comparison:
 
 ```bash
 rustup update nightly
+rustup component add rust-src --toolchain nightly
 rustup target add wasm32-unknown-unknown
 ```
 
