@@ -1,7 +1,6 @@
 baseURL = "https://docs.fireflyzero.com/"
 languageCode = "en-us"
 title = "Firefly Zero docs"
-paginate = 40
 theme = "hugo-book"
 enableGitInfo = true
 
