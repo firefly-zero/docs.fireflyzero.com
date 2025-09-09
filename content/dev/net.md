@@ -175,6 +175,10 @@ Currently, the stash size is limited to 80 bytes. It doesn't seem like much but 
 You can optimize it even more if some card combination are not possible. For example, if card A can beupgraded to card B and then to card C (making the previous iteration inaccessible), you can use 2 bytes to store the state of all 3 cards: 00 for None, 01 for A, 10 for B, and 11 for C. That way, you can fit up to 948 cards.
 {{< /hint >}}
 
+## 🎲 Randomness
+
+The random values returned by `get_random` are synchronized between devices and are safe to use in multiplayer.
+
 ## 🙋 Local peer
 
 You can call the `get_me` function to get the `Peer` corresponding to the local device. But be careful! Do not let it affect the game logic. Otherwise, the state of the app will be different on every device, and everyone will be playing a different game. Use it only for visual effects, like a marker showing the player which character is their. Or showing them only their score. Or in a hidden agenda game (like Mafia) showing them only their role.

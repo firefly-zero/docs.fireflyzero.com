@@ -80,7 +80,7 @@ UPDATE void update()
 
 ## 🌍 Global state
 
-Almost every app has an internal state (position of NPCs, player's health, etc.), and this state has to be preserved between calls to `update` amd has to be available from `render`. To achieve this, use global variables.
+Almost every app has an internal state (position of NPCs, player's health, etc.), and this state has to be preserved between calls to `update` and has to be available from `render`. To achieve this, use global variables.
 
 {{< hint info >}}
 **Aren't global variables bad?**
