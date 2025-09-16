@@ -118,9 +118,9 @@ For a reference, here is the list of available functions for drawing shapes:
 1. `draw_line(👉 Point, 📦 Size, 💄 LineStyle)`
 1. `draw_rect(👉 Point, 📦 Size, 💄 Style)`
 1. `draw_rounded_rect(👉 Point, 📦 Size, 📦 Size, 💄 Style)`
+1. `draw_triangle(👉 Point, 👉 Point, 👉 Point, 💄 Style)`
 1. `draw_circle(👉 Point, ⭕ Diameter, 💄 Style)`
 1. `draw_ellipse(👉 Point, 📦 Size, 💄 Style)`
-1. `draw_triangle(👉 Point, 👉 Point, 👉 Point, 💄 Style)`
 1. `draw_arc(👉 Point, ⭕ Diameter, 📐 Angle, 📐 Angle, 💄 Style)`
 1. `draw_sector(👉 Point, ⭕ Diameter, 📐 Angle, 📐 Angle, 💄 Style)`
 

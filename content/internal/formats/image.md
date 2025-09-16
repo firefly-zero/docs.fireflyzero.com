@@ -6,16 +6,20 @@ params:
   emoji: 🖼️
 ---
 
+Images can be:
+
+1. Produced by `firefly_cli build` from PNG and bundled into the app ROM.
+1. Generated in runtime as `Canvas`.
+1. Loaded in runtime by `load_file`.
+1. Modified in runtime by `Image` methods.
+
 ## Image format
 
-The image format used in apps use a BPP (Bits Per Pixel) density of either:
+The image format defines a BPP (Bits Per Pixel) density of either:
 
-- 1 BPP: supports 2 colors
-- 2 BPP: supports 4 colors
-- 4 BPP: supports 16 colors
-
-They are either bundled with the app ROM by specifying them in the [`firefly.toml`](../../../dev/config/)
-config or can be generated and modified during runtime.
+- 1 BPP: supports up to 2 colors
+- 2 BPP: supports up to 4 colors
+- 4 BPP: supports up to 16 colors
 
 Data structure of an image:
 
@@ -42,39 +46,32 @@ Therefore, the representation of a palette swap for a 2-BPP image in the default
 
 ## Transparency
 
-Image transparency is decided by the transparency color.
-Any pixel in the image body that matches the same color as the transparency
-color are considered transparent.
+Image transparency is decided by the transparency color. Any pixel in the image body that matches the same color as the transparency color are considered transparent.
 
-If the transparency color is set to a value greater than or equal to `1 << BPP`,
-then the image is considered to have no transparency. Meaning:
+If the transparency color is set to a value greater than or equal to `1 << BPP`, then the image is considered to have no transparency. Meaning:
 
 - With 1 BPP, if transparency color is `0x02` or higher, then no transparency
 - With 2 BPP, if transparency color is `0x04` or higher, then no transparency
 - With 4 BPP, if transparency color is `0x10` or higher, then no transparency
 
-For images without transparency it is common to use a value of `0xFF`,
-though any value above the threshold are equally valid.
+For images without transparency it is common to use a value of `0xFF`, though any value above the threshold is equally valid.
 
 ## Image body
 
-The image body is a string of pixels whose value reference a color in the
-palette swaps.
+The image body is a string of pixels whose value references a color in the palette swaps.
 
 - With 1 BPP, each 1-bit pixel targets palette color at index `0x0 - 0x1`
 - With 2 BPP, each 2-bit pixel targets palette color at index `0x0 - 0x3`
 - With 4 BPP, each 4-bit pixel targets palette color at index `0x0 - 0xF`
 
-Therefore, a 2x2 pixel image with 2-BPP that uses all 4 colors from the palette
-could be represented by:
+Therefore, a 2x2 pixel image with 2-BPP that uses all 4 colors from the palette could be represented by:
 
 ```text
 hex         0x1b
 binary  00011011
 ```
 
-Using the 2-BPP palette swaps example from above, then the image would look
-like this in the default palette:
+Using the 2-BPP palette swaps example from above, then the image would look like this in the default palette:
 
 <div class="image-demo"><svg
   xmlns="http://www.w3.org/2000/svg" version="1.1"
