@@ -6,103 +6,72 @@ params:
   emoji: 🖼️
 ---
 
+Images can be:
+
+1. Produced by `firefly_cli build` from PNG and bundled into the app ROM.
+1. Generated in runtime as `Canvas`.
+1. Loaded in runtime by `load_file`.
+1. Modified in runtime by `Image` methods.
+
 ## Image format
 
-The image format used in apps use a BPP (Bits Per Pixel) density of either:
+The image format defines a BPP (Bits Per Pixel) density of either:
 
-- 1 BPP: supports 2 colors
-- 2 BPP: supports 4 colors
-- 4 BPP: supports 16 colors
-
-They are either bundled with the app ROM by specifying them in the [`firefly.toml`](../../../dev/config/)
-config or can be generated and modified during runtime.
+- 1 BPP: supports up to 2 colors
+- 2 BPP: supports up to 4 colors
+- 4 BPP: supports up to 16 colors
 
 Data structure of an image:
 
 | Section | Length (bytes)             | Data
-| ------- | --------------             | ----
+| ------- | -------------------------- | ----
 | header  | 1                          | magic number `0x21` (marker that signals that this binary is an image)
 | header  | 1                          | BPP (Bits Per Pixel). Either set to `0x01`, `0x02`, or `0x04`
 | header  | 2                          | image width (16-bit, little-endian)
 | header  | 1                          | transparency color. Only lower 4 bits are used
-| header  | `BPP * 2`                  | color palette, with 1 nibble (4 bits) per color
+| header  | `BPP * 2`                  | palette swaps, with 1 nibble (4 bits) per color
 | body    | `width * height * BPP / 8` | image body (rest of the image)
 
-The first 5 bytes + `BPP * 2` bytes together are considered the header.
+The first `5 + BPP * 2` bytes together are considered the header.
 
-## Color
+## Palette swaps
 
-The color palette is an array of colors, where each color is represented as a
-nibble (4 bits).
+Palette swaps map pixels in the image to a color in the [color palette]({{< ref "/dev/graphics/" >}}#-colors). The swaps are stored as 4 bits (a nibble) each and go from 0 to 15 (instead of from 1 to 16 in SDKs).
 
-- With 1 BPP, palette is 1 byte and stores 2 colors
-- With 2 BPP, palette is 2 bytes and stores 4 colors
-- With 4 BPP, palette is 8 bytes and stores 16 colors
+- With 1 BPP, palette is 1 byte and stores 2 colors.
+- With 2 BPP, palette is 2 bytes and stores 4 colors.
+- With 4 BPP, palette is 8 bytes and stores 16 colors.
 
-| Hex   | Binary | Color
-| --:   | ------ | -----
-| `0x0` | `0000` | <span style="background-color: #1A1C2C; min-width: 40px; height: 1em; display: inline-block"></span> #1A1C2C: `Black`
-| `0x1` | `0001` | <span style="background-color: #5D275D; min-width: 40px; height: 1em; display: inline-block"></span> #5D275D: `Purple`
-| `0x2` | `0010` | <span style="background-color: #B13E53; min-width: 40px; height: 1em; display: inline-block"></span> #B13E53: `Red`
-| `0x3` | `0011` | <span style="background-color: #EF7D57; min-width: 40px; height: 1em; display: inline-block"></span> #EF7D57: `Orange`
-| `0x4` | `0100` | <span style="background-color: #FFCD75; min-width: 40px; height: 1em; display: inline-block"></span> #FFCD75: `Yellow`
-| `0x5` | `0101` | <span style="background-color: #A7F070; min-width: 40px; height: 1em; display: inline-block"></span> #A7F070: `LightGreen`
-| `0x6` | `0110` | <span style="background-color: #38B764; min-width: 40px; height: 1em; display: inline-block"></span> #38B764: `Green`
-| `0x7` | `0111` | <span style="background-color: #257179; min-width: 40px; height: 1em; display: inline-block"></span> #257179: `DarkGreen`
-| `0x8` | `1000` | <span style="background-color: #29366F; min-width: 40px; height: 1em; display: inline-block"></span> #29366F: `DarkBlue`
-| `0x9` | `1001` | <span style="background-color: #3B5DC9; min-width: 40px; height: 1em; display: inline-block"></span> #3B5DC9: `Blue`
-| `0xA` | `1010` | <span style="background-color: #41A6F6; min-width: 40px; height: 1em; display: inline-block"></span> #41A6F6: `LightBlue`
-| `0xB` | `1011` | <span style="background-color: #73EFF7; min-width: 40px; height: 1em; display: inline-block"></span> #73EFF7: `Cyan`
-| `0xC` | `1100` | <span style="background-color: #F4F4F4; min-width: 40px; height: 1em; display: inline-block"></span> #F4F4F4: `White`
-| `0xD` | `1101` | <span style="background-color: #94B0C2; min-width: 40px; height: 1em; display: inline-block"></span> #94B0C2: `LightGray`
-| `0xE` | `1110` | <span style="background-color: #566C86; min-width: 40px; height: 1em; display: inline-block"></span> #566C86: `Gray`
-| `0xF` | `1111` | <span style="background-color: #333C57; min-width: 40px; height: 1em; display: inline-block"></span> #333C57: `DarkGray`
-
-These nibbles are then packed together into bytes that form the palette.
-
-Therefore, a color palette for a 2-BPP using `Gray`, `Green`, `Blue`, `Yellow`
-would be represented as:
-
-```
-hex         0xE6     0x94
-binary  11100110 10010100
-```
+Therefore, the representation of a palette swap for a 2-BPP image in the default palette mapping 0 to `Gray` (15-1=0xE), 1 to `Green` (7-1=0x6), 2 to `Blue` (10-1=0x9), and 3 to `Yellow` (5-1=0x4) would be represented as `0xE694`.
 
 ## Transparency
 
-Image transparency is decided by the transparency color.
-Any pixel in the image body that matches the same color as the transparency
-color are considered transparent.
+Image transparency is decided by the transparency color. Any pixel in the image body that matches the same color as the transparency color are considered transparent.
 
-If the transparency color is set to a value greater than or equal to `1 << BPP`,
-then the image is considered to have no transparency. Meaning:
+If the transparency color is set to a value greater than or equal to `1 << BPP`, then the image is considered to have no transparency. Meaning:
 
 - With 1 BPP, if transparency color is `0x02` or higher, then no transparency
 - With 2 BPP, if transparency color is `0x04` or higher, then no transparency
 - With 4 BPP, if transparency color is `0x10` or higher, then no transparency
 
-For images without transparency it is common to use a value of `0xFF`,
-though any value above the threshold are equally valid.
+For images without transparency it is common to use a value of `0xFF`, though any value above the threshold is equally valid.
 
 ## Image body
 
-The image body is a string of pixels whose value reference a color in the
-palette.
+The image body is a string of pixels whose value references a color in the palette swaps.
 
 - With 1 BPP, each 1-bit pixel targets palette color at index `0x0 - 0x1`
 - With 2 BPP, each 2-bit pixel targets palette color at index `0x0 - 0x3`
 - With 4 BPP, each 4-bit pixel targets palette color at index `0x0 - 0xF`
 
-Therefore, a 2x2 pixel image with 2-BPP that uses all 4 colors from the palette
-could be represented by:
+Therefore, a 2x2 pixel image with 2-BPP that uses all 4 colors from the palette could be represented by:
 
-```
+```text
 hex         0x1b
 binary  00011011
 ```
 
-Using the 2-BPP color palette example from above, then the image would look
-like this:
+Using the 2-BPP palette swaps example from above, then the image would look like this in the default palette:
 
 <div class="image-demo"><svg
   xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -124,7 +93,7 @@ like this:
 - body: 2 bytes
 - total: 9 bytes
 
-```
+```text
      ┌► header
 0x21 ┤ ─► magic number (marker that signals that this is an image)
 0x01 ┤ ─► bits per pixel (BPP, either 0x01, 0x02, or 0x04)
@@ -167,7 +136,7 @@ like this:
 - body: 4 bytes
 - total: 13 bytes
 
-```
+```text
      ┌► header
 0x21 ┤ ─► magic number (marker that signals that this is an image)
 0x02 ┤ ─► bits per pixel (BPP, either 0x01, 0x02, or 0x04)
@@ -213,7 +182,7 @@ like this:
 - body: 8 bytes
 - total: 21 bytes
 
-```
+```text
      ┌► header
 0x21 ┤ ─► magic number (marker that signals that this is an image)
 0x04 ┤ ─► bits per pixel (BPP, either 0x01, 0x02, or 0x04)
