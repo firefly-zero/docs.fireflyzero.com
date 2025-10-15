@@ -23,37 +23,67 @@ If you don't, install it from binary releases:
 1. [Download the latest release](https://github.com/firefly-zero/firefly-cli/releases/latest). You need the one containing `-linux-` in the name. If you don't know which one you need, it's probably the one ending with `-x86_64-unknown-linux-gnu.tar.gz`.
 1. Make sure the `~/.local/bin` directory is in your `$PATH`. Open `~/.bashrc` (or `~/.zshrc` if you use zsh) and add at the end the following:
 
-    ```bash
-    export PATH=$PATH:~/.local/bin
-    ```
+   ```bash
+   export PATH=$PATH:~/.local/bin
+   ```
 
 1. Extract the binary and place it into your `$PATH`:
 
-    ```bash
-    cd ~/Downloads
-    tar -xvf ./firefly_cli-*.tar.gz
-    mv ./firefly_cli-*/firefly_cli ~/.local/bin
-    chmod +x ~/.local/bin/firefly_cli
-    ```
+   ```bash
+   cd ~/Downloads
+   tar -xvf ./firefly_cli-*.tar.gz
+   mv ./firefly_cli-*/firefly_cli ~/.local/bin
+   chmod +x ~/.local/bin/firefly_cli
+   ```
 
 1. Verify installation:
 
-    ```bash
-    firefly_cli --version
-    ```
+   ```bash
+   firefly_cli --version
+   ```
 
 {{< /tab >}}
 {{< tab "OS X" >}}
 
 1. [Download the latest release](https://github.com/firefly-zero/firefly-cli/releases/latest). You need the one ending with `-x86_64-apple-darwin.tar.gz`.
-1. Extract files from the archive.
-1. Right click on `firefly_cli` and press `Open`. This will make the binary trusted.
-1. Open the terminal and use the `cd` command to go to the directory containing `firefly_cli`.
-1. Verify intallation:
+1. Extract the files from the archive (this is done automatically).
+1. Right-click on `firefly_cli` and select **Open**.  
+   If it doesn’t open, go to **System Settings > Privacy & Security**.  
+   Under **Gatekeeper**, a message should appear - press **Open Anyway**.
+1. Make sure the `~/.local/bin` directory is in your `$PATH`.
 
-    ```bash
-    ./firefly_cli --version
-    ```
+   ```bash
+   mkdir -p ~/.local/bin
+   echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.zshrc
+   source ~/.zshrc
+   ```
+
+   (If you’re using an older version of macOS or you’ve switched to bash, please use:)
+
+   ```bash
+   echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bash_profile
+   source ~/.bash_profile
+   ```
+
+1. Assuming the file is downloaded in your `Downloads` folder:
+
+   ```bash
+   cd ~/Downloads
+   mv ./firefly_cli-*/firefly_cli ~/.local/bin
+   chmod +x ~/.local/bin/firefly_cli
+   ```
+
+1. Verify the installation:
+
+   ```bash
+   firefly_cli --version
+   ```
+
+   P.S. If you don’t want to type `./` every time you run `firefly_cli`, run the following command in your terminal:
+
+   ```bash
+   alias firefly_cli='~/.local/bin/firefly_cli'
+   ```
 
 {{< /tab >}}
 {{< tab "Windows" >}}
@@ -63,9 +93,9 @@ If you don't, install it from binary releases:
 1. Open the terminal and use the `cd` command to go to the directory containing `firefly_cli`.
 1. Verify intallation:
 
-    ```bash
-    firefly_cli --version
-    ```
+   ```bash
+   firefly_cli --version
+   ```
 
 {{< /tab >}}
 {{< /tabs >}}
@@ -88,18 +118,18 @@ firefly_cli import lux.snek
 1. [Download the latest release](https://github.com/firefly-zero/firefly-emulator-bin/releases/latest). You need the one ending with `-x86_64-unknown-linux.tgz.gz`.
 1. Make sure the `~/.local/bin` directory is in your `$PATH`. Open `~/.bashrc` (or `~/.zshrc` if you use zsh) and add at the end the following:
 
-    ```bash
-    export PATH=$PATH:~/.local/bin
-    ```
+   ```bash
+   export PATH=$PATH:~/.local/bin
+   ```
 
 1. Extract the binary and place it into your `$PATH`:
 
-    ```bash
-    cd ~/Downloads
-    tar -xvf ./firefly-emulator-*.tgz.gz
-    mv ./firefly-emulator ~/.local/bin
-    chmod +x ~/.local/bin/firefly-emulator
-    ```
+   ```bash
+   cd ~/Downloads
+   tar -xvf ./firefly-emulator-*.tgz.gz
+   mv ./firefly-emulator ~/.local/bin
+   chmod +x ~/.local/bin/firefly-emulator
+   ```
 
 1. Launch the emulator: `firefly-emulator`
 
