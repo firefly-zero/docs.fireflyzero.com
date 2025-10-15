@@ -58,12 +58,12 @@ If you don't, install it from binary releases:
    source ~/.zshrc
    ```
 
-   (If you’re using an older version of macOS or you’ve switched to bash, please use:)
+(If you’re on macOS Catalina or older, or if you manually switched your shell to bash, use this instead:)
 
-   ```bash
-   echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bash_profile
-   source ~/.bash_profile
-   ```
+```bash
+echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bash_profile
+source ~/.bash_profile
+```
 
 1. Assuming the file is downloaded in your `Downloads` folder:
 
