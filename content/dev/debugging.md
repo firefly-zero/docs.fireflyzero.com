@@ -15,7 +15,7 @@ This page covers how to find bugs in your apps.
 
 You can add cheat codes to your apps. Cheat codes can be used to put the app into a specific state: jump to a specific level, reset NPCs' positions, set character health, etc.
 
-First, add `[cheats]` table into [`firefly.toml`](https://docs.fireflyzero.com/dev/config/). The table maps cheat code names to numbers that get passed into the app:
+First, add `[cheats]` table into [`firefly.toml`]({{< ref "/dev/config/" >}}). The table maps cheat code names to numbers that get passed into the app:
 
 ```toml
 [cheats]

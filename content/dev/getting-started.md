@@ -111,7 +111,7 @@ In this example, it will create `hello-world` directory and initialize in it a n
 1. Build and install the app: `firefly_cli build`
 1. Run the last built app: `firefly_emulator`
 
-Have troubles using emulator? Check out the [emulator user guide](https://docs.fireflyzero.com/user/emulator/).
+Have troubles using emulator? Check out the [emulator user guide]({{< ref "/user/emulator/" >}}).
 
 ## 📦 Distribute
 
@@ -129,7 +129,7 @@ Have troubles using emulator? Check out the [emulator user guide](https://docs.f
 
 There are several things you should know to make a game:
 
-1. How the runtime works in general. Start by reading about [firefly.toml](https://docs.fireflyzero.com/dev/config/) and then go through all other pages in this documentation in order.
+1. How the runtime works in general. Start by reading about [firefly.toml]({{< ref "/dev/config/" >}}) and then go through all other pages in this documentation in order.
 1. What functions the SDK for the programming language that you choose provides:
     1. [🦀 Rust](https://docs.rs/firefly-rust/latest/firefly_rust/)
     1. [🏃 Go](https://pkg.go.dev/github.com/firefly-zero/firefly-go)

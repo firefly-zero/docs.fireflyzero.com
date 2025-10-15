@@ -22,7 +22,7 @@ There are also Menu and Power buttons but regular apps don't have access to thes
 
 The `read_buttons` function returns which buttons are currently pressed. The SDKs also provide convenience methods to compare two states to get which buttons were just pressed or just released.
 
-The function requires a `Peer` argument. It defines which input should be read in multiplayer and is covered in more details on the [Multiplayer](https://docs.fireflyzero.com/dev/net/) page. For a simple single-player game, you can ask it for a combined input from all devices (which is in a single-player game just the input from a single device):
+The function requires a `Peer` argument. It defines which input should be read in multiplayer and is covered in more details on the [Multiplayer]({{< ref "/dev/net/" >}}) page. For a simple single-player game, you can ask it for a combined input from all devices (which is in a single-player game just the input from a single device):
 
 {{< tabs >}}
 {{< tab "Rust" >}}
