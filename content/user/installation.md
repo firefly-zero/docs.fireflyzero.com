@@ -79,12 +79,6 @@ If you don't, install it from binary releases:
    firefly_cli --version
    ```
 
-   P.S. If you don’t want to type `./` every time you run `firefly_cli`, run the following command in your terminal:
-
-   ```bash
-   alias firefly_cli='~/.local/bin/firefly_cli'
-   ```
-
 {{< /tab >}}
 {{< tab "Windows" >}}
 
