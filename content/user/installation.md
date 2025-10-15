@@ -46,7 +46,7 @@ If you don't, install it from binary releases:
 {{< tab "OS X" >}}
 
 1. [Download the latest release](https://github.com/firefly-zero/firefly-cli/releases/latest). You need the one ending with `-x86_64-apple-darwin.tar.gz`.
-1. Extract the files from the archive (this is done automatically).
+1. Extract the files from the archive.
 1. Right-click on `firefly_cli` and select **Open**.  
    If it doesn’t open, go to **System Settings > Privacy & Security**.  
    Under **Gatekeeper**, a message should appear - press **Open Anyway**.
@@ -58,17 +58,18 @@ If you don't, install it from binary releases:
    source ~/.zshrc
    ```
 
-(If you’re on macOS Catalina or older, or if you manually switched your shell to bash, use this instead:)
+   (If you’re on macOS Catalina or older, or if you manually switched your shell to bash, use this instead:)
 
-```bash
-echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bash_profile
-source ~/.bash_profile
-```
+   ```bash
+   echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bash_profile
+   source ~/.bash_profile
+   ```
 
 1. Assuming the file is downloaded in your `Downloads` folder:
 
    ```bash
    cd ~/Downloads
+   tar -xvf ./firefly_cli-*.tar.gz
    mv ./firefly_cli-*/firefly_cli ~/.local/bin
    chmod +x ~/.local/bin/firefly_cli
    ```
