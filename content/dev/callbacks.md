@@ -35,7 +35,7 @@ This is how you can define a callback:
 {{< tab "Rust" >}}
 
 ```rust
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern fn update() {
     todo!("do something here");
 }
@@ -106,18 +106,20 @@ struct State {
 }
 
 fn get_state() -> &'static mut State {
+    #[allow(static_mut_refs)]
     unsafe { STATE.get_mut() }.unwrap()
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern fn boot() {
     let state = State {
         font: load_file_buf("font"),
     };
+    #[allow(static_mut_refs)]
     unsafe { STATE.set(state) }.ok().unwrap();
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 extern fn render() {
     let state = get_state();
     let font = state.font.as_font();
