@@ -9,21 +9,21 @@ params:
 
 ## 👉 Pick the language
 
-Firefly Zero supports lots of programming languages. For simple apps and games, it's a good idea to stick to what you already know. But if you're ready to learn something new for better results, there are some recommendations:
+Firefly Zero supports lots of programming languages:
 
-1. [⚡️ Zig](https://ziglang.org/) is simple and gives the best performance but you need to be careful to avoid bugs and memory leaks.
-1. [🦀 Rust](https://www.rust-lang.org/) gives performance close to Zig and it's hard to use it wrong, but it's also the most difficult language to learn on the list.
-1. [🏃 Go](https://go.dev/) is slower than Rust or Zig but very simple to use and doesn't have memory leaks.
-1. (⌛ Coming soon) More languages.
+* 🦀 Rust
+* 🏃 Go
+* 🐀 C and C++
+* ⚡️ Zig
+* 🐰 MoonBit
 
-Subjective comparison:
+Experimental:
 
-| Language | Simplicity | Performance | Safety  |
-| -------- | ---------- | ----------- | --------|
-| 🏃 Go    | 🔨 4/5     | 🐇 4/5      | 🔐 4/5  |
-| 🦀 Rust  | 🔬 1/5     | 🐎 5/5      | 🔒 5/5  |
-| ⚡️ Zig    | 💻 3/5     | 🐎 5/5      | 🔓 2/5  |
-| 🐀 C     | 💻 3/5     | 🐎 5/5      | 😕 1/5  |
+* 🌙 Lua
+* 🧪 Elixir
+* ⌛ Coming soon: more languages (Python, JS, Kotlin).
+
+For simple apps and games, it's a good idea to stick to what you already know. But if you're ready to learn something new for better results, we recommend using Go. It's easy to learn, sufficiently fast, and memory-safe.
 
 ## 📥 Install tools
 
@@ -58,6 +58,18 @@ The preferred way to build a C (or C++) app is using [wasi-sdk](https://github.c
 1. Go to [wasi-sdk releases](https://github.com/WebAssembly/wasi-sdk/releases).
 1. Download and install the latest release for your OS.
 1. This should install wasi-sdk into `/opt/wasi-sdk`. If you used an alternative installation method and installed wasi-sdk in a different place, provide the absolute path to it in the `WASI_SDK_PATH` environment variable.
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```bash
+curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+Nothing to install for Lua, you're ready to go!
 
 {{< /tab >}}
 {{< /tabs >}}
@@ -102,6 +114,20 @@ firefly_cli new --lang=cpp hello-world
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```bash
+firefly_cli new --lang=moon hello-world
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```bash
+firefly_cli new --lang=lua hello-world
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 In this example, it will create `hello-world` directory and initialize in it a new app called `hello-world` using your chosen programming language. Don't think about it too hard, you can later change the project name in the config (`hello-world/firefly.toml`).
@@ -130,8 +156,61 @@ Have troubles using emulator? Check out the [emulator user guide]({{< ref "/user
 There are several things you should know to make a game:
 
 1. How the runtime works in general. Start by reading about [firefly.toml]({{< ref "/dev/config/" >}}) and then go through all other pages in this documentation in order.
-1. What functions the SDK for the programming language that you choose provides:
-    1. [🦀 Rust](https://docs.rs/firefly-rust/latest/firefly_rust/)
-    1. [🏃 Go](https://pkg.go.dev/github.com/firefly-zero/firefly-go)
-    1. [🐀 C](https://github.com/firefly-zero/firefly-c)
 1. How to make games and what patterns make it easier. We recommend reading [Game Programming Patterns](http://gameprogrammingpatterns.com/contents.html).
+
+And take a look at resources for your language:
+
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+* [SDK source code](https://github.com/firefly-zero/firefly-rust)
+* [SDK API docs](https://docs.rs/firefly-rust/latest/firefly_rust/)
+* [Learn Rust](https://doc.rust-lang.org/stable/book/)
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+* [SDK source code](https://github.com/firefly-zero/firefly-go)
+* [SDK API docs](https://pkg.go.dev/github.com/firefly-zero/firefly-go)
+* [Learn Go](https://gobyexample.com/)
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+* [SDK source code](https://github.com/firefly-zero/firefly-zig)
+* [Learn Zig](https://zig.guide/)
+
+{{< /tab >}}
+{{< tab "C" >}}
+
+* [SDK source code](https://github.com/firefly-zero/firefly-c)
+* [Learn C](https://www.w3schools.com/c/c_intro.php)
+
+{{< /tab >}}
+{{< tab "C++" >}}
+
+* [SDK source code](https://github.com/firefly-zero/firefly-c)
+* [Learn C++](https://www.w3schools.com/cpp/cpp_intro.asp)
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+* [SDK source code](https://github.com/firefly-zero/firefly-moon)
+* [SDK API docs](https://mooncakes.io/docs/applejag/firefly)
+* [Learn MoonBit](https://docs.moonbitlang.com/en/latest/language/fundamentals.html)
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+* [SDK source code](https://github.com/firefly-zero/firefly-lua)
+* [Learn Lua](https://www.tutorialspoint.com/lua/index.htm)
+
+{{< /tab >}}
+{{< tab "Elixir" >}}
+
+* [SDK source code](https://github.com/firefly-zero/firefly-elixir)
+* [Elixir WebAssembly compiler](https://github.com/RoyalIcing/Orb)
+* [Learn Elixir](https://elixirschool.com/en/lessons/basics/basics)
+
+{{< /tab >}}
+{{< /tabs >}}
