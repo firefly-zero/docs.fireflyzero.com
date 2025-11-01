@@ -29,6 +29,15 @@ Remember: update state from `update`, draw things on the screen from `render`.
 
 {{< /hint >}}
 
+{{< hint info >}}
+**What about `main`?**
+
+Many programming languages allow you to define `main` function that runs at the app startup, and Go also has `init`. These functions will also be executed just before `boot`. The difference is that when global variables, `init`, and `main` are executed, you can't call Firefly runtime functions, like `load_file`. And `boot` does have access to all runtime functions, so it's the first place where you can load assets.
+
+Because of that, we recommend to keep you code simple and do all initialization logic in `boot`. If you programming language requires you to define `main`, keep it empty.
+
+{{< /hint >}}
+
 This is how you can define a callback:
 
 {{< tabs >}}
