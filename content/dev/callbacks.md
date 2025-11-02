@@ -85,6 +85,36 @@ UPDATE void update()
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+pub fn update() -> Unit {
+    ...
+}
+```
+
+and then in `moon.pkg.json`:
+
+```json
+{
+  "link": {
+    "wasm": {
+      "exports": ["update"]
+    }
+  }
+}
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+function update()
+    -- ...
+end
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 🌍 Global state
@@ -136,7 +166,7 @@ extern fn render() {
         "hello",
         &font,
         Point {x: 20, y: 10},
-        Color::Dark,
+        Color::Red,
     );
 }
 ```
@@ -165,7 +195,7 @@ func render() {
         "hello",
         font,
         firefly.Point{X: 20, Y: 10},
-        ColorDark,
+        ColorRed,
     )
 }
 
@@ -205,6 +235,46 @@ RENDER void render()
 {
     // TODO
 }
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+using @firefly {type Point}
+
+let font : Ref[@firefly.Font] = Ref::new(@firefly.Font::default())
+
+pub fn boot() -> Unit {
+  font.val = @firefly.load_file("eg_6x12.fff").unwrap().as_font()
+}
+
+pub fn render() -> Unit {
+    @firefly.draw_text(
+        "hello",
+        my_font.val,
+        Point::new(30, 20),
+        Red,
+    )
+}
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+function boot()
+    font = firefly.load_file("font")
+end
+
+function render()
+    firefly.draw_text(
+        "hello",
+        font,
+        {x=20, y=10},
+        firefly.RED,
+    );
+end
 ```
 
 {{< /tab >}}

@@ -74,10 +74,11 @@ Does your app require a complicated build process? No problem! There are a few w
 
 1. The `compile_args` option allows you to pass additional CLI arguments in the build command that firefly_cli invokes internally. For most compilers, it will be added at the end of all the default arguments. But for some compilers, like C/C++ (wasi-sdk), it will overwrite some of the defaults.
 1. Language-specific configuration files:
-    1. **Rust**: binary builds can be customized using `Cargo.toml` (see [Cargo Targets](https://doc.rust-lang.org/cargo/reference/cargo-targets.html)) and `.cargo/config.toml` (see [Cargo Configuration](https://doc.rust-lang.org/cargo/reference/config.html)).
-    1. **Go**: you can create a `target.json` file in the root of your project. It will fully replace [the default `target.json`](https://github.com/firefly-zero/firefly-cli/blob/main/src/target.json) used by firefly_cli. See [Important Build Options](https://tinygo.org/docs/reference/usage/important-options/).
-    1. **Zig**: you can create a `build.zig` file in the root of your project. It will fully replace the default `build.zig` used by firefly_cli.
-    1. **C/C++**: clang doesn't have a build configuration file. Use other ways to customize the build.
+    1. **🦀 Rust**: binary builds can be customized using `Cargo.toml` (see [Cargo Targets](https://doc.rust-lang.org/cargo/reference/cargo-targets.html)) and `.cargo/config.toml` (see [Cargo Configuration](https://doc.rust-lang.org/cargo/reference/config.html)).
+    1. **🏃 Go**: you can create a `target.json` file in the root of your project. It will fully replace [the default `target.json`](https://github.com/firefly-zero/firefly-cli/blob/main/src/target.json) used by firefly_cli. See [Important Build Options](https://tinygo.org/docs/reference/usage/important-options/).
+    1. **⚡️ Zig**: you can create a `build.zig` file in the root of your project. It will fully replace the default `build.zig` used by firefly_cli.
+    1. **🐀 C/C++**: clang doesn't have a build configuration file. Use other ways to customize the build.
+    1. **🐰 MoonBit**: see [Package Configuration](https://docs.moonbitlang.com/en/latest/toolchain/moon/package.html).
 1. Lastly, you can build the wasm binary yourself in whatever way works for you. It is especially useful when developing a new SDK for a not yet supported language. Tell firefly_cli to copy your binary as `_bin` file, and it will skip the compilation step:
 
     ```toml
