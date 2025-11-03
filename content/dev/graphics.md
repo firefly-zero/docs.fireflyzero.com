@@ -460,4 +460,11 @@ using @firefly {type Point}
 ```
 
 {{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+firefly.draw_image(canvas, {x=10, y=10})
+```
+
+{{< /tab >}}
 {{< /tabs >}}
