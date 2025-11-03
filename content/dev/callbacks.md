@@ -246,7 +246,7 @@ using @firefly {type Point}
 let font : Ref[@firefly.Font] = Ref::new(@firefly.Font::default())
 
 pub fn boot() -> Unit {
-  font.val = @firefly.load_file("eg_6x12.fff").unwrap().as_font()
+  font.val = @firefly.load_file("font").unwrap().as_font()
 }
 
 pub fn render() -> Unit {

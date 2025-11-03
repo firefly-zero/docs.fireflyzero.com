@@ -98,9 +98,23 @@ set_color(RED, color);
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+@firefly.set_color(Color::Red, RGB::new(0xff, 0x00, 0x00))
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+firefly.set_color(firefly.RED, {r=0xff, g=0x00, b=0x00})
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
-Looking for inspiration? Check out [lospec.com](https://lospec.com/palette-list/) for nice-looking color palettes.
+See [palettes.fireflyzero.com](https://palettes.fireflyzero.com/) for the list of popular color palettes and code snippets for setting them up.
 
 ## 🔳 Shapes
 
@@ -202,6 +216,39 @@ draw_triangle(
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+using @firefly {type Point, type Style};
+@firefly.draw_triangle(
+    Point::new(60, 10),
+    Point::new(40, 40),
+    Point::new(80, 40),
+    Style::{
+        fill_color: LightGray,
+        stroke_color: DarkBlue,
+        stroke_width: 1,
+    },
+)
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+firefly.draw_triangle(
+    {x=60, y=10},
+    {x=40, y=40},
+    {x=80, y=40},
+    {
+        fill_color=firefly.LIGHT_GRAY,
+        stroke_color=firefly.DARK_BLUE,
+        stroke_width=1,
+    },
+)
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 📸 Images
@@ -231,7 +278,7 @@ Next, load the image from ROM into the memory:
 {{< tab "Rust" >}}
 
 ```rust
-let file = firefly_rust::load_buf("img");
+let file = firefly_rust::load_file_buf("img");
 ```
 
 {{< /tab >}}
@@ -260,6 +307,20 @@ const size_t fileSize = 97;
 char head[fileSize];
 Buffer buf = {.head = head, .size = fileSize};
 image = load_file("img", buf);
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+let file = @firefly.load_file("img");
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+file = firefly.load_file("img");
 ```
 
 {{< /tab >}}
@@ -326,6 +387,26 @@ firefly.UnsetCanvas()
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+using @firefly {type Canvas, type Size}
+
+let canvas = Canvas::new(Size::new(120, 120))
+@firefly.set_canvas(canvas)
+// fill canvas with white color
+@firefly.clear_screen(White)
+@firefly.unset_canvas()
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+-- TODO: Canvas not supported by Lua yet
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 {{< hint warning >}}
@@ -368,6 +449,14 @@ draw_image(canvas, point);
 
 ```c++
 draw_image(canvas, {10, 10});
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+using @firefly {type Point}
+@firefly.draw_image(canvas.as_image(), Point::new(10, 10))
 ```
 
 {{< /tab >}}
