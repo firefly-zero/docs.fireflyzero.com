@@ -147,8 +147,8 @@ if (pad.touched)
 using @firefly {type Peer}
 let maybe_pad = @firefly.read_pad(Peer::combined())
 match maybe_pad {
-    Some(pad) => ...,
-    None => ...,
+  Some(pad) => ...,
+  None => ...,
 }
 ```
 
@@ -156,8 +156,8 @@ match maybe_pad {
 {{< tab "Lua" >}}
 
 ```lua
-local pad = firefly.read_pad(firefly.COMBINED);
-if pad do
+pad = firefly.read_pad(firefly.COMBINED);
+if pad then
     -- ...
 end
 ```

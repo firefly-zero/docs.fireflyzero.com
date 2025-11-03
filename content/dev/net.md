@@ -55,6 +55,23 @@ Buttons buttons = read_buttons(COMBINED);
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+using @firefly {type Peer}
+let pad = @firefly.read_pad(Peer::combined())
+let buttons = @firefly.read_buttons(Peer::combined())
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+pad = firefly.read_pad(firefly.COMBINED);
+buttons = firefly.read_buttons(firefly.COMBINED);
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 The second option is to read and handle each input individually. This is the best option for when you want to provide a custom logic for multiplayer.
@@ -112,6 +129,31 @@ for (peer = 0; peer < 32; peer++) {
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+using @firefly {type Peer}
+let peers = @firefly.get_peers().to_array()
+for peer in peers {
+    let pad = @firefly.read_pad(peer)
+    let buttons = @firefly.read_buttons(peer)
+    ...
+}
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+peers = firefly.get_peers()
+for i = 1,#peers do
+    peer = peers[i]
+    pad = firefly.read_pad(peer);
+    buttons = firefly.read_buttons(peer);
+end
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 💾 Handling files
@@ -162,6 +204,27 @@ if (stash.size != 0)
 {
     save_stash(peer, stash);
 }
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+let buf = FixedArray::make(4, 0)
+let stash = @firefly.load_stash(peer, buf)
+if stash.length() != 0 {
+    @firefly.save_stash(peer, buf)
+}
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+stash = firefly.load_stash(peer)
+if length(stash) != 0 then
+    firefly.save_stash(peer, stash);
+end
 ```
 
 {{< /tab >}}
@@ -237,6 +300,33 @@ for (peer = 0; peer < 32; peer++) {
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+let peers = @firefly.get_peers()
+let me = @firefly.get_me()
+for peer in peers {
+    if peer == me {
+        ...
+    }
+}
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+peers = firefly.get_peers()
+me = firefly.get_me()
+for i = 1,#peers do
+    local peer = peers[i]
+    if peer == me then
+        -- ...
+    end
+end
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 ## 🥇 Peers' order
@@ -277,6 +367,24 @@ const idx = ff.getRandom() % peers.len();
 ```c
 Peer peers = get_peers();
 // TODO
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+let peers = @firefly.get_peers()
+let idx = @firefly.get_random() % peers.length()
+let peer = peers.to_array()[idx]
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+local peers = firefly.get_peers()
+local idx = firefly.get_random() % #peers
+local peer = peers[idx]
 ```
 
 {{< /tab >}}
