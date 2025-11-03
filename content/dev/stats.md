@@ -222,6 +222,6 @@ firefly_cli badges lux.snek
 firefly_cli boards lux.snek
 ```
 
-In the near future, you'll be able to also view badges (with progress) and boards (with scores) in the launcher.
+You can also see badges, boards, and scores in the launcher in "app info".
 
 If you want to display during the game a message when the player earns a badge, you'll need to implement it in the game yourself. Compare the old and the new value returned by `add_progress` to see if the badge was earned just now.

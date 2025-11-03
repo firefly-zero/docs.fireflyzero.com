@@ -54,6 +54,21 @@ Buttons buttons = read_buttons(COMBINED);
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+using @firefly {type Peer}
+let buttons = @firefly.read_buttons(Peer::combined());
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+buttons = firefly.read_buttons(firefly.COMBINED);
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 ## Buttons best practice
@@ -123,6 +138,28 @@ if (pad.touched)
 {
     // ...
 }
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+using @firefly {type Peer}
+let maybe_pad = @firefly.read_pad(Peer::combined())
+match maybe_pad {
+    Some(pad) => ...,
+    None => ...,
+}
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+local pad = firefly.read_pad(firefly.COMBINED);
+if pad do
+    -- ...
+end
 ```
 
 {{< /tab >}}
