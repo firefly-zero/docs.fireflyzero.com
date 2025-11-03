@@ -45,7 +45,7 @@ This is how you can define a callback:
 
 ```rust
 #[unsafe(no_mangle)]
-extern fn update() {
+extern "C" fn update() {
     todo!("do something here");
 }
 ```
@@ -150,7 +150,7 @@ fn get_state() -> &'static mut State {
 }
 
 #[unsafe(no_mangle)]
-extern fn boot() {
+extern "C" fn boot() {
     let state = State {
         font: load_file_buf("font"),
     };
@@ -159,7 +159,7 @@ extern fn boot() {
 }
 
 #[unsafe(no_mangle)]
-extern fn render() {
+extern "C" fn render() {
     let state = get_state();
     let font = state.font.as_font();
     draw_text(

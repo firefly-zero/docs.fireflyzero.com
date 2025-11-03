@@ -25,8 +25,8 @@ Turn your volume down. Loud sounds may damage your hearing. Also, when you exper
 #![no_main]
 use firefly_rust::audio;
 
-#[no_mangle]
-extern fn boot() {
+#[unsafe(no_mangle)]
+extern "C" fn boot() {
     audio::OUT.add_sine(audio::Freq::A4, 0.);
 }
 ```

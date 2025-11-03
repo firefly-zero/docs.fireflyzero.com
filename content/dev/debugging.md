@@ -29,8 +29,8 @@ Next, define the `cheat` callback in the app:
 {{< tab "Rust" >}}
 
 ```rust
-#[no_mangle]
-extern fn cheat(cmd: i32, val: i32) -> i32 {
+#[unsafe(no_mangle)]
+extern "C" fn cheat(cmd: i32, val: i32) -> i32 {
     match cmd {
         1 => get_health(),
         2 => {
