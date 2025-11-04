@@ -105,6 +105,38 @@ CHEAT int32_t cheat(int32_t cmd, int32_t val) {
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+pub fn cheat(cmd: Int, val: Int) -> Int {
+    match cmd {
+        1 => get_health(),
+        2 => {
+            set_health(val)
+            1
+        },
+        _ => 0,
+    }
+}
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+function cheat(cmd, val)
+    if cmd == 1 then
+        return get_health()
+    end
+    if cmd == 2 then
+        set_health(val)
+        return 1
+    end
+    return 0
+end
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 Now, you can send cheat codes into a running app using the CLI:
@@ -199,6 +231,28 @@ log_debug("after bar");
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+@firefly.log_debug("before foo")
+foo()
+@firefly.log_debug("before bar")
+bar()
+@firefly.log_debug("after bar")
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+firefly.log_debug("before foo")
+foo()
+firefly.log_debug("before bar")
+bar()
+firefly.log_debug("after bar")
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 If you see in logs the message printed before the call but not after, your suspicion is correct and you found the point of failure. You can then print values of all variables before the failure to see which input causes the issues.
@@ -264,3 +318,13 @@ You're trying to build a Rust app that requires a global allocator but you don't
 ```toml
 firefly-rust = { version = "*", features = ["talc"] }
 ```
+
+> runtime error: error calling boot: all fuel consumed by WebAssembly.
+
+The app has reached the maximum number of instructions that can be executed in a single call. The limit is here to prevent the device from freezing and not responding any user input.
+
+Reaching the limit means that the callback function (in the example above, `boot`) does too many things which would freeze the device. Possible solutions:
+
+1. Optimize the code.
+1. Delay some logic. For example, instead of loading all assets for all levels at startup, load only assets required for one level when the level is launched.
+1. Split the heavy operation to several steps executed across multiple calls and show a progress bar.
