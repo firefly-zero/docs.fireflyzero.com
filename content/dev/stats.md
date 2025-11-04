@@ -74,6 +74,26 @@ const Badge EAT_100_APPLES = 3;
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+using @firefly {type Badge}
+
+let BITE_SELF: Badge = Badge::new(1)
+let BITE_OTHER: Badge = Badge::new(2)
+let EAT_100_APPLES: Badge = Badge::new(3)
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+BITE_SELF = 1
+BITE_OTHER = 2
+EAT_100_APPLES = 3
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 When a relevant event happens in the game, call `add_progress` with 3 arguments:
@@ -106,8 +126,22 @@ const progress = ff.addProgress(peer, eat100Apples, 1);
 {{< /tab >}}
 {{< tab "C/C++" >}}
 
-```rust
+```c
 Progress progress = add_progress(peer, EAT_100_APPLES, 1);
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+let progress = @firefly.add_progress(peer, EAT_100_APPLES, 1)
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+local progress = firefly.add_progress(peer, EAT_100_APPLES, 1)
 ```
 
 {{< /tab >}}
@@ -176,6 +210,24 @@ const Board LEVEL_BEGIN = 2;
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+using @firefly {type Board}
+
+let LEVEL_INTRO: Board = Board::new(1)
+let LEVEL_BEGIN: Board = Board::new(2)
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+LEVEL_INTRO = 1
+LEVEL_BEGIN = 2
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 Use `add_score` to put a player's score on the given board:
@@ -206,6 +258,20 @@ const best = ff.addScore(peer, levelIntro, 100);
 
 ```c
 Score best = add_score(peer, LEVEL_INTRO, 100);
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+let best = @firefly.add_score(peer, LEVEL_INTRO, 100)
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+local best = firefly.add_score(peer, LEVEL_INTRO, 100)
 ```
 
 {{< /tab >}}
