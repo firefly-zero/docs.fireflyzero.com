@@ -1,5 +1,5 @@
 <ul>
-  {{ range .Page.Pages.ByTitle }}
+  {{ range .Page.Pages.ByWeight }}
     <li style="list-style-type: none;">
       <a href="{{ .RelPermalink }}">
         {{- partial "docs/menu-title" . -}}
