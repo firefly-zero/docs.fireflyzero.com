@@ -89,6 +89,14 @@ ff.setColor(
 ```
 
 {{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+import * as ff from "firefly-as/assembly";
+ff.setColor(ff.Color.Red, ff.RGB.new(255, 0, 0));
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -185,6 +193,18 @@ ff.drawTriangle(
         .stroke_color = ff.Color.dark_blue,
         .stroke_width = 1,
     },
+);
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+ff.drawTriangle(
+    ff.Point.new(60, 10),
+    ff.Point.new(40, 40),
+    ff.Point.new(80, 40),
+    ff.Style.new(ff.Color.LightGray, ff.Color.DarkBlue, 1)
 );
 ```
 
@@ -296,6 +316,13 @@ const file = ff.loadFile("img");
 ```
 
 {{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+const file = ff.loadFile("img");
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -380,6 +407,17 @@ firefly.UnsetCanvas()
 ```
 
 {{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+const canvas = ff.Canvas.new(ff.Size.new(120, 120));
+ff.setCanvas(canvas);
+// fill canvas with white color
+ff.clearScreen(ff.Color.White);
+ff.unsetCanvas();
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -434,6 +472,13 @@ firefly.DrawImage(canvas.Image(), firefly.Point{ X: 10, Y: 10 })
 
 ```zig
 ff.drawImage(canvas.image(), ff.Point{ .x = 10, .y = 10 })
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+ff.drawImage(canvas.toImage(), ff.Point.new(10, 10));
 ```
 
 {{< /tab >}}

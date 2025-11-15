@@ -16,6 +16,7 @@ Firefly Zero supports lots of programming languages:
 * 🐀 C and C++
 * ⚡️ Zig
 * 🐰 MoonBit
+* 🟦 AssemblyScript (a subset of TypeScript)
 
 Experimental:
 
@@ -49,6 +50,11 @@ rustup target add wasm32-unknown-unknown
 {{< tab "Zig" >}}
 
 [Install Zig](https://ziglang.org/download/). Make sure to select the latest stable release, NOT a "master" build.
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+[Install Node.js and npm](https://nodejs.org/en/download/current).
 
 {{< /tab >}}
 {{< tab "C/C++" >}}
@@ -97,6 +103,13 @@ firefly_cli new --lang=go hello-world
 
 ```bash
 firefly_cli new --lang=zig hello-world
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```bash
+firefly_cli new --lang=as hello-world
 ```
 
 {{< /tab >}}
@@ -179,6 +192,12 @@ And take a look at resources for your language:
 
 * [SDK source code](https://github.com/firefly-zero/firefly-zig)
 * [Learn Zig](https://zig.guide/)
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+* [SDK source code](https://github.com/firefly-zero/firefly-as)
+* [Learn AssemblyScript](https://www.assemblyscript.org/concepts.html)
 
 {{< /tab >}}
 {{< tab "C" >}}

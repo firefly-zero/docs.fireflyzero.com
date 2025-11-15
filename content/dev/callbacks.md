@@ -17,6 +17,8 @@ Firefly Zero supports the following callbacks:
 1. `update` is called ~60 times per second. It is guaranteed to be never called more often, and it won't be called less often if the game doesn't consume too much resources. This is the best place to update the state of objects, position of NPCs, read and handle user input, etc.
 1. `render` is called before updating the image on the screen. It might be called less often than `update` if the device sees that the game is slow and needs more resources. This is the best place to call all drawing functions.
 1. `before_exit` is called before the app is closed.
+1. `cheat` handles cheat codes (see [Cheat codes]({{< ref "/dev/debugging/" >}}#-cheat-codes)).
+1. `handle_menu` is called when a custom menu item is selected.
 
 {{< hint warning >}}
 **Use the right callback!**
@@ -68,6 +70,15 @@ func update() {
 
 ```zig
 pub export fn update() void {
+    // ...
+}
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+export function update(): void {
     // ...
 }
 ```
@@ -219,6 +230,31 @@ pub export fn render() void {
 ```
 
 {{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+import * as ff from "firefly-as/assembly";
+
+let font: ff.Font;
+
+export function boot(): void {
+    const file = ff.loadFile("img");
+    if (file !== null) {
+        font = file.toFont();
+    }
+}
+
+export function render(): void {
+    ff.drawText(
+        "oh hi mark",
+        font,
+        ff.Point.new(50, 20),
+        ff.Color.DarkGray,
+    );
+}
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -246,7 +282,7 @@ using @firefly {type Point}
 let font : Ref[@firefly.Font] = Ref::new(@firefly.Font::default())
 
 pub fn boot() -> Unit {
-  font.val = @firefly.load_file("font").unwrap().as_font()
+    font.val = @firefly.load_file("font").unwrap().as_font()
 }
 
 pub fn render() -> Unit {

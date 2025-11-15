@@ -47,6 +47,14 @@ const buttons = ff.readButtons(ff.Peer.combined);
 ```
 
 {{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+const pad = ff.readPad(ff.Peer.combined());
+const buttons = ff.readButtons(ff.Peer.combined());
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -108,6 +116,18 @@ for _, peer := range peers.Slice() {
 var peers = ff.getPeers().iter();
 while (peers.next()) |peer| {
     const maybePad = ff.readPad(peer);
+    const buttons = ff.readButtons(peer);
+    // ...
+}
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+const peers = getPeers().toArray();
+for (const peer in peers) {
+    const pad = ff.readPad(peer);
     const buttons = ff.readButtons(peer);
     // ...
 }
@@ -192,6 +212,16 @@ if stash != nil {
 var maybeStash = ff.loadStash(peer, buf);
 if (maybeStash) |stash| {
     ff.saveStash(peer, stash)
+}
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+const stash = ff.loadStash(peer, buf);
+if (stash !== null) {
+    ff.saveStash(peer, stash);
 }
 ```
 
@@ -281,6 +311,19 @@ const me = ff.getMe();
 var peers = ff.getPeers().iter();
 while (peers.next()) |peer| {
     if (peer.eq(me)) {
+        // ...
+    }
+}
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+const me = ff.getMe();
+const peers = ff.getPeers().toArray();
+for (const peer in peers) {
+    if (peer === me) {
         // ...
     }
 }

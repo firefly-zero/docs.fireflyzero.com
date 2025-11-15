@@ -47,6 +47,13 @@ const buttons = ff.readButtons(ff.Peer.combined);
 ```
 
 {{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+const buttons = ff.readButtons(ff.Peer.combined());
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -125,6 +132,16 @@ if pressed {
 ```zig
 const maybePad = ff.readPad(ff.Peer.combined);
 if (maybePad) |pad| {
+    // ...
+}
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+const pad = ff.readPad(ff.Peer.combined());
+if (pad !== null) {
     // ...
 }
 ```

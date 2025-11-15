@@ -88,6 +88,22 @@ pub export fn cheat(cmd: i32, val: i32) i32 {
 ```
 
 {{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+export function cheat(cmd: i32, val: i32): i32 {
+    if (cmd === 1) {
+        return getHealth();
+    }
+    if (cmd === 2) {
+        setHealth(val);
+        return 1;
+    }
+    return 0;
+}
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -212,6 +228,18 @@ firefly.LogDebug("after bar")
 
 ```zig
 const ff = @import("firefly");
+ff.logDebug("before foo");
+foo();
+ff.logDebug("before bar");
+bar();
+ff.logDebug("after bar");
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+import * as ff from "firefly-as/assembly";
 ff.logDebug("before foo");
 foo();
 ff.logDebug("before bar");
