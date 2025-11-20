@@ -1,6 +1,6 @@
 ---
 title: Terms
-weight: 60
+weight: 65
 params:
   art: /terms.png
   icon: fa-solid fa-book
