@@ -20,7 +20,8 @@ Release order (skip project that had no changes in the sprint):
 1. firefly-io
 1. [firefly-hal](https://github.com/firefly-zero/firefly-hal)
 1. firefly-runtime
-1. firefly-emulator and firefly-main
+1. firefly-emulator, firefly-main, and firefly-test
 1. [firefly-cli](https://github.com/firefly-zero/firefly-cli)
 1. system apps (launcher, input-test, etc.)
 1. other official apps and games
+1. docs
