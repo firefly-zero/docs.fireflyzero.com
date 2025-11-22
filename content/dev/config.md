@@ -26,6 +26,7 @@ Optional:
 * `files` (table): covered below.
 * `badges` (table): see [Badges and scores]({{< ref "stats.md#-badges" >}}).
 * `boards` (table): see [Badges and scores]({{< ref "stats.md#-boards" >}}).
+* `palettes` (table): see [Images]({{< ref "graphics.md#-images" >}}).
 
 ## files
 
@@ -39,6 +40,7 @@ The value is an inline table that may have the following keys:
 * `url` (string): the URL from which to download the file if it doesn't exist in `path`.
 * `sha256` (string): the [SHA-256](https://en.wikipedia.org/wiki/SHA-2) hash of the file. Validated only when downloading the file from the `url`. If the specified hash doesn't match the actual one, the `build` command will fail. It's not required but recommended to always include it if you specify `url`.
 * `copy` (bool): set to `true` to copy the file as-is without any modifications. If not specified, the `build` command will try to convert the file into a native format. For example, PNG images will be converted into the native Firefly image format.
+* `palette` (string): the name of the color palette to use for parsing the image.
 
 There are a few file names that have a special meaning:
 
