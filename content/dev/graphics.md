@@ -355,6 +355,22 @@ file = firefly.load_file("img");
 
 Lastly, call `draw_image` with the image you loaded earlier.
 
+If the image uses a custom color palette, you can add the palette into the `palettes` table in `firefly.toml` and reference it in the `file`:
+
+```toml
+# https://lospec.com/palette-list/pico-8
+[palettes.pico-8]
+1 = 0x000000
+2 = 0x1D2B53
+3 = 0x7E2553
+# ...
+
+[files]
+img = { path = "image.png", palette = "pico-8" }
+```
+
+Just like for the runtime palette definitions, `firefly.toml` snippets for some color palettes are available at [palettes.fireflyzero.com](https://palettes.fireflyzero.com/).
+
 ## 🔤 Text
 
 First, go to [fonts.fireflyzero.com](https://fonts.fireflyzero.com/) and download the font that you'd like to use. Then add it into `firefly.toml` as you add images:
