@@ -40,19 +40,7 @@ def test_add(tmp_path: Path) -> None:
     app.start()
     # Run a single update cycle: call `update`, maybe `render`, render menu, etc.
     app.update()
-    # Call another update cycle to make sure `render` is called
-    # (see the note below).
-    app.update()
 ```
-
-{{< hint info >}}
-**Why do you call `update` twice?**
-
-The `update` callback in the app is called 60 times per second but the `render` callback can be called less often. How often? The runtime starts by calling `render` every second call to `App.update` and then can adjust it to every call or to every 8th call, depending on the performance. We keep the same behavior in the test framework because we want tests to behave EXACTLY as the real runtime.
-
-So, to get `render` called at least once, you need to call `update` twice. This can make tests flaky, so we might change this behavior in the future.
-
-{{< /hint >}}
 
 To run the test:
 
