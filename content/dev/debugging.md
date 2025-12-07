@@ -158,8 +158,8 @@ end
 Now, you can send cheat codes into a running app using the CLI:
 
 ```bash
-firefly_cli set-health 56   # prints 1
-firefly_cli get-health 0    # prints 56
+firefly_cli runtime cheat set-health 56   # prints 1
+firefly_cli runtime cheat get-health 0    # prints 56
 ```
 
 ## 🗜 Decompilation
@@ -299,7 +299,7 @@ There are no tracebacks (aka "stack traces" or "back traces") yet. See this issu
 
 ## 🐌 Monitoring performance
 
-Run `firefly_cli monitor` to launch a dashboard showing the runtime stats for a running app. It looks something like this:
+Run `firefly_cli runtime monitor` to launch a dashboard showing the runtime stats for a running app. It looks something like this:
 
 ```text
  ┌╴cpu╶───────────────┐ ┌╴memory╶────────────┐
