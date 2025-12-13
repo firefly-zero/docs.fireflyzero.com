@@ -13,7 +13,7 @@ The emulator allows you to run any Firefly Zero apps on your computer. To instal
 
 The emulator supports the following input methods, from best to worst.
 
-1. (⌛ Coming soon) Firefly Zero device
+1. Firefly Zero device
 1. Steam controller
 1. Gamepad
 1. (⌛ Coming soon) UI buttons
@@ -21,7 +21,7 @@ The emulator supports the following input methods, from best to worst.
 
 ### 📱 Firefly Zero device
 
-(⌛ Coming soon)
+The device can be used as a gamepad (not only for the emulator). See [firefly-gamepad](https://github.com/firefly-zero/firefly-gamepad).
 
 ### 💨 Steam controller
 

@@ -16,6 +16,7 @@ Core (firmware and hardware):
 * firefly-emulator ([firefly-emulator-bin](https://github.com/firefly-zero/firefly-emulator-bin))
 * [⌚️ firefly-hal](https://github.com/firefly-zero/firefly-hal)
 * [🚪 firefly-main](https://github.com/firefly-zero/firefly-main)
+* [🎮 firefly-gamepad](https://github.com/firefly-zero/firefly-gamepad)
 * [⚙️ firefly-types](https://github.com/firefly-zero/firefly-types)
 * [🔊 firefly-audio](https://github.com/firefly-zero/firefly-audio)
 
