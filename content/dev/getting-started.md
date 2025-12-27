@@ -26,6 +26,8 @@ Experimental:
 
 For simple apps and games, it's a good idea to stick to what you already know. But if you're ready to learn something new for better results, we recommend using Go. It's easy to learn, sufficiently fast, and memory-safe.
 
+It's also possible to write simple adventure games for Firefly Zero using [Bitsy](https://bitsy.org/). You don't need to learn programming for it, the whole game can be created online by using a simple and friendly editor: [make.bitsy.org](https://make.bitsy.org/). However, Bitsy is not created for Firefly Zero, so Bitsy-powered games cannot benefit from touchpad, multiplayer, rich color palettes, or any other Firefly-specific features.
+
 ## 📥 Install tools
 
 1. [Install firefly-cli and firefly-emulator]({{< ref "/user/installation/" >}})
@@ -76,6 +78,11 @@ curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
 {{< tab "Lua" >}}
 
 Nothing to install for Lua, you're ready to go!
+
+{{< /tab >}}
+{{< tab "Bitsy" >}}
+
+Nothing to install for Bitsy, you're ready to go!
 
 {{< /tab >}}
 {{< /tabs >}}
@@ -138,6 +145,13 @@ firefly_cli new --lang=moon hello-world
 
 ```bash
 firefly_cli new --lang=lua hello-world
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```bash
+firefly_cli new --lang=bitsy hello-world
 ```
 
 {{< /tab >}}
@@ -230,6 +244,13 @@ And take a look at resources for your language:
 * [SDK source code](https://github.com/firefly-zero/firefly-elixir)
 * [Elixir WebAssembly compiler](https://github.com/RoyalIcing/Orb)
 * [Learn Elixir](https://elixirschool.com/en/lessons/basics/basics)
+
+{{< /tab >}}
+{{< tab "Bitsy" >}}
+
+You can edit the `main.bitsy` file using the official Bitsy editor: [make.bitsy.org](https://make.bitsy.org/). Use the "load data" button to upload the file into the editor and "save data" to download the file from the editor back into the saved file.
+
+To learn how to make Bitsy games, go to the [official documentation](https://make.bitsy.org/docs/).
 
 {{< /tab >}}
 {{< /tabs >}}
