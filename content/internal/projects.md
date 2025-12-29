@@ -28,6 +28,7 @@ Developer tools:
 SDKs:
 
 * [🟦 firefly-as](https://github.com/firefly-zero/firefly-as)
+* [🐈‍⬛ firefly-bitsy](https://github.com/firefly-zero/firefly-bitsy)
 * [🐀 firefly-c](https://github.com/firefly-zero/firefly-c)
 * [🧪 firefly-elixir](https://github.com/firefly-zero/firefly-elixir)
 * [🏃 firefly-go](https://github.com/firefly-zero/firefly-go)
@@ -61,6 +62,7 @@ Games:
 * [🐍 snek](https://github.com/firefly-zero/snek)
 * [☄️ gates](https://github.com/firefly-zero/gates)
 * [🧻 tpcat](https://github.com/firefly-zero/tpcat)
+* [🗃 bitsy-games](https://github.com/firefly-zero/bitsy-games)
 * [pong](https://github.com/firefly-zero/pong)
 * [hungie](https://github.com/firefly-zero/hungie)
 
