@@ -114,7 +114,7 @@ WALL 1
 
 ### Image
 
-Image is a set of 8x8 space-separated colors. Supported colors ([SWEETIE-16](https://lospec.com/palette-list/sweetie-16) colro palette):
+Image is a set of 8x8 space-separated colors. Supported colors ([SWEETIE-16](https://lospec.com/palette-list/sweetie-16) color palette):
 
 * `.`: transparent
 * `1`: <span style="background-color: #1a1c2c; min-width: 40px; height: 1em; display: inline-block"></span> #1A1C2C: black
@@ -172,14 +172,14 @@ Actions define list of actions to be executed when the relevant tile is triggere
   * `SAY This door is locked.`
   * `SAY You found a key!`
 * `END`: Print "THE END" message and exit the game. Doesn't accept any arguments.
-* `EXIT`: Teleport the player to the given room in the given location. For example, `EXIT library 3 18` will teleport the player to the room "library" to the 4th column and 19th row (because the coordinates are zero-indexed).
+* `MOVE`: Teleport the player to the given room in the given location. For example, `MOVE library 3 18` will teleport the player to the room "library" to the 4th column and 19th row (because the coordinates are zero-indexed).
 * `PLACE`: Replace the tile in the current room at the given position with the given tile. If coordinates are not provided, will replace the tile on which the player is currently standing. Useful for picking up items. For example:
   * `PLACE cat 3 18`: Place a cat at x=3 and y=18.
   * `PLACE floor`: Replace the tile that the player is standing on with the floor tile.
 * `SET`: Set the value of the given variable. All variables are signed integers and zero by default. For example, `SET key 1` will store `1` in the variable `key`.
 * `ADD`: add the given value ti the given variable. For example, `ADD stars 1` will add 1 to the variable `stars`. You can also use negative values to substract. For example, `ADD health -5`.
 * `JUMP`: Stop executing the current set of actions and start executing the different one instead. This allows to share common steps between multiple action sets. For example, `JUMP pick` will execute `A pick` instead of all remaining action steps.
-* `BRANCH`: JUMP to the given set of actions if the given condition is true. For example `BRANCH key == 0 door_closed` will execute `A door_closed` if the `key` variable is equal to zero. Otherwise (if the player has a key), it will continue executing the remaining actions.
+* `BRANCH`: JUMP to the given set of actions if the given condition is true. For example `BRANCH key == 0 door_closed` will execute `A door_closed` if the `key` variable is equal to zero. Otherwise (if the player has a key), it will continue executing the remaining actions. If the other action ID is not provided, no actions will be executed. For example, `BRANCH key == 0`.
 
 Some examples:
 
@@ -195,8 +195,24 @@ PLACE floor
 
 A door
 BRANCH key == 0   door_closed
-EXIT level1 7 13
+MOVE level1 7 13
 
 A door_closed
 SAY The door is closed...
 ```
+
+Lastly, if there is only one tile using a set of actions, you can join them together by putting `A` without ID between the instructions:
+
+```bulb
+T key
+IMAGE key
+A
+SAY You found a key!
+ADD key 1
+PLACE floor
+```
+
+## Next steps
+
+1. Check out [games made with Bitsy](https://itch.io/games/tag-bitsy) and [games made with Pulp](https://devforum.play.date/tags/c/games/6/pulp) to see what games people made with similar engines.
+1. Experiment! It doesn't seem like much but you can do a lot with it.
