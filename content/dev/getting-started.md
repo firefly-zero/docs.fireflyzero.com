@@ -26,8 +26,6 @@ Experimental:
 
 For simple apps and games, it's a good idea to stick to what you already know. But if you're ready to learn something new for better results, we recommend using Go. It's easy to learn, sufficiently fast, and memory-safe.
 
-It's also possible to write simple adventure games for Firefly Zero using [Bitsy](https://bitsy.org/). You don't need to learn programming for it, the whole game can be created online by using a simple and friendly editor: [make.bitsy.org](https://make.bitsy.org/). However, Bitsy is not created for Firefly Zero, so Bitsy-powered games cannot benefit from touchpad, multiplayer, rich color palettes, or any other Firefly-specific features.
-
 ## 📥 Install tools
 
 1. [Install firefly-cli and firefly-emulator]({{< ref "/user/installation/" >}})
