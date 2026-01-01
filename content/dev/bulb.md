@@ -167,19 +167,19 @@ A . 3 3 3 3 . A
 
 Actions define list of actions to be executed when the relevant tile is triggered. Supported actions:
 
-* `SAY`: Print the given message on the screen. It can be used for talking to NPCs, reading books, notifying about state of things, etc. Multiple `SAY` can be used in the same set of actions, each one is printed on a separate page. When a message is shown, actions execution will be paused until the player presses any button. Some examples:
+* `SAY msg`: Print the given message on the screen. It can be used for talking to NPCs, reading books, notifying about state of things, etc. Multiple `SAY` can be used in the same set of actions, each one is printed on a separate page. When a message is shown, actions execution will be paused until the player presses any button. Some examples:
   * `SAY Sailor: Hello, adventurer!`
   * `SAY This door is locked.`
   * `SAY You found a key!`
 * `END`: Print "THE END" message and exit the game. Doesn't accept any arguments.
-* `MOVE`: Teleport the player to the given room in the given location. For example, `MOVE library 3 18` will teleport the player to the room "library" to the 4th column and 19th row (because the coordinates are zero-indexed).
-* `PLACE`: Replace the tile in the current room at the given position with the given tile. If coordinates are not provided, will replace the tile on which the player is currently standing. Useful for picking up items. For example:
-  * `PLACE cat 3 18`: Place a cat at x=3 and y=18.
-  * `PLACE floor`: Replace the tile that the player is standing on with the floor tile.
-* `SET`: Set the value of the given variable. All variables are signed integers and zero by default. For example, `SET key 1` will store `1` in the variable `key`.
-* `ADD`: add the given value ti the given variable. For example, `ADD stars 1` will add 1 to the variable `stars`. You can also use negative values to substract. For example, `ADD health -5`.
-* `JUMP`: Stop executing the current set of actions and start executing the different one instead. This allows to share common steps between multiple action sets. For example, `JUMP pick` will execute `A pick` instead of all remaining action steps.
-* `BRANCH`: JUMP to the given set of actions if the given condition is true. For example `BRANCH key == 0 door_closed` will execute `A door_closed` if the `key` variable is equal to zero. Otherwise (if the player has a key), it will continue executing the remaining actions. If the other action ID is not provided, no actions will be executed. For example, `BRANCH key == 0`.
+* `MOVE room x y`: Teleport the player to the given room in the given location. For example, `MOVE library 3 18` will teleport the player to the room "library" to the 4th column and 19th row (because the coordinates are zero-indexed).
+* `PLACE tile x y`: Replace the tile in the current room at the given position with the given tile. For example, `PLACE cat 3 18` will place a cat at x=3 and y=18.
+* `PLACE tile`: If `PLACE` is specified without coordinates, the currently activated tile will be replaced. For example, `PLACE floor` will replace the tile that the player activated (has touched or is standing on).
+* `SET var val`: Set the value of the given variable. All variables are signed integers and zero by default. For example, `SET key 1` will store `1` in the variable `key`.
+* `ADD var val`: add the given value ti the given variable. For example, `ADD stars 1` will add 1 to the variable `stars`. You can also use negative values to substract. For example, `ADD health -5`.
+* `JUMP action`: Stop executing the current set of actions and start executing the different one instead. This allows to share common steps between multiple action sets. For example, `JUMP pick` will execute `A pick` instead of all remaining action steps.
+* `IF var > val JUMP action`: JUMP to the given set of actions if the given condition is true. For example `IF key == 0 JUMP door_closed` will execute `A door_closed` if the `key` variable is equal to zero. Otherwise (if the player has a key), it will continue executing the remaining actions. The comparison operator is one of: `>`, `>=`, `<`, `<=`, `==`, or `!=`.
+* `IF var > val BREAK`: Stop executing the current set of actions if the condition is true. The same as `IF` with `JUMP` that leads to an empty action set. For example, `BRANCH key == 0`.
 
 Some examples:
 
@@ -194,7 +194,7 @@ ADD key 1
 PLACE floor
 
 A door
-BRANCH key == 0   door_closed
+IF key == 0 JUMP door_closed
 MOVE level1 7 13
 
 A door_closed
