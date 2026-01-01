@@ -208,6 +208,17 @@ PLACE floor
 
 ### Scripting recipes
 
+Actions on the starting tile are executed when the game starts. You can use it to greet the player, initialize variables, etc. Don't forget `PLACE` at the end to make sure the actions won't be activated again when the player goes back to the same tile:
+
+```bulb
+T 🚩
+IMAGE ⚪️
+START 1
+A
+SAY Welcome, adventurer!
+PLACE ⚪️
+```
+
 To make a door, make a tile that MOVEs the player:
 
 ```bulb
