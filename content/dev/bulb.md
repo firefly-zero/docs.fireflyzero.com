@@ -215,6 +215,7 @@ T 🚩
 IMAGE ⚪️
 START 1
 A
+SET health 3
 SAY Welcome, adventurer!
 PLACE ⚪️
 ```

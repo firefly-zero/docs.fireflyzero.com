@@ -29,6 +29,7 @@ SDKs:
 
 * [🟦 firefly-as](https://github.com/firefly-zero/firefly-as)
 * [🐈‍⬛ firefly-bitsy](https://github.com/firefly-zero/firefly-bitsy)
+* [💡 firefly-bulb](https://github.com/firefly-zero/firefly-bulb) and [bulb-parser](https://github.com/firefly-zero/bulb-parser)
 * [🐀 firefly-c](https://github.com/firefly-zero/firefly-c)
 * [🧪 firefly-elixir](https://github.com/firefly-zero/firefly-elixir)
 * [🏃 firefly-go](https://github.com/firefly-zero/firefly-go)
