@@ -178,6 +178,7 @@ Actions define list of actions to be executed when the relevant tile is triggere
 * `SET var val`: Set the value of the given variable. All variables are signed integers and zero by default. For example, `SET key 1` will store `1` in the variable `key`.
 * `ADD var val`: add the given value ti the given variable. For example, `ADD stars 1` will add 1 to the variable `stars`. You can also use negative values to substract. For example, `ADD health -5`.
 * `JUMP action`: Stop executing the current set of actions and start executing the different one instead. This allows to share common steps between multiple action sets. For example, `JUMP pick` will execute `A pick` instead of all remaining action steps.
+* `SELECT id1 id2 id3`: Randomly jump to one of the given actions. For example, `SELECT heads tails`.
 * `IF var > val JUMP action`: JUMP to the given set of actions if the given condition is true. For example `IF key == 0 JUMP door_closed` will execute `A door_closed` if the `key` variable is equal to zero. Otherwise (if the player has a key), it will continue executing the remaining actions. The comparison operator is one of: `>`, `>=`, `<`, `<=`, `==`, or `!=`.
 * `IF var > val BREAK`: Stop executing the current set of actions if the condition is true. The same as `IF` with `JUMP` that leads to an empty action set. For example, `BRANCH key == 0`.
 
@@ -246,6 +247,17 @@ IMAGE cat
 WALL 1
 A
 SAY MEOW =^_^=
+```
+
+And if you want the lines to repeat, the new action cat loop back to one of the previous ones:
+
+```bulb
+T cat2
+IMAGE cat
+WALL 1
+A
+SAY MEOW =^_^=
+PLACE 🐈
 ```
 
 Similarly, interactive elements, like switches, can be implemented by PLACE'ing a different version of the tile on interaction:
