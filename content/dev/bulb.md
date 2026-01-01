@@ -181,7 +181,7 @@ Actions define list of actions to be executed when the relevant tile is triggere
 * `IF var > val JUMP action`: JUMP to the given set of actions if the given condition is true. For example `IF key == 0 JUMP door_closed` will execute `A door_closed` if the `key` variable is equal to zero. Otherwise (if the player has a key), it will continue executing the remaining actions. The comparison operator is one of: `>`, `>=`, `<`, `<=`, `==`, or `!=`.
 * `IF var > val BREAK`: Stop executing the current set of actions if the condition is true. The same as `IF` with `JUMP` that leads to an empty action set. For example, `BRANCH key == 0`.
 
-Some examples:
+For example:
 
 ```bulb
 A cat
@@ -192,13 +192,6 @@ A key
 SAY You found a key!
 ADD key 1
 PLACE floor
-
-A door
-IF key == 0 JUMP door_closed
-MOVE level1 7 13
-
-A door_closed
-SAY The door is closed...
 ```
 
 Lastly, if there is only one tile using a set of actions, you can join them together by putting `A` without ID between the instructions:
@@ -211,6 +204,95 @@ SAY You found a key!
 ADD key 1
 PLACE floor
 ```
+
+### Scripting recipes
+
+To make a door, make a tile that MOVEs the player:
+
+```bulb
+A door
+MOVE level1 7 13
+```
+
+It's also possible to MOVE the player within the same room, which allows implementing portals.
+
+A door that can be opened only using a key can be implemented by SETting and checking a variable:
+
+```bulb
+A key
+SET key 1
+PLACE floor
+
+A door
+IF key == 0 JUMP door_closed
+MOVE level1 7 13
+
+A door_closed
+SAY The door is closed...
+```
+
+If you want an NPC to say something different when interacted again, you can replace the NPC tile with the one that looks the same but has a different action:
+
+```bulb
+T 🐈
+IMAGE cat
+WALL 1
+A
+SAY I'm a cat.
+PLACE cat2
+
+T cat2
+IMAGE cat
+WALL 1
+A
+SAY MEOW =^_^=
+```
+
+Similarly, interactive elements, like switches, can be implemented by PLACE'ing a different version of the tile on interaction:
+
+```bulb
+T 💡
+IMAGE lamp_on
+WALL 1
+A
+PLACE lamp_off
+
+T lamp_off
+IMAGE lamp_off
+WALL 1
+A
+PLACE 💡
+```
+
+Damage can be tracked in a variable and the health bar can be implemented as a row of tiles in a room corner:
+
+```bulb
+T ♥️
+IMAGE ♥️
+WALL 1
+
+T 💔
+IMAGE 💔
+WALL 1
+
+T 🔥
+IMAGE 🔥
+WALL 1
+ACTION take_damage
+
+A take_damage
+ADD damage 1
+PLACE 💔 29 0
+IF damage < 2 BREAK
+PLACE 💔 28 0
+IF damage < 3 BREAK
+PLACE 💔 27 0
+IF damage < 4 BREAK
+SAY You're dead
+END
+```
+
+There are no dialog choices. If you want the player to make a choice, make them do so by going somewhere or interacting with something. So, instead of "Would you accept the quest?" your NPC will say "Follow me through that door to accept the quest".
 
 ## Next steps
 
