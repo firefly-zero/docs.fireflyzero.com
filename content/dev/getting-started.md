@@ -26,6 +26,8 @@ Experimental:
 
 For simple apps and games, it's a good idea to stick to what you already know. But if you're ready to learn something new for better results, we recommend using Go. It's easy to learn, sufficiently fast, and memory-safe.
 
+For simple adventure games, it's also possible to use [Bulb]({{< ref "/dev/bulb/" >}}) or [Bitsy](https://bitsy.org/).
+
 ## 📥 Install tools
 
 1. [Install firefly-cli and firefly-emulator]({{< ref "/user/installation/" >}})
@@ -81,6 +83,11 @@ Nothing to install for Lua, you're ready to go!
 {{< tab "Bitsy" >}}
 
 Nothing to install for Bitsy, you're ready to go!
+
+{{< /tab >}}
+{{< tab "Bulb" >}}
+
+Nothing to install for Bulb, you're ready to go!
 
 {{< /tab >}}
 {{< /tabs >}}
@@ -146,10 +153,17 @@ firefly_cli new --lang=lua hello-world
 ```
 
 {{< /tab >}}
-{{< tab "Lua" >}}
+{{< tab "Bitsy" >}}
 
 ```bash
 firefly_cli new --lang=bitsy hello-world
+```
+
+{{< /tab >}}
+{{< tab "Bulb" >}}
+
+```bash
+firefly_cli new --lang=bulb hello-world
 ```
 
 {{< /tab >}}
@@ -249,6 +263,11 @@ And take a look at resources for your language:
 You can edit the `main.bitsy` file using the official Bitsy editor: [make.bitsy.org](https://make.bitsy.org/). Use the "load data" button to upload the file into the editor and "save data" to download the file from the editor back into the saved file.
 
 To learn how to make Bitsy games, go to the [official documentation](https://make.bitsy.org/docs/).
+
+{{< /tab >}}
+{{< tab "Bulb" >}}
+
+Go to the [Bulb documentation]({{< ref "/dev/bulb/" >}}) to learn how to write a game.
 
 {{< /tab >}}
 {{< /tabs >}}
