@@ -47,8 +47,8 @@ If you don't, install it from binary releases:
 
 1. [Download the latest release](https://github.com/firefly-zero/firefly-cli/releases/latest). You need the one ending with `-x86_64-apple-darwin.tar.gz`.
 1. Extract the files from the archive.
-1. Right-click on `firefly_cli` and select **Open**.  
-   If it doesn’t open, go to **System Settings > Privacy & Security**.  
+1. Right-click on `firefly_cli` and select **Open**.
+   If it doesn’t open, go to **System Settings > Privacy & Security**.
    Under **Gatekeeper**, a message should appear - press **Open Anyway**.
 1. Make sure the `~/.local/bin` directory is in your `$PATH`.
 
@@ -133,12 +133,14 @@ firefly_cli import lux.snek
 
 1. [Download the latest release](https://github.com/firefly-zero/firefly-emulator-bin/releases/latest). You need the one ending with `-x86_64-apple-darwin.tgz`.
 1. Extract files from the archive.
-1. Right click on `firefly_cli` and press `Open`.
+1. Right click on `firefly_emulator` and press `Open`.
 
 {{< /tab >}}
 {{< tab "Windows" >}}
 
-We don't support Windows just yet. If you want to run the emulator on Windows, try running it in a Linux virtual machine.
+1. [Download the latest release](https://github.com/firefly-zero/firefly-emulator-bin/releases/latest). You need the one ending with `-pc-windows-msvc.tgz`.
+1. Extract files from the archive.
+1. Double-click on `firefly_emulator`.
 
 {{< /tab >}}
 {{< /tabs >}}
