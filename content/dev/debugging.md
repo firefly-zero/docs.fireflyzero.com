@@ -162,6 +162,12 @@ firefly_cli runtime cheat set-health 56   # prints 1
 firefly_cli runtime cheat get-health 0    # prints 56
 ```
 
+## 🎲 Dealing with randomness
+
+Your app might have randomly generated stuff, like enemies, levels, etc. To make randomness reproducible during testing or debugging, you can call the `set_seed` function with an arbitrary integer. You can make a special build that sets a hardcoded seed in `boot` or add a cheat code that sets the passed seed when requested. After the seed is set, `get_random` will always return the same values in the same order each time you launch the app.
+
+Before `set_seed` is called, `get_random` always returns reliably random and unpredictable values (including multiplayer). You shouldn't call `set_seed` when not testing or debugging.
+
 ## 🗜 Decompilation
 
 [WebAssembly specification](https://webassembly.github.io/spec/core/) describes 2 file formats: a binary format that Firefly Zero uses and a text format that is human-readable. You can convert the binary format into the text format using the [wasm2wat](https://webassembly.github.io/wabt/doc/wasm2wat.1.html) tool from [wabt](https://github.com/WebAssembly/wabt).
