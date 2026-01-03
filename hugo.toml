@@ -11,6 +11,7 @@ BookCommitPath = 'commit'
 BookEditPath = 'edit/main'
 BookDateFormat = '2006-01-02'
 BookSearch = true
+BookTheme = 'auto'
 
 [markup.goldmark.renderer]
 unsafe = true
