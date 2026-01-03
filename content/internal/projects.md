@@ -48,6 +48,7 @@ Websites:
 * [🏠 fireflyzero.com](https://github.com/firefly-zero/fireflyzero.com)
 * [🔠 fonts.fireflyzero.com](https://github.com/firefly-zero/fonts.fireflyzero.com)
 * [🎨 palettes.fireflyzero.com](https://github.com/firefly-zero/palettes.fireflyzero.com)
+* [🖌 pixel.fireflyzero.com](https://github.com/firefly-zero/pixel.fireflyzero.com)
 
 System apps:
 

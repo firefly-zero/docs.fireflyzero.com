@@ -279,7 +279,7 @@ Draw the image you want using the default ([Sweetie 16](https://lospec.com/palet
 
 {{< hint info >}}
 
-[Lospec Pixel Editor](https://apps.lospec.com/pixel-editor/) is a good online editor for pixel art. On the left panel, specify the image size you want, select "Sweetie 16" as the color palette, and press "Create". Draw your art, press "File" and then "Export".
+Looking for a pixel art editor? Try [pixel.fireflyzero.com](https://pixel.fireflyzero.com/) or check out [Additional resources](#-additional-resources) at the end of this page.
 
 {{< /hint >}}
 
@@ -529,3 +529,35 @@ firefly.draw_image(canvas, {x=10, y=10})
 
 {{< /tab >}}
 {{< /tabs >}}
+
+## 🔗 Additional resources
+
+If you're looking for 2D pixel sprites for your game, check out:
+
+* [2D assets by Kenney](https://www.kenney.nl/assets/category:2D). Our favorite is [1-Bit Pack](https://www.kenney.nl/assets/1-bit-pack).
+* [2D assets on itch.io](https://itch.io/game-assets/tag-2d).
+* [OpenGameArt.org](https://opengameart.org/art-search-advanced?keys=&field_art_type_tid%5B%5D=9&sort_by=count&sort_order=DESC).
+
+Some assets might have too many colors or a color palette that you don't like. Use [Palette Quantizer](https://lospec.com/palette-quantizer/) to map any assets to any color palette.
+
+Some of our official resources designed specifically for Firefly Zero:
+
+* Catalog of games and tools to get inspired: [catalog.fireflyzero.com](https://catalog.fireflyzero.com/)
+* Fonts: [fonts.fireflyzero.com](https://fonts.fireflyzero.com/)
+* Color palettes: [palettes.fireflyzero.com](https://palettes.fireflyzero.com/)
+* Pixel editor: [pixel.fireflyzero.com](https://pixel.fireflyzero.com/)
+
+Our Pixel Editor is designed to be as simple as possible. If you're looking for a more powerful editor, check out the following:
+
+* [Aseprite](https://www.aseprite.org/)
+* [Pixelorama](https://pixelorama.org/)
+* [PixiEditor](https://pixieditor.net/)
+
+Lastly, a few more helpful tools:
+
+* [Map editor](https://thorbjorn.itch.io/tiled)
+* [Creature generator](https://0x72.itch.io/pixeldudesmaker)
+* [Creature editor](https://kenney.itch.io/creature-mixer)
+* [Avatar editor](https://kenney.itch.io/avatar-mixer)
+* [Spaceship/plane editor](https://kenney.itch.io/ship-mixer)
+* [Pack multiple sprites into one atlas](https://free-tex-packer.com/)
