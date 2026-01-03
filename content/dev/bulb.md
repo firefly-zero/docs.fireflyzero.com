@@ -69,40 +69,46 @@ This defines 2 sets of actions: 🐈 and `tommy`.
 
 ### Room
 
-Room section defines the set of tile IDs for every room. It consists of 20 lines with 30 space-separated IDs in each. For example:
+Room section defines the set of tile IDs for every room. It consists of 10 lines with 15 space-separated IDs in each. For example:
 
 ```bulb
 R start
-W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . P . . . C . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . K . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W . . . . . . . . . . . . . . . . . . . . . . . . . . . . W
-W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W
+W W W W W W W W W W W W W W W
+W . . . . . . . . . . . . . W
+W . . . . . . . . . . . . . W
+W . . . P . . . C . . . . . W
+W . . . . . . . . . . . . . W
+W . . . . . . . . . . . . . W
+W . . . K . . . . . . . . . W
+W . . . . . . . . . . . . . W
+W . . . . . . . . . . . . . W
+W W W W W W W W W W W W W W W
+```
+
+Or with emojis:
+
+```bulb
+R start
+🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱
+🧱 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
+🧱 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
+🧱 ⚪️ ⚪️ ⚪️ 🚩 ⚪️ ⚪️ ⚪️ 🐈 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
+🧱 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
+🧱 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
+🧱 ⚪️ ⚪️ ⚪️ 🔑 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
+🧱 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
+🧱 ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ ⚪️ 🧱
+🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱 🧱
 ```
 
 ### Tile
 
 Tiles define how particular squares in the room look and behave. Each line defines one property of the tile. Supported properties:
 
-* `IMAGE`: Defines the image ID to use when rendering the tile.
-* `WALL`: Set `WALL 1` to make the tile a wall. The player cannot step on the tile marked as a wall. You want to set it for walls, NPCs, etc.
-* `START`: Set `START 1` to mark the tile as the starting tile. When the game starts, the player will be placed on the given tile in the room that contains this tile.
-* `ACTION`: Execute the given action when the player steps on the tile. If the tile is a WALL, the action will be executed when the player *tries* to step on the tile.
+* `IMAGE id`: Defines the image ID to use when rendering the tile.
+* `WALL 1`: Make the tile a wall. The player cannot step on the tile marked as a wall. You want to set it for walls, NPCs, etc.
+* `START 1`: Mark the tile as the starting tile. When the game starts, the player will be placed on the given tile in the room that contains this tile.
+* `ACTION id`: Execute the given action when the player steps on the tile. If the tile is a WALL, the action will be executed when the player *tries* to step on the tile.
 
 For example:
 
@@ -114,54 +120,29 @@ WALL 1
 
 ### Image
 
-Image is a set of 8x8 space-separated colors. Supported colors ([SWEETIE-16](https://lospec.com/palette-list/sweetie-16) color palette):
+Every Bulb game includes one big image called `atlas`. The atlas contains a grid of 16x16 pixel square images in the default color palette ([SWEETIE-16](https://lospec.com/palette-list/sweetie-16)). The `I` sections in the Bulb file say which of these squares to use for the tiles.
 
-* `.`: transparent
-* `1`: <span style="background-color: #1a1c2c; min-width: 40px; height: 1em; display: inline-block"></span> #1A1C2C: black
-* `2`: <span style="background-color: #5d275d; min-width: 40px; height: 1em; display: inline-block"></span> #5D275D: purple
-* `3`: <span style="background-color: #b13e53; min-width: 40px; height: 1em; display: inline-block"></span> #B13E53: red
-* `4`: <span style="background-color: #ef7d57; min-width: 40px; height: 1em; display: inline-block"></span> #EF7D57: orange
-* `5`: <span style="background-color: #ffcd75; min-width: 40px; height: 1em; display: inline-block"></span> #FFCD75: yellow
-* `6`: <span style="background-color: #a7f070; min-width: 40px; height: 1em; display: inline-block"></span> #A7F070: light green
-* `7`: <span style="background-color: #38b764; min-width: 40px; height: 1em; display: inline-block"></span> #38B764: green
-* `8`: <span style="background-color: #257179; min-width: 40px; height: 1em; display: inline-block"></span> #257179: dark green
-* `9`: <span style="background-color: #29366f; min-width: 40px; height: 1em; display: inline-block"></span> #29366F: dark blue
-* `A`: <span style="background-color: #3b5dc9; min-width: 40px; height: 1em; display: inline-block"></span> #3B5DC9: blue
-* `B`: <span style="background-color: #41a6f6; min-width: 40px; height: 1em; display: inline-block"></span> #41A6F6: light blue
-* `C`: <span style="background-color: #73eff7; min-width: 40px; height: 1em; display: inline-block"></span> #73EFF7: cyan
-* `D`: <span style="background-color: #f4f4f4; min-width: 40px; height: 1em; display: inline-block"></span> #F4F4F4: white
-* `E`: <span style="background-color: #94b0c2; min-width: 40px; height: 1em; display: inline-block"></span> #94B0C2: light gray
-* `F`: <span style="background-color: #566c86; min-width: 40px; height: 1em; display: inline-block"></span> #566C86: gray
+Supported properties:
 
-For example, an orange cat:
+* `POS x y`: zero-indexed position of the square to use from the atlas. For example, `POS 2 0` will use the 3rd square from the 1st row.
+* `PLAYER 1 idle`: use the image to represent the player. At least one image must have this property set.
+* `FRAMES x`. The number of animation frames. Currently unused.
+
+Example:
 
 ```bulb
+I idle
+POS 0 0
+PLAYER 1 idle
+
 I cat
-. . . . . . . .
-. . . . . . . .
-. 4 . 4 . . . 4
-. 4 4 4 . . . 4
-. 4 4 4 . . 4 .
-. 4 4 4 4 4 . .
-. . 4 4 4 4 . .
-. . 4 . . 4 . .
+POS 1 0
+
+I cat
+POS 3 1
 ```
 
-### Player
-
-Player defines the image to be used for the player character. Currently, the only allowed ID is `idle`. For example:
-
-```bulb
-P idle
-. . . A A . . .
-. . . 3 3 . . .
-. . . 3 3 . . .
-. . 3 3 3 3 . .
-. 3 3 3 3 3 3 .
-A . 3 3 3 3 . A
-. . 3 . . 3 . .
-. . A . . A . .
-```
+To add or change images available in the atlas, edit `atlas.png`. See [Install firefly-cli and firefly-emulator]({{< ref "/dev/graphics/" >}}#-additional-resources) on the Graphics page for the list of pixel editors and asset packs.
 
 ### Actions
 
