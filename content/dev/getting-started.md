@@ -190,6 +190,72 @@ Have troubles using emulator? Check out the [emulator user guide]({{< ref "/user
 
 1. Optional: add your app into the catalog: [catalog.fireflyzero.com](https://catalog.fireflyzero.com/).
 
+## 🤔 Inspiration
+
+Need inspiration for your next game? Try combining <b id="noun1"></b> and <b id="noun2"></b>.
+
+<a class="book-btn" href="#" onclick="return suggestIdea();">
+  🔄 regenerate
+</a>
+
+<script>
+  nouns = [
+    "battleships",
+    "breakout",
+    "bullet hell",
+    "card game",
+    "chess",
+    "co-op",
+    "cookie clicker",
+    "crafting",
+    "dungeon crawler",
+    "epic explosions",
+    "farming simulator",
+    "flappy bird",
+    "horror",
+    "jigsaw puzzle",
+    "labyrinth",
+    "minesweeper",
+    "minigolf",
+    "multiplayer", "multiplayer",
+    "murder mystery",
+    "open world",
+    "pacman",
+    "pinball",
+    "platformer",
+    "racing game",
+    "realistic physics",
+    "roguelike",
+    "shooter",
+    "snake",
+    "space invaders",
+    "sudoku",
+    "survival game",
+    "tamagotchi",
+    "teleportation",
+    "tetris",
+    "text adventure",
+    "turn-based strategy",
+    "wordle",
+  ]
+  getNoun = () => nouns[Math.floor(Math.random() * nouns.length)];
+
+  function suggestIdea() {
+    noun1 = getNoun();
+    noun2 = getNoun();
+    while (noun1 === noun2) {
+      noun2 = getNoun();
+    }
+    document.getElementById('noun1').innerText = noun1;
+    document.getElementById('noun2').innerText = noun2;
+    return false;
+  }
+
+  suggestIdea();
+</script>
+
+Also have a look at [our catalog](https://catalog.fireflyzero.com/) to see what other people made and check out [popular games for PICO-8](https://itch.io/games/tag-pico-8).
+
 ## 🧠 Further reading
 
 There are several things you should know to make a game:
