@@ -107,9 +107,9 @@ audio.Out.AddSine(audio.G4, 0.)
 {{< tab "Zig" >}}
 
 ```zig
-ff.audio.out.node.addSine(ff.audio.Freq.c4, 0.);
-ff.audio.out.node.addSine(ff.audio.Freq.e4, 0.);
-ff.audio.out.node.addSine(ff.audio.Freq.g4, 0.);
+_ = ff.audio.out.node.addSine(ff.audio.Freq.c4, 0.0);
+_ = ff.audio.out.node.addSine(ff.audio.Freq.e4, 0.0);
+_ = ff.audio.out.node.addSine(ff.audio.Freq.g4, 0.0);
 ```
 
 {{< /tab >}}
