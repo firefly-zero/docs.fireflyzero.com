@@ -58,7 +58,7 @@ func boot() {
 const ff = @import("firefly");
 
 pub export fn boot() void {
-    _ = ff.audio.out.node.addSine(ff.audio.Freq.a4, 0.0);
+    _ = ff.audio.out.node.addSine(.a4, 0.0);
 }
 ```
 
@@ -107,9 +107,9 @@ audio.Out.AddSine(audio.G4, 0.)
 {{< tab "Zig" >}}
 
 ```zig
-_ = ff.audio.out.node.addSine(ff.audio.Freq.c4, 0.0);
-_ = ff.audio.out.node.addSine(ff.audio.Freq.e4, 0.0);
-_ = ff.audio.out.node.addSine(ff.audio.Freq.g4, 0.0);
+_ = ff.audio.out.node.addSine(.c4, 0.0);
+_ = ff.audio.out.node.addSine(.e4, 0.0);
+_ = ff.audio.out.node.addSine(.g4, 0.0);
 ```
 
 {{< /tab >}}
@@ -149,7 +149,7 @@ gain.AddSine(audio.A4, 0.)
 
 ```zig
 const gain = ff.audio.out.node.addGain(0.5);
-_ = gain.node.addSine(ff.audio.Freq.a4, 0.0);
+_ = gain.node.addSine(.a4, 0.0);
 ```
 
 {{< /tab >}}
@@ -200,14 +200,14 @@ gain.AddSine(audio.A4, 0.)
 
 ```zig
 const gain = ff.audio.out.node.addGain(1.0);
-const mod = ff.audio.LinearModulator{
+const mod: ff.audio.LinearModulator = .{
     .start = 0,
     .end = 1,
-    .start_at = ff.audio.Time.zero,
-    .end_at = ff.audio.Time.seconds(2),
+    .start_at = .zero,
+    .end_at = .seconds(2),
 };
-gain.modulate(ff.audio.Modulator{ .linear = mod });
-_ = gain.node.addSine(ff.audio.Freq.a4, 0.0);
+gain.modulate(.{ .linear = mod });
+_ = gain.node.addSine(.a4, 0.0);
 ```
 
 {{< /tab >}}

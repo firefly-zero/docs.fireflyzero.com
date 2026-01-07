@@ -83,8 +83,8 @@ firefly.SetColor(
 ```zig
 const ff = @import("firefly");
 ff.setColor(
-    ff.Color.red,
-    ff.RGB{.r = 0xff, .g = 0x00, .b = 0x00},
+    .red,
+    .{ .r = 0xff, .g = 0x00, .b = 0x00 },
 );
 ```
 
@@ -185,12 +185,12 @@ firefly.DrawTriangle(
 ```zig
 const ff = @import("firefly");
 ff.drawTriangle(
-    ff.Point{ .x = 60, .y = 10 },
-    ff.Point{ .x = 40, .y = 40 },
-    ff.Point{ .x = 80, .y = 40 },
-    ff.Style{
-        .fill_color = ff.Color.light_gray,
-        .stroke_color = ff.Color.dark_blue,
+    .{ .x = 60, .y = 10 },
+    .{ .x = 40, .y = 40 },
+    .{ .x = 80, .y = 40 },
+    .{
+        .fill_color = .light_gray,
+        .stroke_color = .dark_blue,
         .stroke_width = 1,
     },
 );
@@ -487,7 +487,7 @@ firefly.DrawImage(canvas.Image(), firefly.Point{ X: 10, Y: 10 })
 {{< tab "Zig" >}}
 
 ```zig
-ff.drawImage(canvas.image(), ff.Point{ .x = 10, .y = 10 })
+ff.drawImage(canvas.image(), .{ .x = 10, .y = 10 })
 ```
 
 {{< /tab >}}

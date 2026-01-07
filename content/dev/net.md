@@ -42,8 +42,8 @@ buttons := firefly.ReadButtons(firefly.Combined)
 {{< tab "Zig" >}}
 
 ```zig
-const maybePad = ff.readPad(ff.Peer.combined);
-const buttons = ff.readButtons(ff.Peer.combined);
+const maybePad = ff.readPad(.combined);
+const buttons = ff.readButtons(.combined);
 ```
 
 {{< /tab >}}
