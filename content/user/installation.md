@@ -9,22 +9,48 @@ params:
 
 ## 🐚 CLI
 
+{{< tabs >}}
+{{< tab "Linux" >}}
+
+Choose one of the following:
+
+{{% details title="Installation script (recommended)" open=true %}}
+
+Run the following command in the terminal and watch the magic happen:
+
+```bash
+bash -c "$(curl https://fireflyzero.com/install.sh)"
+```
+
+{{% /details %}}
+{{% details title="Cargo (Rust package manager)" %}}
+
 If you have [cargo](https://doc.rust-lang.org/cargo/) (the [Rust](https://www.rust-lang.org/) package manager) installed, you can use it to install firefly-cli:
 
 ```bash
 cargo install firefly_cli
 ```
 
-If you don't, install it from binary releases:
+After that, open `~/.bashrc` (or `~/.zshrc` if you use zsh) and add at the end the following:
 
-{{< tabs >}}
-{{< tab "Linux" >}}
+   ```bash
+   alias ff="firefly_cli"
+   ```
+
+{{% /details %}}
+{{% details title="Manual" %}}
 
 1. [Download the latest release](https://github.com/firefly-zero/firefly-cli/releases/latest). You need the one containing `-linux-` in the name. If you don't know which one you need, it's probably the one ending with `-x86_64-unknown-linux-gnu.tar.gz`.
 1. Make sure the `~/.local/bin` directory is in your `$PATH`. Open `~/.bashrc` (or `~/.zshrc` if you use zsh) and add at the end the following:
 
    ```bash
    export PATH=$PATH:~/.local/bin
+   ```
+
+1. In the same file (`.bashrc` or `.zshrc`) add the alias:
+
+   ```bash
+   alias ff="firefly_cli"
    ```
 
 1. Extract the binary and place it into your `$PATH`:
@@ -36,11 +62,13 @@ If you don't, install it from binary releases:
    chmod +x ~/.local/bin/firefly_cli
    ```
 
-1. Verify installation:
+{{% /details %}}
 
-   ```bash
-   firefly_cli --version
-   ```
+Finally, open a new terminal window and make sure it works:
+
+```bash
+ff --version
+```
 
 {{< /tab >}}
 {{< tab "OS X" >}}

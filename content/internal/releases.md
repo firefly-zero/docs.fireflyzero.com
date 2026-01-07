@@ -17,7 +17,7 @@ Firefly consists of multiple projects scattered accross separate repositories. W
 Release order (skip project that had no changes in the sprint):
 
 1. [firefly-types](https://github.com/firefly-zero/firefly-types)
-1. firefly-io
+1. [firefly-io](https://github.com/firefly-zero/firefly-io)
 1. [firefly-hal](https://github.com/firefly-zero/firefly-hal)
 1. firefly-runtime
 1. firefly-emulator, firefly-main, and firefly-test
