@@ -307,7 +307,7 @@ And take a look at resources for your language:
 {{< tab "MoonBit" >}}
 
 * [SDK source code](https://github.com/firefly-zero/firefly-moon)
-* [SDK API docs](https://mooncakes.io/docs/applejag/firefly)
+* [SDK API docs](https://mooncakes.io/docs/firefly/firefly)
 * [Learn MoonBit](https://docs.moonbitlang.com/en/latest/language/fundamentals.html)
 
 {{< /tab >}}
