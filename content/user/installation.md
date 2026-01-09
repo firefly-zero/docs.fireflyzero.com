@@ -64,14 +64,36 @@ After that, open `~/.bashrc` (or `~/.zshrc` if you use zsh) and add at the end t
 
 {{% /details %}}
 
-Finally, open a new terminal window and make sure it works:
-
-```bash
-ff --version
-```
-
 {{< /tab >}}
 {{< tab "OS X" >}}
+
+Choose one of the following:
+
+{{% details title="Installation script (recommended)" open=true %}}
+
+Run the following command in the terminal and watch the magic happen:
+
+```bash
+bash -c "$(curl https://fireflyzero.com/install.sh)"
+```
+
+{{% /details %}}
+{{% details title="Cargo (Rust package manager)" %}}
+
+If you have [cargo](https://doc.rust-lang.org/cargo/) (the [Rust](https://www.rust-lang.org/) package manager) installed, you can use it to install firefly-cli:
+
+```bash
+cargo install firefly_cli
+```
+
+After that, open `~/.bashrc` (or `~/.zshrc` if you use zsh) and add at the end the following:
+
+   ```bash
+   alias ff="firefly_cli"
+   ```
+
+{{% /details %}}
+{{% details title="Manual" %}}
 
 1. [Download the latest release](https://github.com/firefly-zero/firefly-cli/releases/latest). You need the one ending with `-x86_64-apple-darwin.tar.gz`.
 1. Extract the files from the archive.
@@ -108,6 +130,7 @@ ff --version
    firefly_cli --version
    ```
 
+{{% /details %}}
 {{< /tab >}}
 {{< tab "Windows" >}}
 
@@ -115,14 +138,15 @@ ff --version
 1. [Download the latest release](https://github.com/firefly-zero/firefly-cli/releases/latest). You need the one containing `-windows-` in the name. If you don't know which one you need, it's probably the one ending with `-x86_64-pc-windows-msvc.zip`.
 1. Extract files from the archive.
 1. Open the terminal and use the `cd` command to go to the directory containing `firefly_cli`.
-1. Verify intallation:
-
-   ```bash
-   firefly_cli --version
-   ```
 
 {{< /tab >}}
 {{< /tabs >}}
+
+Done! You now have firefly_cli. Open a new terminal window and give it a try:
+
+```bash
+firefly_cli --version
+```
 
 ## 🚀 Launcher and games
 
