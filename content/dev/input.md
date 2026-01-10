@@ -211,7 +211,7 @@ dpad := pad.DPad4()
 {{< tab "Zig" >}}
 
 ```zig
-pad.toDPad4();
+const dpad = pad.toDPad4();
 ```
 
 {{< /tab >}}
