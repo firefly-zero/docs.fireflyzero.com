@@ -184,6 +184,67 @@ end
 
 When using the emulator with a gamepad, you have to press the stick down (or press LB) for the input to be recognized. This is because we need a way to distinguish between not touching the touch pad and touching it in the middle.
 
+## DPad
+
+> -- Would you tell me, please, which way I ought to go from here?<br/>
+> -- That depends a good deal on where you want to get to.<br/>
+> -- I don't much care where.<br/>
+> -- Then it doesn't much matter which way you go.
+
+SDKs provide functions to convert `Pad` to one of the two directional pad representations: `DPad4` or `DPad8`. This is useful for porting existing games to Firefly (from consoles that typically had only a DPad, which is the majority of them) or when implementing simple grid-based games. Use `DPad8` if you want to support diagonal movement (like jumping in a platformer) and use `DPad4` if you don't.
+
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+```rust
+let dpad = pad.as_dpad4();
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+dpad := pad.DPad4()
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+pad.toDPad4();
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+Not implemented.
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+DPad4 dpad = pad_to_dpad4(pad);
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+let dpad = pad.as_dpad4();
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+Not implemented.
+
+{{< /tab >}}
+{{< /tabs >}}
+
+And this is how different regions look like on the touchpad:
+
+![DPad4 and DPad8 regions map](/dpad.svg)
+
 ## Touch pad best practice
 
 > If you put a large switch in some cave somewhere, with a sign on it saying "End-of-the-World Switch. PLEASE DO NOT TOUCH", the paint wouldn't even have time to dry.
@@ -199,6 +260,6 @@ Depending on how you want your app feel, there are some common patterns on readi
 1. **Angle and radius**. In addition to the angle, you might also want to detect the distance from the touchpad center to the touch point. For example, to adjust the character movement in the direction (from walking to running). To read that distance, most SDKs provide `Pad.radius` method.
 1. **Coordinate changes**. When the user presses the touchpad, you calculate the new position relative to the previous touch position. In other words, when player just touches the touchpad, nothing happens. Then if they move the finger to the left, the character in the game also moves to the left. And the movement speed in the game correlates with the finger movement speed. It is used in games where precise movement is needed (like [Shoot!](https://catalog.fireflyzero.com/lux.shoot)) or in drawing apps. It's a very intuitive input method and most newcomers don't have problems figuring it out. However, it requires from the game a very good collision detection. Coordinates is how the `read_pad` function returns the data, all you need to do is to access the `Pad.x` and `Pad.y` attributes.
 1. **Swiping**. Swiping works just like coordinate changes except that when the touchpad is released, you want to keep the inertia (maybe slowing it down over time). So, if I touch the pad on the right, quickly move my finger to the left, and release the pad without slowing down, the character (or whatever is controlled by the pad) should keep moving to the left. It doesn't make much sense for games but it's good for navigating through long lists of items (like going through cards in deck-building games).
-1. **DPad** (directional pad). Sometimes you just want to know if it is up, down, left, or right. And sometimes maybe also diagonal movements too (upper-right, lower-left, etc). This is useful for games on square grid (like [Blutti](https://catalog.fireflyzero.com/olle.blutti)) and also for porting retro games designed for DPad. For this purpose, the SDKs provide `DPad` type which can be produced from `Pad` (by type-casting, `as_dpad` method, `to_dpad` method, or whatever is convention in the used programming language).
+1. **DPad** (directional pad). Sometimes you just want to know if it is up, down, left, or right. And sometimes maybe also diagonal movements too (upper-right, lower-left, etc). This is useful for games on square grid (like [Blutti](https://catalog.fireflyzero.com/olle.blutti)) and also for porting retro games designed for DPad. See the [DPad](#dpad) section above.
 
-Many new players use the touchpad like a stick: putting their finger in the middle and then sliding it in the direction they want to move. This is why in all SDKs, when you convert `Pad` into `DPad`, there is a dead zone in the middle where we don't consider the touch to be in any specific direction.
+Many new players use the touchpad like a stick: putting their finger in the middle and then sliding it in the direction they want to move. This is why in all SDKs, when you convert `Pad` into `DPad4`/`DPad8`, there is a dead zone in the middle where we don't consider the touch to be in any specific direction.
