@@ -29,10 +29,10 @@ Data structure of an image:
 | header  | 1                          | BPP (Bits Per Pixel). Either set to `0x01`, `0x02`, or `0x04`
 | header  | 2                          | image width (16-bit, little-endian)
 | header  | 1                          | transparency color. Only lower 4 bits are used
-| header  | `BPP * 2`                  | palette swaps, with 1 nibble (4 bits) per color
+| header  | `1 << (BPP - 1)`           | palette swaps, with 1 nibble (4 bits) per color
 | body    | `width * height * BPP / 8` | image body (rest of the image)
 
-The first `5 + BPP * 2` bytes together are considered the header.
+The first `5 + (1 << (BPP - 1))` bytes together are considered the header.
 
 ## Palette swaps
 
