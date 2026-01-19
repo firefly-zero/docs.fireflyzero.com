@@ -30,7 +30,7 @@ For simple adventure games, it's also possible to use [Bulb]({{< ref "/dev/bulb/
 
 ## 📥 Install tools
 
-1. [Install firefly-cli and firefly-emulator]({{< ref "/user/installation/" >}})
+1. [Install firefly-cli]({{< ref "/user/installation/" >}})
 1. Install [WebAssembly](https://webassembly.org/) compiler for your language:
 
 {{< tabs >}}
@@ -174,7 +174,7 @@ In this example, it will create `hello-world` directory and initialize in it a n
 ## 🏃 Build and run
 
 1. Build and install the app: `firefly_cli build`
-1. Run the last built app: `firefly_emulator`
+1. Run the last built app: `firefly_cli emulator`
 
 Have troubles using emulator? Check out the [emulator user guide]({{< ref "/user/emulator/" >}}).
 

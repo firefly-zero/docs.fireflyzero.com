@@ -20,7 +20,7 @@ It's also possible to write simple adventure games for Firefly Zero using [Bitsy
 
 ## Getting started
 
-1. [Install firefly-cli and firefly-emulator]({{< ref "/user/installation/" >}})
+1. [Install firefly-cli]({{< ref "/user/installation/" >}})
 1. Create a new Bulb project:
 
     ```bash
@@ -36,7 +36,7 @@ It's also possible to write simple adventure games for Firefly Zero using [Bitsy
 1. Run the game in the emulator:
 
     ```bash
-    firefly_emulator
+    firefly_cli emulator
     ```
 
 ## Scripting
@@ -142,7 +142,7 @@ I cat
 POS 3 1
 ```
 
-To add or change images available in the atlas, edit `atlas.png`. See [Install firefly-cli and firefly-emulator]({{< ref "/dev/graphics/" >}}#-additional-resources) on the Graphics page for the list of pixel editors and asset packs.
+To add or change images available in the atlas, edit `atlas.png`. See [Install firefly-cli]({{< ref "/dev/graphics/" >}}#-additional-resources) on the Graphics page for the list of pixel editors and asset packs.
 
 ### Actions
 
