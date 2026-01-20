@@ -100,7 +100,7 @@ Using the 2-BPP palette swaps example from above, then the image would look like
 0x04 ┤ ┬► image width, 16 bit little-endian
 0x00 ┤ ┘
 0xFF ┤ ─► transparency color
-0x24 ┘ ─► 1 byte color palette (2 colors)
+0x42 ┘ ─► 1 byte color palette (2 colors)
      ┌► image body
 0xC3 ┤ ─► row 1 & row 2
 0x9B ┘ ─► row 3 & row 4
