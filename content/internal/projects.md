@@ -65,6 +65,7 @@ Games:
 * [🐍 snek](https://github.com/firefly-zero/snek)
 * [☄️ gates](https://github.com/firefly-zero/gates)
 * [🧻 tpcat](https://github.com/firefly-zero/tpcat)
+* [🪤 follow](github.com/firefly-zero/follow)
 * [🗃 bitsy-games](https://github.com/firefly-zero/bitsy-games)
 * [pong](https://github.com/firefly-zero/pong)
 * [hungie](https://github.com/firefly-zero/hungie)
