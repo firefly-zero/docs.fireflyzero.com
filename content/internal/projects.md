@@ -12,7 +12,7 @@ Core (firmware and hardware):
 
 * [🛜 firefly-io](https://github.com/firefly-zero/firefly-io)
 * [firefly-hardware](https://github.com/firefly-zero/firefly-hardware)
-* firefly-runtime
+* [♥️ firefly-runtime](https://github.com/firefly-zero/firefly-runtime)
 * [🖥 firefly-emulator](https://github.com/firefly-zero/firefly-emulator)
 * [⌚️ firefly-hal](https://github.com/firefly-zero/firefly-hal)
 * [🚪 firefly-main](https://github.com/firefly-zero/firefly-main)

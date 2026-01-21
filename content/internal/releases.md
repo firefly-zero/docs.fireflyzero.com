@@ -19,8 +19,8 @@ Release order (skip project that had no changes in the sprint):
 1. [firefly-types](https://github.com/firefly-zero/firefly-types)
 1. [firefly-io](https://github.com/firefly-zero/firefly-io)
 1. [firefly-hal](https://github.com/firefly-zero/firefly-hal)
-1. firefly-runtime
-1. firefly-emulator, firefly-main, and firefly-test
+1. [firefly-runtime](https://github.com/firefly-zero/firefly-runtime)
+1. [firefly-emulator](https://github.com/firefly-zero/firefly-emulator), [firefly-main](https://github.com/firefly-zero/firefly-main), and [firefly-test](https://github.com/firefly-zero/firefly-test)
 1. [firefly-cli](https://github.com/firefly-zero/firefly-cli)
 1. system apps (launcher, input-test, etc.)
 1. other official apps and games
