@@ -31,7 +31,7 @@ The controls are the same as for any other gamepad. See the next section.
 
 ### 🎮 Gamepad
 
-* The buttons (`A`, `B`, `X`, and `Y`) are the same and work the same as on the actual device.
+* The buttons (`A`, `B`, `X`, and `Y`) map to the buttons in the same poistion on the device.
 * The `start` button on the controller does the same as `menu` on the device.
 * The touch pad is emulated by the left stick. The input from the stick is read only if you press the `LB` (left shoulder button). This is because unlike touch pad, the stick is always active, even in the resting state.
 
@@ -51,15 +51,24 @@ If you have multiple gamepads connected, the emulator will pick the one from whi
 Keyboard is quite far from how inputs work on the device. It doesn't have a touchpad. The controls are the following:
 
 1. `Esc`: close the emulator
-1. `Z`, `Enter`, or `Space`: A
-1. `X`, `B`, or `Backspace`: B
-1. `A`: X
-1. `S` or `Y`: Y
+1. `Z` or `Space`: S
+1. `X` or `Enter`: E
+1. `A` or `Backspace`: W
+1. `S`: N
 1. `Tab`: menu
 1. `←` or `4`: touchpad left
 1. `→` or `6`: touchpad right
 1. `↑` or `8`: touchpad up
 1. `↓` or `2`: touchpad down
 1. `5`: touchpad middle
+
+{{< hint info >}}
+**How to remember this?**
+
+Rotate the keyboard 45° counterclockwise. The bottom left corner of your keyboard (ZXAS) forms the crosshair of the buttons as they are on the device (SEWN).
+
+![layot example](/keyboard.png)
+
+{{< /hint >}}
 
 If you run multiple emulators, the keyboard input is read by the one that has the window focus. Press `Alt+Tab` to switch the focus.
