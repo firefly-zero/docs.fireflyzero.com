@@ -3,13 +3,14 @@
 version: "3"
 
 vars:
-  HUGO_VERSION: "0.149.0"
+  HUGO_VERSION: "0.155.0"
   HUGO_RELEASES: https://github.com/gohugoio/hugo/releases/download/
 
 tasks:
   install:hugo:
     status:
-      - test -f bin/hugo
+      - test -x bin/hugo
+      - ./bin/hugo version | grep -q "hugo v{{.HUGO_VERSION}}"
     vars:
       ARCH: '{{if eq OS "darwin"}}universal{{else}}{{ARCH}}{{end}}'
     cmds:
