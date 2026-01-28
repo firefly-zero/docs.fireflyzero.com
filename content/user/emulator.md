@@ -31,7 +31,7 @@ The controls are the same as for any other gamepad. See the next section.
 
 ### 🎮 Gamepad
 
-* The buttons (`A`, `B`, `X`, and `Y`) map to the buttons in the same poistion on the device.
+* The buttons (`A`, `B`, `X`, and `Y`) map to the buttons in the same position on the device.
 * The `start` button on the controller does the same as `menu` on the device.
 * The touch pad is emulated by the left stick. The input from the stick is read only if you press the `LB` (left shoulder button). This is because unlike touch pad, the stick is always active, even in the resting state.
 
