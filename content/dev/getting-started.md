@@ -258,7 +258,7 @@ Also have a look at [our catalog](https://catalog.fireflyzero.com/) to see what 
 
 ## 🌱 Ecosystem
 
-This lists lists third-party packages that can be useful for making Firefly Zero apps and games. All of these packages are tested to compile to Firefly Zero, be fast, and produce very small binaries.
+This section lists third-party packages that can be useful for making Firefly Zero apps and games. All of these packages are tested to compile to Firefly Zero, be fast, and produce very small binaries.
 
 {{< tabs >}}
 {{< tab "Rust" >}}
