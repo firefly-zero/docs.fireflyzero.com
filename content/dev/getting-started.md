@@ -256,6 +256,30 @@ Need inspiration for your next game? Try combining <b id="noun1"></b> and <b id=
 
 Also have a look at [our catalog](https://catalog.fireflyzero.com/) to see what other people made and check out [popular games for PICO-8](https://itch.io/games/tag-pico-8).
 
+## 🌱 Ecosystem
+
+This lists lists third-party packages that can be useful for making Firefly Zero apps and games. All of these packages are tested to compile to Firefly Zero, be fast, and produce very small binaries.
+
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+* [micromath](https://github.com/tarcieri/micromath): Math library featuring fast, safe floating point approximations for common arithmetic operations, trigonometry, 2D/3D vector types, statistical analysis, and quaternions.
+* [nalgebra](https://docs.rs/nalgebra/latest/nalgebra/): Linear algebra optimized for computing graphics and physics.
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+* [tinymath](github.com/orsinium-labs/tinymath): The fastest Go math library for constrained environments.
+* [firefly-go-math](https://github.com/applejag/firefly-go-math): Go game math library for Firefly Zero. Includes random functions using Firefly Zero random source, Vec2 type, and some other math utils.
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+* [micromath.mbt](https://github.com/applejag/micromath.mbt): Embedded math arithmetic, optimized for small code size at the cost of precision.
+
+{{< /tab >}}
+{{< /tabs >}}
+
 ## 🧠 Further reading
 
 There are several things you should know to make a game:
