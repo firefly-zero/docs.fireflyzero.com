@@ -7,13 +7,13 @@ params:
   emoji: 🔧
 ---
 
-{{< hint warning >}}
-This page is a draft. It will be properly filled in when we have the final version of the device.
-{{< /hint >}}
-
 Firefly Zero is a sustainable device and we believe in your [right to repair](https://en.wikipedia.org/wiki/Right_to_repair). We want everyone to truly own the things they buy and understand how these things work.
 
 Opening and disassembling Firefly Zero **does not** void the warranty. However, breaking the device while disassembling (just like other intentional damage) **voids the warranty**. So, before you get started, make sure you know what you're doing. And this page is here to guide you.
+
+{{< hint warning >}}
+This page is a draft. It will be properly filled in when we have the final version of the device.
+{{< /hint >}}
 
 ## What's inside?
 
@@ -21,12 +21,12 @@ First of all, let's get to know what's inside Firefly Zero.
 
 (In future, this list will include links to specific components and their model numbers)
 
-1. LCD screen
-1. Cirque touchpad
+1. LCD screen (ILI9488)
+1. Touchpad (Cirque TM035035)
 1. 5 buttons
 1. LEDs
 1. Battery
-1. Custom-made PCB with 2 ESP32-S3 chips.
+1. Custom-made PCB with two chips (ESP32-S3)
 
 ## Before opening
 
