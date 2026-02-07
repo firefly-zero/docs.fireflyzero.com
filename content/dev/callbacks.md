@@ -135,7 +135,7 @@ Almost every app has an internal state (position of NPCs, player's health, etc.)
 {{< hint info >}}
 **Aren't global variables bad?**
 
-It is generally a good idea to avoid a global state. The reason is that it makes testing the code harder. However, it's not the case here: using WebAssembly gives the environment the full control over the app, including its global state. The testing framework that we'll soon implement will allow you to run a unit test for your app and then restore its state to how it was before the test.
+It is generally a good idea to avoid a global state. The reason is that it makes testing the code harder. However, it's not the case here: using WebAssembly gives the environment the full control over the app, including its global state. [The testing framework]({{< ref "/dev/testing" >}}) allows you to run a unit test for your app and then restore the state to how it was before the test.
 
 So, you can think about Firefly Zero apps more like classes/structs rather than modules, callbacks as methods, and global variables as attributes.
 {{< /hint >}}
