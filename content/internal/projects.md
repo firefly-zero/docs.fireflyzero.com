@@ -56,6 +56,8 @@ System apps:
 * [🎮 firefly-input-test](https://github.com/firefly-zero/firefly-input-test)
 * [🤝 firefly-connector](https://github.com/firefly-zero/firefly-connector)
 * [🚀 firefly-launcher](https://github.com/firefly-zero/firefly-launcher)
+* [🚮 firefly-remover](https://github.com/firefly-zero/firefly-remover)
+* [⚙️ firefly-settings](https://github.com/firefly-zero/firefly-settings)
 * [📸 firefly-shots](https://github.com/firefly-zero/firefly-shots)
 
 Games:
@@ -69,6 +71,7 @@ Games:
 * [🗃 bitsy-games](https://github.com/firefly-zero/bitsy-games)
 * [pong](https://github.com/firefly-zero/pong)
 * [hungie](https://github.com/firefly-zero/hungie)
+* [neon](https://github.com/firefly-zero/neon)
 
 Misc:
 
