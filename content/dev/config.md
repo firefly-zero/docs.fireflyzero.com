@@ -12,9 +12,9 @@ The `firefly.toml` configuration file tells firefly-cli how to build a ROM for t
 Required:
 
 * `author_id` (string): your username. It should be unique, otherwise users may get a warning about invalid signature when launching your app. The best way to ensure that your author_id is unique is to add it into [catalog.fireflyzero.com](https://catalog.fireflyzero.com/). There are also limitations on the length of the ID and used characters. If your ID (or any of the options below) is invalid, the `build` command will tell you.
-* `app_id` (string): the app ID. Must be unique for the given author. THe combination `author_id.app_id` is the full ID of the app, and that must be globally unique.
-* `author_name` (string): your name. It will be shown in the launcher next to the app name. It must use the latin alphabet. Non-latin names have to be transliterated.
-* `app_name` (string): the human-readable name of the game. Shown in the launcher.
+* `app_id` (string): the app ID. Must be unique for the given author. The combination `author_id.app_id` is the full ID of the app, and that must be globally unique.
+* `author_name` (string): your name. It will be shown in the launcher next to the app name. It must use ASCII Latin alphabet. Non-latin names have to be transliterated.
+* `app_name` (string): the human-readable name of the game. Shown in the launcher. It must use ASCII Latin alphabet. It should use Title Case. For example, "The Plant vs the Zombie".
 
 Optional:
 
