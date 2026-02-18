@@ -11,7 +11,7 @@ params:
 
 Running `firefly_cli export` creates a single-file distribution for an app's ROM. This ROM can be imported back using `firefly_cli import`.
 
-This file is a regular [zip archive](https://en.wikipedia.org/wiki/ZIP_(file_format)) with [zstd](https://en.wikipedia.org/wiki/Zstd) compression. Because zstd compression support is added into the zip specification only in 2020, your archive program won't be able to open it.
+This file is a regular [zip archive](https://en.wikipedia.org/wiki/ZIP_(file_format)) with [zstd](https://en.wikipedia.org/wiki/Zstd) compression. Because zstd compression support is added into the zip specification only in 2020, your archive viewer program might not be able to open it.
 
 ## 🏷️ Metadata
 
@@ -50,9 +50,10 @@ Image format:
 
 * `0x00`: Magic number (`0x22`).
 * `0x01` to `0x02`: Image width (little-endian).
-* `0x03` to the end: Pixel array (4 bits per pixel).
+* `0x03`: Transparency color (`0xff` if no transparency).
+* `0x04` to the end: Pixel array (4 bits per pixel).
 
-A splash screen (160x240 image) takes 19203 bytes (~18.8 Kb).
+A splash screen (240x160 image) takes 19203 bytes (~18.8 Kb).
 
 ### 📸 Screenshot
 
