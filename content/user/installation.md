@@ -150,12 +150,12 @@ firefly_cli --version
 
 ## 🚀 Launcher and games
 
-The `firefly_cli import` command can be used to install any app from the [catalog](https://catalog.fireflyzero.com/). Start by installing the default launcher, multiplayer UI, and the snake game:
+The `firefly_cli import` command can be used to install any app from the [catalog](https://catalog.fireflyzero.com/). Start by installing a few games:
 
 ```bash
-firefly_cli import sys.launcher
-firefly_cli import sys.connector
 firefly_cli import lux.snek
+firefly_cli import lux.gates
+firefly_cli import tranzystorekk.sweeper
 ```
 
 Now you can launch the emulator and play some games:

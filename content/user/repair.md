@@ -15,7 +15,7 @@ Opening and disassembling Firefly Zero **does not** void the warranty. However, 
 This page is a draft. It will be properly filled in when we have the final version of the device.
 {{< /hint >}}
 
-## What's inside?
+## ⚙️ What's inside?
 
 First of all, let's get to know what's inside Firefly Zero.
 
@@ -28,7 +28,7 @@ First of all, let's get to know what's inside Firefly Zero.
 1. Battery
 1. Custom-made PCB with two chips (ESP32-S3)
 
-## Before opening
+## 🔧 Before opening
 
 1. Assess the damage. If you already know what's broken (for example, you see a big scratch on the screen), order the components using the links above. If not, make sure you have a safe place to store the disassembled device after you opened it to assess the damage and before the new components arrive.
 1. Prepare the tools that you'll need:
@@ -43,7 +43,7 @@ First of all, let's get to know what's inside Firefly Zero.
 1. Get your phone and make sure to take photos of every step.
 1. Get your cat out of the room.
 
-## How to open
+## 🔓 How to open
 
 1. Take the SD card out.
 1. Put the device screen down on a soft cloth.

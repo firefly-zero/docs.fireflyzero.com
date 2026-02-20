@@ -53,7 +53,7 @@ Image format:
 * `0x03`: Transparency color (`0xff` if no transparency).
 * `0x04` to the end: Pixel array (4 bits per pixel).
 
-A splash screen (240x160 image) takes 19203 bytes (~18.8 Kb).
+A splash screen (240x160 image) takes 19204 bytes (~18.8 Kb).
 
 ### 📸 Screenshot
 
@@ -63,7 +63,7 @@ The screenshot format is used for storing app screenshots in the `data/AUTHOR_ID
 * `0x01` to `0x30`: color palette. 16 colors in total, each color is stored as 3 bytes RGB.
 * `0x31` to `0x4b61`: 160 rows, 120 bytes each. Every byte stores 2 pixels. One pixel is 4 bits representing the color offset in the color palette.
 
-One screenshot is 19 Kb. 10k screenshots would take 184 Mb of storage.
+One screenshot is ~19 Kb. 10k screenshots would take 184 Mb of storage.
 
 ### 🔊 Audio
 
