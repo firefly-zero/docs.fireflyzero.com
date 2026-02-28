@@ -265,6 +265,7 @@ This section lists third-party packages that can be useful for making Firefly Ze
 
 * [micromath](https://github.com/tarcieri/micromath): Math library featuring fast, safe floating point approximations for common arithmetic operations, trigonometry, 2D/3D vector types, statistical analysis, and quaternions.
 * [nalgebra](https://docs.rs/nalgebra/latest/nalgebra/): Linear algebra optimized for computing graphics and physics.
+* [firefly-toml](https://github.com/firefly-zero/firefly-toml): A macro for statically parsing `firefly.toml`.
 
 {{< /tab >}}
 {{< tab "Go" >}}

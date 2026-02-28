@@ -76,5 +76,6 @@ Games:
 Misc:
 
 * [🎨 firefly-art](https://github.com/firefly-zero/firefly-art)
+* [🪚 firefly-toml](https://github.com/firefly-zero/firefly-toml)
 * [touchpad-heatmap](https://github.com/firefly-zero/touchpad-heatmap)
 * [firefly-ci](https://github.com/firefly-zero/firefly-ci)
