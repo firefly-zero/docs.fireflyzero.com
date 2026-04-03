@@ -48,14 +48,18 @@ Websites:
 * [📄 docs.fireflyzero.com](https://github.com/firefly-zero/docs.fireflyzero.com)
 * [🏠 fireflyzero.com](https://github.com/firefly-zero/fireflyzero.com)
 * [🔠 fonts.fireflyzero.com](https://github.com/firefly-zero/fonts.fireflyzero.com)
+* [📥 install.fireflyzero.com](https://github.com/firefly-zero/install.fireflyzero.com)
 * [🎨 palettes.fireflyzero.com](https://github.com/firefly-zero/palettes.fireflyzero.com)
 * [🖌 pixel.fireflyzero.com](https://github.com/firefly-zero/pixel.fireflyzero.com)
 
 System apps:
 
+* [🏅 firefly-badges](https://github.com/firefly-zero/firefly-badges)
+* [🏆 firefly-boards](https://github.com/firefly-zero/firefly-boards)
 * [🎮 firefly-input-test](https://github.com/firefly-zero/firefly-input-test)
 * [🤝 firefly-connector](https://github.com/firefly-zero/firefly-connector)
 * [🚀 firefly-launcher](https://github.com/firefly-zero/firefly-launcher)
+* [📥 firefly-installer](https://github.com/firefly-zero/firefly-installer)
 * [🚮 firefly-remover](https://github.com/firefly-zero/firefly-remover)
 * [⚙️ firefly-settings](https://github.com/firefly-zero/firefly-settings)
 * [📸 firefly-shots](https://github.com/firefly-zero/firefly-shots)

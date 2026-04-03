@@ -11,10 +11,8 @@ params:
     * `<APP_ID>/`
       * `_bin`: the main executable WASM binary of the app.
       * `_meta`: the app metadata.
-      * `_key`: the app author's public key.
       * `_hash`: the [SHA256](https://en.wikipedia.org/wiki/SHA-2) hash of all files in the directory (both their content and their names) except `_sig` and `_hash` itself.
-      * `_sig`: the [PKCS 1 v1.5](https://datatracker.ietf.org/doc/html/rfc2313) signature signing the `_hash` with the author's private key. Can be verified using `_key`.
-      * May also contain any other files (game assets) that the app needs to run.
+      * `_stats`: default player stats. Contains runtime info about badges and scores.
 * `data/`
   * `<AUTHOR_ID>/`
     * `<APP_ID>/`
