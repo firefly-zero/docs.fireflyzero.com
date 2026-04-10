@@ -46,6 +46,7 @@ There are a few file names that have a special meaning:
 
 * `_bin`: the wasm binary to include instead of trying to build it from source. See the "Customizing builds" section below.
 * `_splash`: the splash screen to be rendered before launching the app. In other words, a static loading screen.
+* `_manual`: the path to a directory of Markdown files (or a single Markdown file) that should be parsed as the game manual.
 
 ## Example
 
@@ -57,6 +58,7 @@ app_name = "Snek"
 
 [files]
 font = { path = "font.fff", url = "https://fonts.fireflyzero.com/fonts/ascii/eg_4x6.fff", sha256 = "dd90ec6478b7cab75e73abde35e76ef3e7e08a2682be83a5ef859607e41e4e68" }
+_manual = { path = "manual" }
 _splash = { path = "splash.png" }
 
 [cheats]
