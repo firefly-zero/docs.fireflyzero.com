@@ -1,6 +1,6 @@
 ---
-title: Getting started
-weight: 5
+title: Your first app
+weight: 6
 params:
   art: /hello.png
   icon: fa-solid fa-play
@@ -176,7 +176,7 @@ In this example, it will create `hello-world` directory and initialize in it a n
 1. Build and install the app: `firefly_cli build`
 1. Run the last built app: `firefly_cli emulator`
 
-Have troubles using emulator? Check out the [emulator user guide]({{< ref "/user/emulator/" >}}).
+Have troubles using emulator? Check out the [emulator user guide]({{< ref "/dev/emulator/" >}}).
 
 ## 📦 Distribute
 

@@ -1,6 +1,6 @@
 ---
 title: Emulator
-weight: 10
+weight: 4
 params:
   art: /emulator.png
   icon: fa-solid fa-computer

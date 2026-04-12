@@ -1,13 +1,13 @@
 ---
 title: Installation
-weight: 4
+weight: 3
 params:
   art: /hello.png
   icon: fa-solid fa-download
   emoji: 📥
 ---
 
-## 🐚 CLI
+## 🐚 Installing CLI
 
 {{< tabs >}}
 {{< tab "Linux" >}}
@@ -148,7 +148,7 @@ Done! You now have firefly_cli. Open a new terminal window and give it a try:
 firefly_cli --version
 ```
 
-## 🚀 Launcher and games
+## 🚀 Installing apps
 
 The `firefly_cli import` command can be used to install any app from the [catalog](https://catalog.fireflyzero.com/). Start by installing a few games:
 

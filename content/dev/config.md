@@ -1,6 +1,6 @@
 ---
 title: firefly.toml
-weight: 6
+weight: 8
 params:
   art: /toml.png
   icon: fa-solid fa-cog
