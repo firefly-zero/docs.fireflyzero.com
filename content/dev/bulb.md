@@ -20,7 +20,7 @@ It's also possible to write simple adventure games for Firefly Zero using [Bitsy
 
 ## Getting started
 
-1. [Install firefly-cli]({{< ref "/user/installation/" >}})
+1. [Install firefly-cli]({{< ref "/dev/installation/" >}})
 1. Create a new Bulb project:
 
     ```bash

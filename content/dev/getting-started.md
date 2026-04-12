@@ -30,7 +30,7 @@ For simple adventure games, it's also possible to use [Bulb]({{< ref "/dev/bulb/
 
 ## 📥 Install tools
 
-1. [Install firefly-cli]({{< ref "/user/installation/" >}})
+1. [Install firefly-cli]({{< ref "/dev/installation/" >}})
 1. Install [WebAssembly](https://webassembly.org/) compiler for your language:
 
 {{< tabs >}}

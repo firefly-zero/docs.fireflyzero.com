@@ -23,7 +23,7 @@ When taking apps apart, it's possible to break them or damage some data (like ga
 
 ## Preparation
 
-Follow [the installation guide]({{< ref "/user/installation" >}}) to install Firefly Emulator and Firefly CLI:
+Follow [the installation guide]({{< ref "/dev/installation" >}}) to install Firefly Emulator and Firefly CLI:
 
 * CLI means "Command-Line Interface". That means, it's a tool that you can use from command line. Command line is what cool kids use. Instead of clicking buttons in an interface, you type text commands, just like hackers in movies. For example, type `ff import lux.gates` to install "Through the Gate" in the emulator (more on this below). If you never used anything like this before, hacking Firefly Zero is a fun way to learn it.
 * The emulator allows you to run Firefly Zero apps on your computer so that you don't need to send them on the device every time you change something. This is what developers do when the make their apps/games. Run `ff emulator` to run the emulator.

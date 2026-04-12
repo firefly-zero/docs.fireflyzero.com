@@ -1,6 +1,6 @@
 ---
 title: Installation
-weight: 5
+weight: 4
 params:
   art: /hello.png
   icon: fa-solid fa-download
