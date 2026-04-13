@@ -3,7 +3,7 @@
 version: "3"
 
 vars:
-  HUGO_VERSION: "0.155.0"
+  HUGO_VERSION: "0.160.1"
   HUGO_RELEASES: https://github.com/gohugoio/hugo/releases/download/
 
 tasks:
