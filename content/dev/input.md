@@ -61,6 +61,13 @@ Buttons buttons = read_buttons(COMBINED);
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+buttons := firefly.read_buttons(firefly.COMBINED)
+```
+
+{{< /tab >}}
 {{< tab "MoonBit" >}}
 
 ```moonbit
@@ -158,6 +165,16 @@ if (pad.touched)
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+pad, touched := firefly.read_pad(firefly.COMBINED);
+if touched {
+    // ...
+}
+```
+
+{{< /tab >}}
 {{< tab "MoonBit" >}}
 
 ```moonbit
@@ -224,6 +241,13 @@ Not implemented.
 
 ```c
 DPad4 dpad = pad_to_dpad4(pad);
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+dpad := firefly.dpad4(pad);
 ```
 
 {{< /tab >}}

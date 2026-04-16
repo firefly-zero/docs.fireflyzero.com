@@ -70,7 +70,7 @@ func update() {
 
 ```zig
 pub export fn update() void {
-    // ...
+    // do something here
 }
 ```
 
@@ -79,7 +79,7 @@ pub export fn update() void {
 
 ```ts
 export function update(): void {
-    // ...
+   // do something here
 }
 ```
 
@@ -91,6 +91,22 @@ export function update(): void {
 
 UPDATE void update()
 {
+    // do something here
+}
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+package main
+
+import "./vendor/firefly"
+import "base:runtime"
+
+@(export = true)
+update :: proc "contextless" () {
+    context = runtime.default_context()
     // do something here
 }
 ```
@@ -270,6 +286,35 @@ BOOT void boot()
 RENDER void render()
 {
     // TODO
+}
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+package main
+
+import "./vendor/firefly"
+import "base:runtime"
+
+font: firefly.Font
+
+@(export = true)
+boot :: proc "contextless" () {
+    context = runtime.default_context()
+    font = firefly.font(firefly.load_file_buf("font"))
+}
+
+@(export = true)
+render :: proc "contextless" () {
+    context = runtime.default_context()
+    firefly.draw_text(
+        "hello",
+        font,
+        firefly.p(30, 20),
+        firefly.Color.Red,
+    )
 }
 ```
 

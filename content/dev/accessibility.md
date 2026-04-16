@@ -113,6 +113,14 @@ Settings settings = get_settings(me);
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+me := firefly.get_me()
+settings := firefly.get_settings(me)
+```
+
+{{< /tab >}}
 {{< tab "MoonBit" >}}
 
 ```moonbit

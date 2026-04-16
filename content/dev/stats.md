@@ -83,6 +83,15 @@ const Badge EAT_100_APPLES = 3;
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+BITE_SELF: firefly.Badge = 1
+BITE_OTHER: firefly.Badge = 2
+EAT_100_APPLES: firefly.Badge = 3
+```
+
+{{< /tab >}}
 {{< tab "MoonBit" >}}
 
 ```moonbit
@@ -144,6 +153,13 @@ const progress = ff.addProgress(peer, EAT_100_APPLES, 1);
 
 ```c
 Progress progress = add_progress(peer, EAT_100_APPLES, 1);
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+ progress := firefly.add_progress(peer, EAT_100_APPLES, 1);
 ```
 
 {{< /tab >}}
@@ -234,6 +250,14 @@ const Board LEVEL_BEGIN = 2;
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+LEVEL_INTRO: firefly.Board = 1
+LEVEL_BEGIN: firefly.Board = 2
+```
+
+{{< /tab >}}
 {{< tab "MoonBit" >}}
 
 ```moonbit
@@ -289,6 +313,13 @@ const best = ff.addScore(peer, LEVEL_INTRO, 100);
 
 ```c
 Score best = add_score(peer, LEVEL_INTRO, 100);
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+best := firefly.add_score(peer, LEVEL_INTRO, 100);
 ```
 
 {{< /tab >}}

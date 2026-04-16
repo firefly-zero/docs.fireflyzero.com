@@ -15,6 +15,7 @@ Firefly Zero supports lots of programming languages:
 * 🏃 Go
 * 🐀 C and C++
 * ⚡️ Zig
+* 🐦‍⬛ Odin
 * 🐰 MoonBit
 * 🟦 AssemblyScript (a subset of TypeScript)
 
@@ -22,7 +23,6 @@ Experimental:
 
 * 🌙 Lua
 * 🧪 Elixir
-* ⌛ Coming soon: more languages (Python, JS, Kotlin).
 
 For simple apps and games, it's a good idea to stick to what you already know. But if you're ready to learn something new for better results, we recommend using Go. It's easy to learn, sufficiently fast, and memory-safe.
 
@@ -66,6 +66,18 @@ The preferred way to build a C (or C++) app is using [wasi-sdk](https://github.c
 1. Go to [wasi-sdk releases](https://github.com/WebAssembly/wasi-sdk/releases).
 1. Download and install the latest release for your OS.
 1. This should install wasi-sdk into `/opt/wasi-sdk`. If you used an alternative installation method and installed wasi-sdk in a different place, provide the absolute path to it in the `WASI_SDK_PATH` environment variable.
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+1. Install [odin](https://odin-lang.org/):
+    1. Go to [odin releases](https://github.com/odin-lang/Odin/releases)
+    1. Download and extract the latest release for your OS.
+    1. Add the `bin` directory from the extracted path into `$PATH`.
+1. Install [wasi-sdk](https://github.com/WebAssembly/wasi-sdk):
+    1. Go to [wasi-sdk releases](https://github.com/WebAssembly/wasi-sdk/releases).
+    1. Download and install the latest release for your OS.
+    1. This should install wasi-sdk into `/opt/wasi-sdk`. If you used an alternative installation method and installed wasi-sdk in a different place, provide the absolute path to it in the `WASI_SDK_PATH` environment variable.
 
 {{< /tab >}}
 {{< tab "MoonBit" >}}
@@ -136,6 +148,13 @@ firefly_cli new --lang=c hello-world
 
 ```bash
 firefly_cli new --lang=cpp hello-world
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```bash
+firefly_cli new --lang=odin hello-world
 ```
 
 {{< /tab >}}
@@ -327,6 +346,12 @@ And take a look at resources for your language:
 
 * [SDK source code](https://github.com/firefly-zero/firefly-c)
 * [Learn C++](https://www.w3schools.com/cpp/cpp_intro.asp)
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+* [SDK source code](https://github.com/firefly-zero/firefly-odin)
+* [Learn Odin](https://odin-lang.org/docs/overview/)
 
 {{< /tab >}}
 {{< tab "MoonBit" >}}

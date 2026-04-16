@@ -63,6 +63,14 @@ Buttons buttons = read_buttons(COMBINED);
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+pad, pressed := firefly.ReadPad(firefly.Combined)
+buttons := firefly.ReadButtons(firefly.Combined)
+```
+
+{{< /tab >}}
 {{< tab "MoonBit" >}}
 
 ```moonbit
@@ -145,6 +153,18 @@ for (peer = 0; peer < 32; peer++) {
         Buttons buttons = read_buttons(peer);
         // ...
     }
+}
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+peers := firefly.get_peers()
+for peer in peers {
+    pad, pressed := firefly.read_pad(peer)
+    buttons := firefly.read_buttons(peer)
+    // ...
 }
 ```
 
@@ -237,6 +257,17 @@ if (stash.size != 0)
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+buf := make([]byte, 4)
+stash := firefly.load_stash(peer, buf)
+if stash != nil {
+    firefly.save_stash(peer, stash)
+}
+```
+
+{{< /tab >}}
 {{< tab "MoonBit" >}}
 
 ```moonbit
@@ -297,7 +328,7 @@ for peer in peers {
 peers := firefly.GetPeers()
 me := firefly.GetMe()
 for _, peer := range peers.Slice() {
-    if peer == me {
+    if me.Eq(peer) {
         // ...
     }
 }
@@ -337,6 +368,19 @@ Peers peers = get_peers();
 Peer me = get_me();
 for (peer = 0; peer < 32; peer++) {
     if (is_online(peer) && peer == me) {
+        // ...
+    }
+}
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+peers := firefly.get_peers()
+me := firefly.get_me()
+for peer in peers {
+    if firefly.is_me(me, peer) {
         // ...
     }
 }
@@ -410,6 +454,15 @@ const idx = ff.getRandom() % peers.len();
 ```c
 Peer peers = get_peers();
 // TODO
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+peers := firefly.get_peers()
+idx := firefly.get_random() % len(peers)
+peer := peers[idx]
 ```
 
 {{< /tab >}}

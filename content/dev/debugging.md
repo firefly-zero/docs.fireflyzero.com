@@ -121,6 +121,28 @@ CHEAT int32_t cheat(int32_t cmd, int32_t val) {
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+package main
+
+import "./vendor/firefly"
+import "base:runtime"
+
+@(export = true)
+cheat :: proc "contextless" (cmd, val: i32) {
+    switch cmd {
+    case 1:
+        return get_health()
+    case 2:
+        set_health(val)
+        return 1
+    }
+    return 0
+}
+```
+
+{{< /tab >}}
 {{< tab "MoonBit" >}}
 
 ```moonbit
@@ -262,6 +284,17 @@ foo();
 log_debug("before bar");
 bar();
 log_debug("after bar");
+```
+
+{{< /tab >}}
+{{< tab "odin" >}}
+
+```go
+firefly.log_debug("before foo")
+foo()
+firefly.log_debug("before bar")
+bar()
+firefly.log_debug("after bar")
 ```
 
 {{< /tab >}}

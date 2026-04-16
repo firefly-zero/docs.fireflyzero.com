@@ -106,6 +106,14 @@ set_color(RED, color);
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+color := firefly.rgb(0xff, 0x00, 0x00)
+firefly.set_color(firefly.Color.Red, color)
+```
+
+{{< /tab >}}
 {{< tab "MoonBit" >}}
 
 ```moonbit
@@ -236,6 +244,22 @@ draw_triangle(
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+firefly.draw_triangle(
+    firefly.p(60, 10),
+    firefly.p(40, 40),
+    firefly.p(80, 40),
+    firefly.Style {
+        fill_color = firefly.Color.LightGray,
+        stroke_color = firefly.Color.DarkBlue,
+        stroke_width = 1,
+    },
+)
+```
+
+{{< /tab >}}
 {{< tab "MoonBit" >}}
 
 ```moonbit
@@ -299,6 +323,7 @@ Next, load the image from ROM into the memory:
 
 ```rust
 let file = firefly_rust::load_file_buf("img");
+let img = file.as_image();
 ```
 
 {{< /tab >}}
@@ -306,6 +331,7 @@ let file = firefly_rust::load_file_buf("img");
 
 ```go
 file := firefly.LoadFile("img", nil);
+img := file.Image()
 ```
 
 {{< /tab >}}
@@ -313,6 +339,7 @@ file := firefly.LoadFile("img", nil);
 
 ```zig
 const file = ff.loadFile("img");
+const img = file.toImage();
 ```
 
 {{< /tab >}}
@@ -320,6 +347,7 @@ const file = ff.loadFile("img");
 
 ```ts
 const file = ff.loadFile("img");
+const img = file.toImage();
 ```
 
 {{< /tab >}}
@@ -334,6 +362,14 @@ const size_t fileSize = 97;
 char head[fileSize];
 Buffer buf = {.head = head, .size = fileSize};
 image = load_file("img", buf);
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+file := firefly.load_file_buf("img");
+img := firefly.image(file)
 ```
 
 {{< /tab >}}
@@ -441,6 +477,17 @@ ff.unsetCanvas();
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+canvas := firefly.canvas_buf(firefly.s(120, 120))
+firefly.set_canvas(canvas)
+// fill canvas with white color
+firefly.clear_screen(firefly.Color.White)
+firefly.unset_canvas()
+```
+
+{{< /tab >}}
 {{< tab "MoonBit" >}}
 
 ```moonbit
@@ -510,6 +557,13 @@ draw_image(canvas, point);
 
 ```c++
 draw_image(canvas, {10, 10});
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+firefly.draw_image(canvas, firefly.p(10, 10))
 ```
 
 {{< /tab >}}
