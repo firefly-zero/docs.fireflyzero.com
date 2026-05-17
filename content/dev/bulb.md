@@ -156,11 +156,10 @@ Actions define list of actions to be executed when the relevant tile is triggere
 * `MOVE room x y`: Teleport the player to the given room in the given location. For example, `MOVE library 3 18` will teleport the player to the room "library" to the 4th column and 19th row (because the coordinates are zero-indexed).
 * `PLACE tile x y`: Replace the tile in the current room at the given position with the given tile. For example, `PLACE cat 3 18` will place a cat at x=3 and y=18.
 * `PLACE tile`: If `PLACE` is specified without coordinates, the currently activated tile will be replaced. For example, `PLACE floor` will replace the tile that the player activated (has touched or is standing on).
-* `SET var val`: Set the value of the given variable. All variables are signed integers and zero by default. For example, `SET key 1` will store `1` in the variable `key`.
-* `ADD var val`: add the given value ti the given variable. For example, `ADD stars 1` will add 1 to the variable `stars`. You can also use negative values to substract. For example, `ADD health -5`.
+* `SET var val`: Set the value of the given variable. All variables are signed integers and zero by default. For example, `SET key 1` will store `1` in the variable `key`. You can also use arithmetic expressions: `SET health health-5`
 * `JUMP action`: Stop executing the current set of actions and start executing the different one instead. This allows to share common steps between multiple action sets. For example, `JUMP pick` will execute `A pick` instead of all remaining action steps.
 * `SELECT id1 id2 id3`: Randomly jump to one of the given actions. For example, `SELECT heads tails`.
-* `IF var > val JUMP action`: JUMP to the given set of actions if the given condition is true. For example `IF key == 0 JUMP door_closed` will execute `A door_closed` if the `key` variable is equal to zero. Otherwise (if the player has a key), it will continue executing the remaining actions. The comparison operator is one of: `>`, `>=`, `<`, `<=`, `==`, or `!=`.
+* `IF cond JUMP action`: JUMP to the given set of actions if the given condition is true. For example, `IF key == 0 JUMP door_closed` will execute `A door_closed` if the `key` variable is equal to zero.
 * `IF var > val BREAK`: Stop executing the current set of actions if the condition is true. The same as `IF` with `JUMP` that leads to an empty action set. For example, `BRANCH key == 0`.
 
 For example:
@@ -175,6 +174,17 @@ SAY You found a key!
 ADD key 1
 PLACE floor
 ```
+
+`IF` and `SET` actions can use math expressions. Some examples:
+
+* `SET keys 1`
+* `SET health health-5`
+* `SET health health/2+5`
+* `SET health (health-5)*2`
+* `IF key == 0 BREAK`
+* `IF stars < 5 BREAK`
+* `IF damage != health BREAK`
+* `IF health >= level*5 BREAK`
 
 Lastly, if there is only one tile using a set of actions, you can join them together by putting `A` without ID between the instructions:
 
