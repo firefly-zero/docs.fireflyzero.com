@@ -168,7 +168,7 @@ use core::cell::OnceCell;
 static mut STATE: OnceCell<State> = OnceCell::new();
 
 struct State {
-    font: FileBuf,
+    font: FontBuf,
 }
 
 fn get_state() -> &'static mut State {
@@ -179,7 +179,7 @@ fn get_state() -> &'static mut State {
 #[unsafe(no_mangle)]
 extern "C" fn boot() {
     let state = State {
-        font: load_file_buf("font"),
+        font: load_file_buf("font").unwrap().into(),
     };
     #[allow(static_mut_refs)]
     unsafe { STATE.set(state) }.ok().unwrap();
@@ -188,10 +188,9 @@ extern "C" fn boot() {
 #[unsafe(no_mangle)]
 extern "C" fn render() {
     let state = get_state();
-    let font = state.font.as_font();
     draw_text(
         "hello",
-        &font,
+        &state.font,
         Point {x: 20, y: 10},
         Color::Red,
     );

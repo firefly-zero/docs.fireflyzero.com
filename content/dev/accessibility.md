@@ -73,10 +73,9 @@ You can access in runtime system settings for the given peer:
 {{< tab "Rust" >}}
 
 ```rust
-use firefly_rust as ff;
-
-let me = ff::get_me();
-let settings = ff::get_settings(me);
+use firefly_rust::*;
+let me = get_me();
+let settings = get_settings(me);
 ```
 
 {{< /tab >}}

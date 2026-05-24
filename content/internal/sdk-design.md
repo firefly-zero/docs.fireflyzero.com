@@ -16,9 +16,10 @@ When designing a new SDK for Firefly Zero, we follow these principles:
 1. **Keep consistent type names**. Use the following type names:
     1. Graphics: `Angle`, `Canvas`, `Color`, `Font`, `Image`, `LineStyle`, `Point`, `RGB`, `Size`, `Style`, `SubImage`.
     1. FS: `File`.
-    1. Input: `Pad`, `DPad`, `Buttons`.
+    1. Input: `Pad`, `DPad4`, `DPad8`, `Buttons`.
     1. Net: `Peer`, `Peers`, `Stash`.
     1. Stats: `Badge`, `Board`, `Progress`.
+    1. Misc: `Settings`, `Language`, `Theme`.
     1. Shapes: `Shape`, `Line`, `Rect`, `RoundedRect`, `Circle`, `Ellipse`, `Triangle`, `Arc`, `Sector`.
 1. **Follow the language style guides**. Follow the naming convention and all the best practices. If there are several competing standards, pick the most commonly used one. Use all possible linters and code formatters.
 1. **Keep modules flat**. There should be only 2 public modules: `firefly.audio` with everything related to audio and `firefly` with everything else (and `sudo` if your SDK provides sudo functions). Even though the host runtime defines modules like `graphics`, `misc`, and more, the SDKs' public API shouldn't reflect that structure. Make it fast and easy for users to find and import all they need.
