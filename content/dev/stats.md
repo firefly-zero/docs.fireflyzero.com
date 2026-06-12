@@ -2,7 +2,7 @@
 title: Badges and scores
 weight: 50
 params:
-  art: /multiplayer.png
+  art: /stats.png
   icon: fa-solid fa-trophy
   emoji: 🏆
 ---

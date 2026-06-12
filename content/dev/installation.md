@@ -2,7 +2,7 @@
 title: Installation
 weight: 3
 params:
-  art: /hello.png
+  art: /install.png
   icon: fa-solid fa-download
   emoji: 📥
 ---

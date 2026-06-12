@@ -2,7 +2,7 @@
 title: Accessibility
 weight: 40
 params:
-  art: /multiplayer.png
+  art: /accessibility.png
   icon: fa-solid fa-handshake
   emoji: 🤝
 ---

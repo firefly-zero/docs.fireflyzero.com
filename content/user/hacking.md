@@ -2,7 +2,7 @@
 title: Hacking
 weight: 25
 params:
-  art: /debugging.png
+  art: /hacking.png
   icon: fa-solid fa-code
   emoji: 😎
 ---

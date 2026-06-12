@@ -2,7 +2,7 @@
 title: Installing apps
 weight: 4
 params:
-  art: /hello.png
+  art: /install.png
   icon: fa-solid fa-download
   emoji: 📥
 ---
