@@ -173,12 +173,11 @@ Finally, you can change parameters of nodes over time using *modulators*. For ex
 
 ```rust
 let gain = audio::OUT.add_gain(0.);
-gain.modulate(audio::LinearModulator {
-    start: 0.,
-    end: 1.,
+let modulator = audio::LinearModulator {
     start_at: audio::Time::ZERO,
-    end_at: audio::Time::seconds(2),
-});
+    end_at: audio::seconds(2),
+};
+gain.modulate(0., 1., modulator);
 gain.add_sine(audio::Freq::A4, 0.);
 ```
 
@@ -187,10 +186,8 @@ gain.add_sine(audio::Freq::A4, 0.);
 
 ```go
 gain := audio.Out.AddGain(0.)
-gain.Modulate(audio.LinearModulator {
-    Start: 0.,
-    End: 1.,
-    StartAt: audio.Seconds(0),
+gain.Modulate(0., 1., audio.LinearModulator {
+    StartAt: 0,
     EndAt: audio.Seconds(2),
 });
 gain.AddSine(audio.A4, 0.)
@@ -202,12 +199,10 @@ gain.AddSine(audio.A4, 0.)
 ```zig
 const gain = ff.audio.out.node.addGain(1.0);
 const mod: ff.audio.LinearModulator = .{
-    .start = 0,
-    .end = 1,
     .start_at = .zero,
     .end_at = .seconds(2),
 };
-gain.modulate(.{ .linear = mod });
+gain.modulate(0, 1, .{ .linear = mod });
 _ = gain.node.addSine(.a4, 0.0);
 ```
 
@@ -216,9 +211,7 @@ _ = gain.node.addSine(.a4, 0.0);
 
 ```c
 AudioNode gain = add_gain(OUT, 0.0);
-mod_linear(gain, LinearModulator {
-    .start = 0.0,
-    .end = 1.0,
+mod_linear(gain, 0.0, 1.0, LinearModulator {
     .start_at = seconds(0),
     .end_at = seconds(2)});
 add_sine(gain, 440.0, 0.0);
@@ -228,6 +221,13 @@ add_sine(gain, 440.0, 0.0);
 {{< /tabs >}}
 
 <audio controls src="/mod-linear-gain.mp3" preload="metadata"></audio>
+
+{{< hint info >}}
+Technically, there are two kinds of modulators:
+
+1. [LFOs](https://en.wikipedia.org/wiki/Low-frequency_oscillation)
+1. [Envelopes](https://w.wiki/QpSG)
+{{< /hint >}}
 
 ## 💽 Playing audio files
 
@@ -333,9 +333,12 @@ Misc:
 
 LFOs:
 
-* `SineModulator`: sine wave low-frequency oscillator. It looks like this: `∿`. Parameters are oscillation frequency `freq`, lowest produced value `low`, and highest produced value `high`.
+* `SineModulator`: sine wave low-frequency oscillator. It looks like this: `∿`.
 
   <audio controls src="/mod-sine-gain.mp3" preload="metadata"></audio>
+
+* `SquareModulator`: square wave low-frequency oscillator. It looks like this: `🭿🭾🭿🭾🭿🭾🭿🭾`.
+* `SawtoothModulator`: sawtooth wave low-frequency oscillator. It looks like this: `╱│╱│╱│╱│`.
 
 Envelopes:
 
@@ -344,3 +347,4 @@ Envelopes:
   <audio controls src="/mod-linear-gain.mp3" preload="metadata"></audio>
 
 * `HoldModulator`: hold envelope. It looks like this: `⎽│⎺` or `⎺│⎽`. The value before `time` is `before` and the value after `time` is `after`. Equivalent to `LinearModulator` with `start_at` being equal to `end_at`.
+* `AdsrModulator`: ADSR envelope, which stands for Attack, Decay, Sustain, and Release. It looks like this: `🭋🭍🬹🬿`. The value first spikes to 1 (attack), the goes to sustain level (decay), holds the level (sustain), and then drops to 0 (release).
