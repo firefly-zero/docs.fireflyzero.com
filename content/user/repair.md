@@ -2,7 +2,7 @@
 title: Repair
 weight: 20
 params:
-  art: /debugging.png
+  art: /repair.png
   icon: fa-solid fa-wrench
   emoji: 🔧
 ---

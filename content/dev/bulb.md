@@ -2,6 +2,7 @@
 title: Bulb Script
 weight: 80
 params:
+  art: /bulb.png
   icon: fa-solid fa-lightbulb
   emoji: 💡
 ---

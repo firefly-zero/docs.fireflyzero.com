@@ -2,7 +2,7 @@
 title: Testing
 weight: 60
 params:
-  art: /debugging.png
+  art: /testing.png
   icon: fa-solid fa-circle-check
   emoji: ☑️
 ---
