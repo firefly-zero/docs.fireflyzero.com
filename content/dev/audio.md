@@ -64,6 +64,18 @@ pub export fn boot() void {
 ```
 
 {{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+import "firefly-as/assembly";
+import * as audio from "firefly-as/assembly/audio";
+
+export function boot(): void {
+  audio.OUT.addSine(audio.Freq.A4, 0);
+}
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -114,6 +126,15 @@ _ = ff.audio.out.add.sine(.g4, 0.0);
 ```
 
 {{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+audio.OUT.addSine(audio.Freq.C4, 0);
+audio.OUT.addSine(audio.Freq.E4, 0);
+audio.OUT.addSine(audio.Freq.G4, 0);
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -151,6 +172,14 @@ gain.AddSine(audio.A4, 0.)
 ```zig
 const gain = ff.audio.out.add.gain(0.5);
 _ = gain.add.sine(.a4, 0.0);
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+const gain = audio.OUT.addGain(0.5);
+gain.addSine(audio.Freq.A4, 0);
 ```
 
 {{< /tab >}}
@@ -207,6 +236,19 @@ _ = gain.add.sine(.a4, 0.0);
 ```
 
 {{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+const gain = audio.OUT.addGain(0.5);
+const mod = audio.LinearModulator.new(
+  audio.Time.seconds(0),
+  audio.Time.seconds(2),
+);
+gain.modulate(0, 1, mod);
+gain.addSine(audio.Freq.A4, 0);
+```
+
+{{< /tab >}}
 {{< tab "C/C++" >}}
 
 ```c
@@ -260,6 +302,13 @@ audio.Out.AddFile("muzak")
 
 ```zig
 ff.audio.out.add.file("muzak");
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+audio.OUT.addFile("muzak");
 ```
 
 {{< /tab >}}
@@ -349,3 +398,5 @@ Envelopes:
 
 * `HoldModulator`: hold envelope. It looks like this: `⎽│⎺` or `⎺│⎽`. The value before `time` is 0 and the value after `time` is 1. Equivalent to `LinearModulator` with `start_at` being equal to `end_at`.
 * `AdsrModulator`: ADSR envelope, which stands for Attack, Decay, Sustain, and Release. It looks like this: `🭋🭍🬹🬿`. The value first spikes to 1 (attack), the goes to sustain level (decay), holds the level (sustain), and then drops to 0 (release).
+
+  <audio controls src="/mod-adsr-gain.mp3" preload="metadata"></audio>
