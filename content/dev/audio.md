@@ -102,6 +102,17 @@ boot :: proc "contextless" () {
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+fn main {}
+
+pub fn boot() -> Unit {
+  @audio.out.add_sine(@audio.A4, 0) |> ignore
+}
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 <audio controls src="/sine.mp3" preload="metadata"></audio>
@@ -167,6 +178,15 @@ audio.add_sine(audio.OUT, audio.G4, 0)
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+@audio.out.add_sine(@audio.C4, 0) |> ignore
+@audio.out.add_sine(@audio.E4, 0) |> ignore
+@audio.out.add_sine(@audio.G4, 0) |> ignore
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 <audio controls src="/chord.mp3" preload="metadata"></audio>
@@ -219,6 +239,14 @@ add_sine(gain, 440.0, 0.0);
 ```odin
 gain := audio.add_gain(audio.OUT, 0.5)
 audio.add_sine(gain, audio.A4, 0)
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+let gain = @audio.out.add_gain(0.5)
+gain.add_sine(@audio.A4, 0) |> ignore
 ```
 
 {{< /tab >}}
@@ -305,6 +333,18 @@ audio.add_sine(gain, audio.A4, 0)
 ```
 
 {{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+let gain = @audio.out.add_gain(0.0)
+let mod = @audio.LinearModulator::{
+  start_at: @audio.Time::seconds(0),
+  end_at: @audio.Time::seconds(2),
+}
+gain.add_sine(@audio.A4, 0) |> ignore
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 <audio controls src="/mod-linear-gain.mp3" preload="metadata"></audio>
@@ -367,6 +407,13 @@ add_file(OUT, "muzak")
 
 ```odin
 audio.add_file("muzak")
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+@audio.out.add_file(b"muzak") |> ignore
 ```
 
 {{< /tab >}}
