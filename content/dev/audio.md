@@ -59,7 +59,7 @@ func boot() {
 const ff = @import("firefly");
 
 pub export fn boot() void {
-    _ = ff.audio.out.node.addSine(.a4, 0.0);
+    _ = ff.audio.out.add.sine(.a4, 0.0);
 }
 ```
 
@@ -108,9 +108,9 @@ audio.Out.AddSine(audio.G4, 0.)
 {{< tab "Zig" >}}
 
 ```zig
-_ = ff.audio.out.node.addSine(.c4, 0.0);
-_ = ff.audio.out.node.addSine(.e4, 0.0);
-_ = ff.audio.out.node.addSine(.g4, 0.0);
+_ = ff.audio.out.add.sine(.c4, 0.0);
+_ = ff.audio.out.add.sine(.e4, 0.0);
+_ = ff.audio.out.add.sine(.g4, 0.0);
 ```
 
 {{< /tab >}}
@@ -149,8 +149,8 @@ gain.AddSine(audio.A4, 0.)
 {{< tab "Zig" >}}
 
 ```zig
-const gain = ff.audio.out.node.addGain(0.5);
-_ = gain.node.addSine(.a4, 0.0);
+const gain = ff.audio.out.add.gain(0.5);
+_ = gain.add.sine(.a4, 0.0);
 ```
 
 {{< /tab >}}
@@ -188,7 +188,7 @@ gain.add_sine(audio::Freq::A4, 0.);
 gain := audio.Out.AddGain(0.)
 gain.Modulate(0., 1., audio.LinearModulator {
     StartAt: 0,
-    EndAt: audio.Seconds(2),
+    EndAt:   audio.Seconds(2),
 });
 gain.AddSine(audio.A4, 0.)
 ```
@@ -197,13 +197,13 @@ gain.AddSine(audio.A4, 0.)
 {{< tab "Zig" >}}
 
 ```zig
-const gain = ff.audio.out.node.addGain(1.0);
+const gain = ff.audio.out.add.gain(1.0);
 const mod: ff.audio.LinearModulator = .{
     .start_at = .zero,
     .end_at = .seconds(2),
 };
-gain.modulate(0, 1, .{ .linear = mod });
-_ = gain.node.addSine(.a4, 0.0);
+gain.modulate(0, 1, mod);
+_ = gain.add.sine(.a4, 0.0);
 ```
 
 {{< /tab >}}
@@ -211,9 +211,10 @@ _ = gain.node.addSine(.a4, 0.0);
 
 ```c
 AudioNode gain = add_gain(OUT, 0.0);
-mod_linear(gain, 0.0, 1.0, LinearModulator {
+LinearModulator mod = {
     .start_at = seconds(0),
-    .end_at = seconds(2)});
+    .end_at = seconds(2)};
+mod_linear(gain, 0.0, 1.0, mod);
 add_sine(gain, 440.0, 0.0);
 ```
 
@@ -258,7 +259,7 @@ audio.Out.AddFile("muzak")
 {{< tab "Zig" >}}
 
 ```zig
-ff.audio.out.node.addFile("muzak");
+ff.audio.out.add.file("muzak");
 ```
 
 {{< /tab >}}
@@ -342,9 +343,9 @@ LFOs:
 
 Envelopes:
 
-* `LinearModulator`: linear (ramp up or down) envelope. It looks like this: `⎽╱⎺` or `⎺╲⎽`. The value before `start_at` is `start`, the value after `end_at` is `end`, and the value between `start_at` and `end_at` changes linearly from `start` to `end`.
+* `LinearModulator`: linear (ramp up or down) envelope. It looks like this: `⎽╱⎺` or `⎺╲⎽`. The value before `start_at` is 0, the value after `end_at` is 1, and the value between `start_at` and `end_at` changes linearly from 0 to 1.
 
   <audio controls src="/mod-linear-gain.mp3" preload="metadata"></audio>
 
-* `HoldModulator`: hold envelope. It looks like this: `⎽│⎺` or `⎺│⎽`. The value before `time` is `before` and the value after `time` is `after`. Equivalent to `LinearModulator` with `start_at` being equal to `end_at`.
+* `HoldModulator`: hold envelope. It looks like this: `⎽│⎺` or `⎺│⎽`. The value before `time` is 0 and the value after `time` is 1. Equivalent to `LinearModulator` with `start_at` being equal to `end_at`.
 * `AdsrModulator`: ADSR envelope, which stands for Attack, Decay, Sustain, and Release. It looks like this: `🭋🭍🬹🬿`. The value first spikes to 1 (attack), the goes to sustain level (decay), holds the level (sustain), and then drops to 0 (release).
