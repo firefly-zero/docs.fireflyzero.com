@@ -1,5 +1,5 @@
 ---
-# draft: true # Hidden until we know if we want to support audio on the device.
+draft: true # Hidden until we know if we want to support audio on the device.
 title: Audio
 weight: 25
 params:
