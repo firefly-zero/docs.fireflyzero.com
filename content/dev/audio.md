@@ -1,5 +1,5 @@
 ---
-draft: true # Hidden until we know if we want to support audio on the device.
+# draft: true # Hidden until we know if we want to support audio on the device.
 title: Audio
 weight: 25
 params:
@@ -88,6 +88,20 @@ BOOT void boot()
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+package main
+
+import "./vendor/firefly/audio"
+
+@(export = true)
+boot :: proc "contextless" () {
+    audio.add_sine(audio.OUT, audio.A4, 0)
+}
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 <audio controls src="/sine.mp3" preload="metadata"></audio>
@@ -144,6 +158,15 @@ add_sine(OUT, 391.995, 0.0);
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+audio.add_sine(audio.OUT, audio.C4, 0)
+audio.add_sine(audio.OUT, audio.E4, 0)
+audio.add_sine(audio.OUT, audio.G4, 0)
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 <audio controls src="/chord.mp3" preload="metadata"></audio>
@@ -191,6 +214,14 @@ add_sine(gain, 440.0, 0.0);
 ```
 
 {{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+gain := audio.add_gain(audio.OUT, 0.5)
+audio.add_sine(gain, audio.A4, 0)
+```
+
+{{< /tab >}}
 {{< /tabs >}}
 
 <audio controls src="/gain.mp3" preload="metadata"></audio>
@@ -226,7 +257,7 @@ gain.AddSine(audio.A4, 0.)
 {{< tab "Zig" >}}
 
 ```zig
-const gain = ff.audio.out.add.gain(1.0);
+const gain = ff.audio.out.add.gain(0.0);
 const mod: ff.audio.LinearModulator = .{
     .start_at = .zero,
     .end_at = .seconds(2),
@@ -239,7 +270,7 @@ _ = gain.add.sine(.a4, 0.0);
 {{< tab "TS" >}}
 
 ```ts
-const gain = audio.OUT.addGain(0.5);
+const gain = audio.OUT.addGain(0.0);
 const mod = audio.LinearModulator.new(
   audio.Time.seconds(0),
   audio.Time.seconds(2),
@@ -258,6 +289,19 @@ LinearModulator mod = {
     .end_at = seconds(2)};
 mod_linear(gain, 0.0, 1.0, mod);
 add_sine(gain, 440.0, 0.0);
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+gain := audio.add_gain(audio.OUT, 0)
+mod := audio.LinearModulator{
+    audio.seconds(0),
+    audio.seconds(2),
+}
+audio.modulate(gain, 0, 1, mod)
+audio.add_sine(gain, audio.A4, 0)
 ```
 
 {{< /tab >}}
@@ -316,6 +360,13 @@ audio.OUT.addFile("muzak");
 
 ```c
 add_file(OUT, "muzak")
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+audio.add_file("muzak")
 ```
 
 {{< /tab >}}
