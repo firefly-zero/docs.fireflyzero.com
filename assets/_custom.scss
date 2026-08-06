@@ -17,20 +17,21 @@ img.lead-art {
     max-width: 25%;
 }
 
-@media screen and (max-width: 90rem) {
+@media screen and (max-width: 400px) {
     img.lead-art {
         width: 100%;
         max-width: 100%;
     }
 }
 
-@media screen and (max-width: 90rem) {
+@media screen and (max-width: 400px) {
     .page-title {
         display: none;
     }
 }
 
 .image-demo {
+
     img,
     svg {
         display: block;
