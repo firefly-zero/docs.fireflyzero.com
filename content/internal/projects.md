@@ -29,17 +29,30 @@ Developer tools:
 SDKs:
 
 * [🟦 firefly-as](https://github.com/firefly-zero/firefly-as)
-* [🐈‍⬛ firefly-bitsy](https://github.com/firefly-zero/firefly-bitsy)
-* [💡 firefly-bulb](https://github.com/firefly-zero/firefly-bulb) and [bulb-parser](https://github.com/firefly-zero/bulb-parser)
 * [🐀 firefly-c](https://github.com/firefly-zero/firefly-c)
 * [🧪 firefly-elixir](https://github.com/firefly-zero/firefly-elixir)
 * [🏃 firefly-go](https://github.com/firefly-zero/firefly-go)
 * [🌙 firefly-lua](https://github.com/firefly-zero/firefly-lua)
 * [🐰 firefly-moon](https://github.com/firefly-zero/firefly-moon)
+* [🐦‍⬛ firefly-odin](https://github.com/firefly-zero/firefly-odin)
 * [firefly-python](https://github.com/firefly-zero/firefly-python)
 * [🦀 firefly-rust](https://github.com/firefly-zero/firefly-rust)
 * [firefly-starlark](https://github.com/firefly-zero/firefly-starlark)
 * [⚡️ firefly-zig](https://github.com/firefly-zero/firefly-zig)
+
+Interpreters:
+
+* [🐈‍⬛ firefly-bitsy](https://github.com/firefly-zero/firefly-bitsy)
+* [💡 firefly-bulb](https://github.com/firefly-zero/firefly-bulb) and [bulb-parser](https://github.com/firefly-zero/bulb-parser)
+* [🐙 firefly-chip8](https://github.com/firefly-zero/firefly-chip8)
+
+Developer libraries:
+
+* [💠 firefly-pico8-go](https://github.com/firefly-zero/firefly-pico8-go)
+* [🦸 firefly-sudo](https://github.com/firefly-zero/firefly-sudo)
+* [🪚 firefly-toml](https://github.com/firefly-zero/firefly-toml)
+* [💄 firefly-ui](https://github.com/firefly-zero/firefly-ui)
+* [⌨️ firefly-keyboard](<https://github.com/firefly-zero/firefly-keyboard>)
 
 Websites:
 
@@ -59,27 +72,18 @@ System apps:
 * [🎮 firefly-input-test](https://github.com/firefly-zero/firefly-input-test)
 * [🤝 firefly-connector](https://github.com/firefly-zero/firefly-connector)
 * [🚀 firefly-launcher](https://github.com/firefly-zero/firefly-launcher)
+* [📑 firefly-manuals](https://github.com/firefly-zero/firefly-manuals)
 * [📥 firefly-installer](https://github.com/firefly-zero/firefly-installer)
 * [🚮 firefly-remover](https://github.com/firefly-zero/firefly-remover)
 * [⚙️ firefly-settings](https://github.com/firefly-zero/firefly-settings)
 * [📸 firefly-shots](https://github.com/firefly-zero/firefly-shots)
 
-Games:
-
-* [🧱 shoot](https://github.com/firefly-zero/shoot)
-* [👑 king](https://github.com/firefly-zero/king)
-* [🐍 snek](https://github.com/firefly-zero/snek)
-* [☄️ gates](https://github.com/firefly-zero/gates)
-* [🧻 tpcat](https://github.com/firefly-zero/tpcat)
-* [🪤 follow](github.com/firefly-zero/follow)
-* [🗃 bitsy-games](https://github.com/firefly-zero/bitsy-games)
-* [pong](https://github.com/firefly-zero/pong)
-* [hungie](https://github.com/firefly-zero/hungie)
-* [neon](https://github.com/firefly-zero/neon)
-
 Misc:
 
+* Games: [codeberg.org/firefly-zero](https://codeberg.org/firefly-zero)
 * [🎨 firefly-art](https://github.com/firefly-zero/firefly-art)
-* [🪚 firefly-toml](https://github.com/firefly-zero/firefly-toml)
 * [touchpad-heatmap](https://github.com/firefly-zero/touchpad-heatmap)
 * [firefly-ci](https://github.com/firefly-zero/firefly-ci)
+* [🧩 firefly-integration-tests](https://github.com/firefly-zero/firefly-integration-tests)
+* [☎️ firefly-mobile-emulator](https://github.com/firefly-zero/firefly-mobile-emulator)
+* [🐇 firefly-benchmarks](https://github.com/firefly-zero/firefly-benchmarks)
