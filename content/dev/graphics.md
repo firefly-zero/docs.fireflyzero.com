@@ -432,7 +432,7 @@ After you create a canvas and call `set_canvas`, all almost drawing functions wi
 ```rust
 use firefly_zero::*;
 let canvas = CanvasBuf::new(Size::new(120, 120));
-set_canvas(canvas);
+set_canvas(&canvas);
 // fill canvas with white color
 clear_screen(Color::White);
 unset_canvas();
@@ -511,7 +511,7 @@ let canvas = Canvas::new(Size::new(120, 120))
 {{< /tabs >}}
 
 {{< hint warning >}}
-Currently, `draw_text`, `draw_image`, and `draw_image_sub` don't support canvas but it might change in the future. Don't call these functions when you have a canvas set!
+Currently, `draw_text`, `draw_image`, and `draw_sub_image` don't support canvas but it might change in the future. Don't call these functions when you have a canvas set!
 {{< /hint >}}
 
 To draw canvas on the screen, convert it to an image and use `draw_image`:
@@ -520,7 +520,7 @@ To draw canvas on the screen, convert it to an image and use `draw_image`:
 {{< tab "Rust" >}}
 
 ```rust
-draw_image(canvas.as_image(), Point{ x: 10, y: 10 });
+draw_image(&canvas.into_image(), Point{ x: 10, y: 10 });
 ```
 
 {{< /tab >}}
