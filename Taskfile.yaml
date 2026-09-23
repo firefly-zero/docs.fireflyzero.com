@@ -24,7 +24,11 @@ tasks:
     status:
       - test -d themes/hugo-book
     cmds:
-      - git clone https://github.com/alex-shpak/hugo-book themes/hugo-book --depth=1
+      - wget https://github.com/alex-shpak/hugo-book/archive/refs/tags/v0.14.0.tar.gz
+      - defer: rm v0.14.0.tar.gz
+      - tar -xvf ./v0.14.0.tar.gz
+      - mkdir -p themes/
+      - mv hugo-book-* themes/hugo-book
 
   install:
     desc: "Install all dependencies"
