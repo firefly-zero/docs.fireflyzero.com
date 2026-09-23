@@ -9,7 +9,7 @@ params:
 
 ## 💾 ROM
 
-Running `firefly_cli export` creates a single-file distribution for an app's ROM. This ROM can be imported back using `firefly_cli import`.
+Running `ff export` creates a single-file distribution for an app's ROM. This ROM can be imported back using `ff import`.
 
 This file is a regular [zip archive](https://en.wikipedia.org/wiki/ZIP_(file_format)) with [zstd](https://en.wikipedia.org/wiki/Zstd) compression. Because zstd compression support is added into the zip specification only in 2020, your archive viewer program might not be able to open it.
 
@@ -41,7 +41,7 @@ Firefly uses little endian for everything, including custom file formats.
 
 Images can be:
 
-1. Produced by `firefly_cli build` from PNG and bundled into the app ROM.
+1. Produced by `ff build` from PNG and bundled into the app ROM.
 1. Generated in runtime as `Canvas`.
 1. Loaded in runtime by `load_file`.
 1. Modified in runtime by `Image` methods.

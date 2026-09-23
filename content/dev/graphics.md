@@ -355,7 +355,7 @@ const img = file.toImage();
 
 ```c
 // We know the image size in advance.
-// You can see it when running `firefly_cli build`.
+// You can see it when running `ff build`.
 // You could also use `get_file_size` to detect the file size
 // in runtime but that requires using an allocator.
 const size_t fileSize = 97;

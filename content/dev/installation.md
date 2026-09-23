@@ -127,7 +127,7 @@ After that, open `~/.bashrc` (or `~/.zshrc` if you use zsh) and add at the end t
 1. Verify the installation:
 
    ```bash
-   firefly_cli --version
+   ff --version
    ```
 
 {{% /details %}}
@@ -145,21 +145,21 @@ After that, open `~/.bashrc` (or `~/.zshrc` if you use zsh) and add at the end t
 Done! You now have firefly_cli. Open a new terminal window and give it a try:
 
 ```bash
-firefly_cli --version
+ff --version
 ```
 
 ## 🚀 Installing apps
 
-The `firefly_cli import` command can be used to install any app from the [catalog](https://catalog.fireflyzero.com/). Start by installing a few games:
+The `ff import` command can be used to install any app from the [catalog](https://catalog.fireflyzero.com/). Start by installing a few games:
 
 ```bash
-firefly_cli import lux.snek
-firefly_cli import lux.gates
-firefly_cli import tranzystorekk.sweeper
+ff import lux.snek
+ff import lux.gates
+ff import tranzystorekk.sweeper
 ```
 
 Now you can launch the emulator and play some games:
 
 ```bash
-firefly_cli emulator
+ff emulator
 ```

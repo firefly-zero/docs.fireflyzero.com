@@ -20,10 +20,7 @@ params:
       * `shots/`: directory with app screenshots in PNG format.
       * `stats`
 * `sys/`
-  * `priv/`: directory with private keys.
-    * `<AUTHOR_ID>`: the author's private key. Used to sign apps when building with `firefly_cli build`. Private keys are only present on the emulator's virtual file system but never on the device. Use `firefly_cli key` to manage keys.
-  * `pub/`: directory with public keys.
-    * `<AUTHOR_ID>`: the author's public key. Used to verify signatures of installed ROMs.
   * `launcher`: short metadata of the launcher. This is the first app that is launched when device/emulator starts.
   * `new-app`: short metadata of the latest installed app. If there is no launcher installed in the system, this is the app that will be launched first when device/emulator starts.
   * `name`: the device name. By default, generated to be unique but users may change the device name. For multiplayer, we require all connected devices to have a unique name to avoid confusion. The name has the same validation rules as author and app IDs and can be at most 16 characters long.
+  * `battery`: battery info. Contains the voltage values corresponding to 0% and 100% battery charge.

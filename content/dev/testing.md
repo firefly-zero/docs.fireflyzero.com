@@ -29,7 +29,7 @@ from firefly_test import App, CLI
 ROOT = Path(__file__).parent.parent
 
 def test_add(tmp_path: Path) -> None:
-    # Call `firefly_cli build` for the app to install it
+    # Call `ff build` for the app to install it
     # into temporary virtual filesystem.
     cli = CLI(vfs=tmp_path)
     cli.build(ROOT)
@@ -45,7 +45,7 @@ def test_add(tmp_path: Path) -> None:
 To run the test:
 
 ```bash
-firefly_cli test
+ff test
 ```
 
 It will create a Python virtual environment and install all dependencies. After you run it for the first time, it's a good idea to restart your code editor so that it picks up the virtual environment and you have a working autocomplete.

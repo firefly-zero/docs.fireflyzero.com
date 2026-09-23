@@ -21,9 +21,7 @@ Optional:
 * `lang` (string): the programming language of the app source code. Dictates the build command that is used to build the WebAssembly binary. If not specified, the language will be automatically detected.
 * `compile_args` (array of strings): an array of additional CLI arguments to pass into the command used to build the WebAssembly binary. The command is language-specific: it will be `cargo` for Rust, `tinygo` for Go, `zig` for Zig, etc.
 * `stack_size` (number): how many bytes in RAM should be reserved for stack. This can be set only for some languages. Defaults to `16384` (16 Kb).
-* `launcher` (boolean): set to `true` if the app is a launcher. The launcher is the first app that starts when the device (or emulator) is launched. Its job is to provide means for launching all other apps on the device.
-* `sudo` (boolean): set to `true` if the app needs access to privilieged functions, like reading files in other apps or starting other apps.
-* `cheats` (table): specifies how a cheat code should be converted to a number. For example, `set-health = 3` means that when you call `firefly_cli runtime cheat set-health 100`, the `cheat` callback in the running app will be called with values `3` and `100`.
+* `cheats` (table): specifies how a cheat code should be converted to a number. For example, `set-health = 3` means that when you call `ff runtime cheat set-health 100`, the `cheat` callback in the running app will be called with values `3` and `100`.
 * `files` (table): covered below.
 * `badges` (table): see [Badges and scores]({{< ref "stats.md#-badges" >}}).
 * `boards` (table): see [Badges and scores]({{< ref "stats.md#-boards" >}}).
@@ -77,14 +75,14 @@ dec-score = 3  # Decrement the score by the given value
 
 Does your app require a complicated build process? No problem! There are a few ways to customize the compilation:
 
-1. The `compile_args` option allows you to pass additional CLI arguments in the build command that firefly_cli invokes internally. For most compilers, it will be added at the end of all the default arguments. But for some compilers, like C/C++ (wasi-sdk), it will overwrite some of the defaults.
+1. The `compile_args` option allows you to pass additional CLI arguments in the build command that `ff build` invokes internally. For most compilers, it will be added at the end of all the default arguments. But for some compilers, like C/C++ (wasi-sdk), it will overwrite some of the defaults.
 1. Language-specific configuration files:
     1. **🦀 Rust**: binary builds can be customized using `Cargo.toml` (see [Cargo Targets](https://doc.rust-lang.org/cargo/reference/cargo-targets.html)) and `.cargo/config.toml` (see [Cargo Configuration](https://doc.rust-lang.org/cargo/reference/config.html)).
-    1. **🏃 Go**: you can create a `target.json` file in the root of your project. It will fully replace [the default `target.json`](https://github.com/firefly-zero/firefly-cli/blob/main/src/target.json) used by firefly_cli. See [Important Build Options](https://tinygo.org/docs/reference/usage/important-options/).
-    1. **⚡️ Zig**: you can create a `build.zig` file in the root of your project. It will fully replace the default `build.zig` used by firefly_cli.
+    1. **🏃 Go**: you can create a `target.json` file in the root of your project. It will fully replace [the default `target.json`](https://github.com/firefly-zero/firefly-cli/blob/main/src/target.json) used by `ff build`. See [Important Build Options](https://tinygo.org/docs/reference/usage/important-options/).
+    1. **⚡️ Zig**: you can create a `build.zig` file in the root of your project. It will fully replace the default `build.zig` used by `ff build`.
     1. **🐀 C/C++**: clang doesn't have a build configuration file. Use other ways to customize the build.
     1. **🐰 MoonBit**: see [Package Configuration](https://docs.moonbitlang.com/en/latest/toolchain/moon/package.html).
-1. Lastly, you can build the wasm binary yourself in whatever way works for you. It is especially useful when developing a new SDK for a not yet supported language. Tell firefly_cli to copy your binary as `_bin` file, and it will skip the compilation step:
+1. Lastly, you can build the wasm binary yourself in whatever way works for you. It is especially useful when developing a new SDK for a not yet supported language. Tell `ff build` to copy your binary as `_bin` file, and it will skip the compilation step:
 
     ```toml
     [files]

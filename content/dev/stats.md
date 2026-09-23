@@ -343,11 +343,11 @@ The returned value is the new personal best of the given peer for the given boar
 
 ## 👀 Viewing badges and scores
 
-Use `badges` and `boards` subcommands of `firefly_cli` to list all badges and boards respectively defined in the app:
+Use `badges` and `boards` subcommands of `ff` to list all badges and boards respectively defined in the app:
 
 ```bash
-firefly_cli badges lux.snek
-firefly_cli boards lux.snek
+ff badges lux.snek
+ff boards lux.snek
 ```
 
 You can also see badges, boards, and scores in the launcher in "app info".

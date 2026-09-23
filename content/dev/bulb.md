@@ -25,20 +25,10 @@ It's also possible to write simple adventure games for Firefly Zero using [Bitsy
 1. Create a new Bulb project:
 
     ```bash
-    firefly_cli new --lang=bulb hello-world
+    ff new --lang=bulb hello-world
     ```
 
-1. Build and install the game:
-
-    ```bash
-    firefly_cli build
-    ```
-
-1. Run the game in the emulator:
-
-    ```bash
-    firefly_cli emulator
-    ```
+1. Build and launch the game: `ff run`.
 
 ## Scripting
 

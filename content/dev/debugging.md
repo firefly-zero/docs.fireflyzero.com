@@ -180,8 +180,8 @@ end
 Now, you can send cheat codes into a running app using the CLI:
 
 ```bash
-firefly_cli runtime cheat set-health 56   # prints 1
-firefly_cli runtime cheat get-health 0    # prints 56
+ff runtime cheat set-health 56   # prints 1
+ff runtime cheat get-health 0    # prints 56
 ```
 
 ## 🎲 Dealing with randomness
@@ -206,7 +206,7 @@ For example, here is how to view the text representation of the default launcher
 
 ```bash
 wasm2wat --generate-names --fold-exprs \
-    $(firefly_cli vfs)/roms/sys/launcher/_bin \
+    $(ff vfs)/roms/sys/launcher/_bin \
     | less
 ```
 
@@ -218,10 +218,10 @@ Looking into the wasm2wat output is useful only for compiled languages and for s
 
 ## 🔬 Inspection
 
-The `firefly_cli inspect` command shows lots of useful information about the ROM: files, their sizes, metadata, WASM binary sections, elements in them, exported callbacks, imported host functions, etc. For example, to inspect the default system launcher:
+The `ff inspect` command shows lots of useful information about the ROM: files, their sizes, metadata, WASM binary sections, elements in them, exported callbacks, imported host functions, etc. For example, to inspect the default system launcher:
 
 ```bash
-firefly_cli inspect sys.launcher
+ff inspect sys.launcher
 ```
 
 ## 💔 Finding the point of failure
@@ -338,7 +338,7 @@ There are no tracebacks (aka "stack traces" or "back traces") yet. See this issu
 
 ## 🐌 Monitoring performance
 
-Run `firefly_cli runtime monitor` to launch a dashboard showing the runtime stats for a running app. It looks something like this:
+Run `ff runtime monitor` to launch a dashboard showing the runtime stats for a running app. It looks something like this:
 
 ```text
  ┌╴cpu╶───────────────┐ ┌╴memory╶────────────┐
@@ -372,7 +372,7 @@ Below are some of the common errors related to Firefly Zero that you may encount
 
 > unsupported compression method 93
 
-You're trying to manually extract a ROM from a ZIP archive created using `firefly_cli export`. ROMs use ZSTD compression that isn't supported by your archive manager. You should use `firefly_cli import` for installing ROMs instead.
+You're trying to manually extract a ROM from a ZIP archive created using `ff export`. ROMs use ZSTD compression that isn't supported by your archive manager. You should use `ff import` for installing ROMs instead.
 
 > wasm `unreachable` instruction executed.
 

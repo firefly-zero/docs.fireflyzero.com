@@ -30,7 +30,7 @@ For simple adventure games, it's also possible to use [Bulb]({{< ref "/dev/bulb/
 
 ## 📥 Install tools
 
-1. [Install firefly-cli]({{< ref "/dev/installation/" >}})
+1. [Install firefly_cli]({{< ref "/dev/installation/" >}})
 1. Install [WebAssembly](https://webassembly.org/) compiler for your language:
 
 {{< tabs >}}
@@ -106,83 +106,83 @@ Nothing to install for Bulb, you're ready to go!
 
 ## 💻 Create the project
 
-A new project can be created using `firefly_cli new`:
+A new project can be created using `ff new`:
 
 {{< tabs >}}
 {{< tab "Rust" >}}
 
 ```bash
-firefly_cli new --lang=rust hello-world
+ff new --lang=rust hello-world
 ```
 
 {{< /tab >}}
 {{< tab "Go" >}}
 
 ```bash
-firefly_cli new --lang=go hello-world
+ff new --lang=go hello-world
 ```
 
 {{< /tab >}}
 {{< tab "Zig" >}}
 
 ```bash
-firefly_cli new --lang=zig hello-world
+ff new --lang=zig hello-world
 ```
 
 {{< /tab >}}
 {{< tab "TS" >}}
 
 ```bash
-firefly_cli new --lang=as hello-world
+ff new --lang=as hello-world
 ```
 
 {{< /tab >}}
 {{< tab "C" >}}
 
 ```bash
-firefly_cli new --lang=c hello-world
+ff new --lang=c hello-world
 ```
 
 {{< /tab >}}
 {{< tab "C++" >}}
 
 ```bash
-firefly_cli new --lang=cpp hello-world
+ff new --lang=cpp hello-world
 ```
 
 {{< /tab >}}
 {{< tab "Odin" >}}
 
 ```bash
-firefly_cli new --lang=odin hello-world
+ff new --lang=odin hello-world
 ```
 
 {{< /tab >}}
 {{< tab "MoonBit" >}}
 
 ```bash
-firefly_cli new --lang=moon hello-world
+ff new --lang=moon hello-world
 ```
 
 {{< /tab >}}
 {{< tab "Lua" >}}
 
 ```bash
-firefly_cli new --lang=lua hello-world
+ff new --lang=lua hello-world
 ```
 
 {{< /tab >}}
 {{< tab "Bitsy" >}}
 
 ```bash
-firefly_cli new --lang=bitsy hello-world
+ff new --lang=bitsy hello-world
 ```
 
 {{< /tab >}}
 {{< tab "Bulb" >}}
 
 ```bash
-firefly_cli new --lang=bulb hello-world
+ff new --lang=bulb hello-world
 ```
 
 {{< /tab >}}
@@ -192,19 +192,20 @@ In this example, it will create `hello-world` directory and initialize in it a n
 
 ## 🏃 Build and run
 
-1. Build and install the app: `firefly_cli build`
-1. Run the last built app: `firefly_cli emulator`
+Build the app and launch it in the emulator: `ff run`.
 
+{{< hint info >}}
 Have troubles using emulator? Check out the [emulator user guide]({{< ref "/dev/emulator/" >}}).
+{{< /hint >}}
 
 ## 📦 Distribute
 
-1. Export an app into a zip file: `firefly_cli export`.
+1. Export the app as a ROM (zip file): `ff export`.
 1. Publish the file anywhere you like. For open-source projects, a good option is Github Releases.
 1. People then can download and install the app:
 
     ```bash
-    firefly_cli import ./joearms.hello-world.zip
+    ff import ./joearms.hello-world.zip
     ```
 
 1. Optional: add your app into the catalog: [catalog.fireflyzero.com](https://catalog.fireflyzero.com/).
