@@ -17,10 +17,6 @@ This file is a regular [zip archive](https://en.wikipedia.org/wiki/ZIP_(file_for
 
 The app metadata is stored in `_meta` and encoded using [Postcard Wire Format](https://postcard.jamesmunns.com/wire-format). The schema is defined in [firefly-types](https://github.com/firefly-zero/firefly-types/blob/main/src/meta.rs).
 
-## 🤏 Short Metadata
-
-...
-
 ## Media files
 
 For media files, the first byte of the file indicates what type it is:

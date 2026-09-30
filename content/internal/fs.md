@@ -6,6 +6,8 @@ params:
   emoji: 🗃
 ---
 
+## Files
+
 * `roms/`
   * `<AUTHOR_ID>/`
     * `<APP_ID>/`
@@ -20,7 +22,16 @@ params:
       * `shots/`: directory with app screenshots in PNG format.
       * `stats`
 * `sys/`
-  * `launcher`: short metadata of the launcher. This is the first app that is launched when device/emulator starts.
-  * `new-app`: short metadata of the latest installed app. If there is no launcher installed in the system, this is the app that will be launched first when device/emulator starts.
-  * `name`: the device name. By default, generated to be unique but users may change the device name. For multiplayer, we require all connected devices to have a unique name to avoid confusion. The name has the same validation rules as author and app IDs and can be at most 16 characters long.
   * `battery`: battery info. Contains the voltage values corresponding to 0% and 100% battery charge.
+  * `config`: system settings. Includes options that can be configured via [sys.settings](https://catalog.fireflyzero.com/sys.settings), device name, and total XP earned over all games.
+  * `device`: device information. Includes hardware revision, serial number, and the currently used OTA partitions for both main and IO chips. Some of it is set when the device is flashed the first time, some of that changes with re-flashing and system updates.
+  * `friends`: list of names of all device this device ever connected to. This list allows to reference friends from scoreboards by their index in that list instead of storing the whole name.
+
+## SD Card
+
+Filesystem requirements for the device:
+
+1. Partition: FAT (16 or 32 bit)
+1. Partition type: `W95 FAT32 (LBA)`
+
+Follow [this tutorial](https://askubuntu.com/a/1064316) to prepare a clean storage for use with the Firefly Zero device.

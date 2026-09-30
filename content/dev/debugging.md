@@ -186,6 +186,8 @@ ff runtime cheat get-health 0    # prints 56
 
 ## 🎲 Dealing with randomness
 
+> Life is like a box of chocolates. You never know what you're gonna get.
+
 Your app might have randomly generated stuff, like enemies, levels, etc. To make randomness reproducible during testing or debugging, you can call the `set_seed` function with an arbitrary integer. You can make a special build that sets a hardcoded seed in `boot` or add a cheat code that sets the passed seed when requested. After the seed is set, `get_random` will always return the same values in the same order each time you launch the app.
 
 Before `set_seed` is called, `get_random` always returns reliably random and unpredictable values (including multiplayer). You shouldn't call `set_seed` when not testing or debugging.
