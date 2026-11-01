@@ -23,6 +23,65 @@ Don't draw from the `update` callback: while `update` is called ~60 times per se
 
 The frame that you had at the previous update is not cleared. So, if only a small region on the screen needs to be changed, you can redraw only that region and leave the rest intact. If it's not what you want and you'd prefer to redraw the whole frame each time, call `clear_screen`, and it will fill the whole frame with the color you specified.
 
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+```rust
+clear_screen(Color::White);
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+firefly.ClearScreen(firefly.ColorWhite)
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+ff.clearScreen(.white);
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+ff.clearScreen(ff.Color.White);
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+clear_screen(WHITE)
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+firefly.clear_screen(firefly.Color.White)
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+@firefly.clear_screen(White)
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+firefly.clear_screen(firefly.WHITE)
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
 ## 🎨 Colors
 
 > The enemy of art is the absence of limitations.
@@ -511,7 +570,9 @@ firefly.UnsetCanvas()
 {{< tab "Zig" >}}
 
 ```zig
-firefly.setCanvas(image);
+ff.setCanvas(image);
+ff.clearScreen(.white);
+ff.unsetCanvas();
 ```
 
 {{< /tab >}}
