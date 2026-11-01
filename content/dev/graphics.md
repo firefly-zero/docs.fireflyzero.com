@@ -422,33 +422,20 @@ The text does not automatically wrap. If you need word wrapping, you should add 
 
 ## 🖌 Canvas
 
-Canvas is an image in memory that you can draw on. It is useful for drawing from scratch some complex images that should be persisted between multiple frames. For example, it can dirt on a character, bullet marks on walls, debries on the ground, randomly generated terrain, etc.
-
-After you create a canvas and call `set_canvas`, all almost drawing functions will draw on the canvas instead of the frame buffer. And when you call `unset_canvas`, they will switch back to the frame buffer.
+To create a new image, you need to pass the image size and a color. The color will be used to represent transparency. For example, if the transparency color is Red, then the image cannot contain the red color. So when you draw a red circle on the image, it will be represented as a transparent "hole" in the image instead.
 
 {{< tabs >}}
 {{< tab "Rust" >}}
 
 ```rust
-use firefly_zero::*;
-let canvas = CanvasBuf::new(Size::new(120, 120));
-set_canvas(&canvas);
-// fill canvas with white color
-clear_screen(Color::White);
-unset_canvas();
+let image = ImageBuf::new(Size::new(120, 120), Color::Black);
 ```
-
-Just like for files, there is `Canvas`, which holds a reference, and `CanvasBuf`, which holds ownership. The latter requires the `alloc` feature to be enabled.
 
 {{< /tab >}}
 {{< tab "Go" >}}
 
 ```go
-canvas := firefly.NewCanvas(firefly.Size{W: 120, H: 120})
-firefly.SetCanvas(canvas)
-// fill canvas with white color
-firefly.ClearScreen(firefly.ColorWhite)
-firefly.UnsetCanvas()
+image := firefly.NewImage(firefly.Size{W: 120, H: 120}, firefly.ColorBlack)
 ```
 
 {{< /tab >}}
@@ -462,8 +449,76 @@ firefly.UnsetCanvas()
 {{< tab "TS" >}}
 
 ```ts
-const canvas = ff.Canvas.new(ff.Size.new(120, 120));
-ff.setCanvas(canvas);
+const image = ff.Canvas.new(ff.Size.new(120, 120), ff.Color.Black);
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+// TODO: Canvas not supported by C yet.
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+image := firefly.empty_image(firefly.s(120, 120), firefly.Color.Black)
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+let image = Image::new(Size::new(120, 120), Black)
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+-- TODO: Canvas not supported by Lua yet
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
+Any image (both loaded from a file or created from scratch) can be set as a "canvas". When a canvas is set (using `set_canvas`), almost all subsequent drawing operations will target that image instead of the screen. To make the functions target the screen again, call `unset_canvas`.
+
+Canvas is useful for image manipulation and for drawing from scratch some complex images that should be persisted between multiple frames. For example, it can store dirt on a character, bullet marks on walls, debries on the ground, randomly generated terrain, etc.
+
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+```rust
+set_canvas(&image);
+// fill canvas with white color
+clear_screen(Color::White);
+unset_canvas();
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+firefly.SetCanvas(image)
+// fill canvas with white color
+firefly.ClearScreen(firefly.ColorWhite)
+firefly.UnsetCanvas()
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+firefly.setCanvas(image);
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+ff.setCanvas(image);
 // fill canvas with white color
 ff.clearScreen(ff.Color.White);
 ff.unsetCanvas();
@@ -480,8 +535,7 @@ ff.unsetCanvas();
 {{< tab "Odin" >}}
 
 ```odin
-canvas := firefly.canvas_buf(firefly.s(120, 120))
-firefly.set_canvas(canvas)
+firefly.set_canvas(image)
 // fill canvas with white color
 firefly.clear_screen(firefly.Color.White)
 firefly.unset_canvas()
@@ -491,10 +545,7 @@ firefly.unset_canvas()
 {{< tab "MoonBit" >}}
 
 ```moonbit
-using @firefly {type Canvas, type Size}
-
-let canvas = Canvas::new(Size::new(120, 120))
-@firefly.set_canvas(canvas)
+@firefly.set_canvas(image)
 // fill canvas with white color
 @firefly.clear_screen(White)
 @firefly.unset_canvas()
@@ -513,76 +564,6 @@ let canvas = Canvas::new(Size::new(120, 120))
 {{< hint warning >}}
 Currently, `draw_text`, `draw_image`, and `draw_sub_image` don't support canvas but it might change in the future. Don't call these functions when you have a canvas set!
 {{< /hint >}}
-
-To draw canvas on the screen, convert it to an image and use `draw_image`:
-
-{{< tabs >}}
-{{< tab "Rust" >}}
-
-```rust
-draw_image(&canvas.into_image(), Point{ x: 10, y: 10 });
-```
-
-{{< /tab >}}
-{{< tab "Go" >}}
-
-```go
-firefly.DrawImage(canvas.Image(), firefly.Point{ X: 10, Y: 10 })
-```
-
-{{< /tab >}}
-{{< tab "Zig" >}}
-
-```zig
-ff.drawImage(canvas.image(), .{ .x = 10, .y = 10 })
-```
-
-{{< /tab >}}
-{{< tab "TS" >}}
-
-```ts
-ff.drawImage(canvas.toImage(), ff.Point.new(10, 10));
-```
-
-{{< /tab >}}
-{{< tab "C" >}}
-
-```c
-Point point = {10, 10};
-draw_image(canvas, point);
-```
-
-{{< /tab >}}
-{{< tab "C++" >}}
-
-```c++
-draw_image(canvas, {10, 10});
-```
-
-{{< /tab >}}
-{{< tab "Odin" >}}
-
-```odin
-firefly.draw_image(canvas, firefly.p(10, 10))
-```
-
-{{< /tab >}}
-{{< tab "MoonBit" >}}
-
-```moonbit
-using @firefly {type Point}
-@firefly.draw_image(canvas.as_image(), Point::new(10, 10))
-```
-
-{{< /tab >}}
-{{< tab "Lua" >}}
-
-```lua
-firefly.draw_image(canvas, {x=10, y=10})
-```
-
-{{< /tab >}}
-{{< /tabs >}}
 
 ## 🔗 Additional resources
 
