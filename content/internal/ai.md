@@ -16,10 +16,10 @@ This policy covers the use of LLM (Large Language Models, also know as AI or Gen
 
 This commitment goes both ways. From our side, we promise to manually write all of our code, review your contributions, reply to your questions, etc.
 
-## Enforcement
+## 👮 Enforcement
 
 This policy is not open to discussion. Any content submitted that is clearly labelled as LLM-generated will be immediately closed, and any attempt to bypass this policy in any way will result in a ban from the project. Any LLM-managed accounts will be immediately banned without a warning.
 
-## Why
+## 🤔 Why
 
 There is a lot written about the [harm that LLMs cause to the world](https://en.wikipedia.org/wiki/Artificial_intelligence_controversies) and we'll not go into much details here. LLMs destroy environment, internet, books, expert knowledge, creativity, equality, human connection, and trust. Every time you use such tools, you're making the whole world worse in exchange for a little personal convenience.

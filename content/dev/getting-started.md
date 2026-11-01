@@ -214,10 +214,6 @@ Have troubles using emulator? Check out the [emulator user guide]({{< ref "/dev/
 
 Need inspiration for your next game? Try combining <b id="noun1"></b> and <b id="noun2"></b>.
 
-<a class="book-btn" href="#" onclick="return suggestIdea();">
-  🔄 regenerate
-</a>
-
 <script>
   nouns = [
     "battleships",
@@ -273,6 +269,39 @@ Need inspiration for your next game? Try combining <b id="noun1"></b> and <b id=
 
   suggestIdea();
 </script>
+
+<a class="book-btn" href="#" onclick="return suggestIdea();">
+  🔄 regenerate
+</a>
+
+Another cool place for inspiration is [My Famicase Exhibition](https://famicase.com/). It's a gallery of covers (with a short description) created for non-existing games. Wouldn't it be fun to bring one of these games to life?
+
+<a href="#" id="famicaseA" target="_blank">
+  <img id="famicaseImg" width=220 height=145 alt="random Famicase image" style="display: block; margin-bottom: 8px"/>
+</a>
+
+<script>
+  function randFamicomId() {
+    const id = Math.floor(Math.random() * 244) + 1;
+    return String(id).padStart(3, '0');
+  }
+
+  function pickFamicase() {
+    const year = Math.floor(Math.random() * 6) + 21;
+    const id = randFamicomId();
+    const imgUrl = `https://famicase.com/${year}/softs/${id}_s.gif`;
+    document.getElementById('famicaseImg').src = imgUrl;
+    const infoUrl = `https://famicase.com/${year}/softs/${id}.html`;
+    document.getElementById('famicaseA').href = infoUrl;
+    return false;
+  }
+
+  pickFamicase();
+</script>
+
+<a class="book-btn" href="#" onclick="return pickFamicase();">
+  🔄 reload
+</a>
 
 Also have a look at [our catalog](https://catalog.fireflyzero.com/) to see what other people made and check out [popular games for PICO-8](https://itch.io/games/tag-pico-8).
 
