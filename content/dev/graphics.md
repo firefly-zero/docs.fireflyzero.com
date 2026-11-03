@@ -879,6 +879,12 @@ raw = [int(byte.strip()) for byte in data.text.split(',')]
 
 In Firefly, you can load a spritesheet as an `Image` and then select and render individual sprites as `SubImage` as covered in the [Images](#-images) section.
 
+{{< hint info >}}
+**Advanced: single-sprite tiling**
+
+When a screen area (or maybe the whole screen?) needs to be tiled with the same sprite, `draw_sub_tile` can be used. This is not a very common scenario (make sure to add little variations to your tiles to make it look less repetitive!) but in case you ever need it, it's there for you.
+{{< /hint >}}
+
 ### 9️⃣ Nine-slice
 
 The [9-slice scaling](https://en.wikipedia.org/wiki/9-slice_scaling) in graphics is a cool technique for rendering pretty boxes. In it, you take a rectangle image and split it into 9 segments:
@@ -960,6 +966,8 @@ let sub = image.sub(Point::new(10, 10), Size::new(10, 10));
 
 {{< /tab >}}
 {{< /tabs >}}
+
+The 9-slice scaling is useful for drawing dialog boxes and bubbles and boxes for other UI elements (such as inventory and other in-game menus). It can also be used to speed up rendering of a room: the middle tile of the 9-slice will be the floor tile and the rest will be wall tiles.
 
 ## 🔗 Additional resources
 
