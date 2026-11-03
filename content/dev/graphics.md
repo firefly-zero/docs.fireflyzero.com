@@ -219,9 +219,9 @@ For a reference, here is the list of available functions for drawing shapes:
 ```rust
 use firefly_rust::*;
 draw_triangle(
-    Point { x: 60, y: 10 },
-    Point { x: 40, y: 40 },
-    Point { x: 80, y: 40 },
+    Point::new(60, 10),
+    Point::new(40, 40),
+    Point::new(80, 40),
     Style {
         fill_color: Color::LightGray,
         stroke_color: Color::DarkBlue,
@@ -235,9 +235,9 @@ draw_triangle(
 
 ```go
 firefly.DrawTriangle(
-    firefly.Point{X: 60, Y: 10},
-    firefly.Point{X: 40, Y: 40},
-    firefly.Point{X: 80, Y: 40},
+    firefly.P(60, 10),
+    firefly.P(40, 40),
+    firefly.P(80, 40),
     firefly.Style{
         FillColor:   firefly.ColorDarkBlue,
         StrokeColor: firefly.ColorBlue,
@@ -448,7 +448,74 @@ file = firefly.load_file("img");
 {{< /tab >}}
 {{< /tabs >}}
 
-Lastly, call `draw_image` with the image you loaded earlier.
+Lastly, call `draw_image` with the image you loaded earlier:
+
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+```rust
+draw_image(&image, Point::new(60, 10));
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+firefly.DrawImage(image, firefly.P(60, 10))
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+ff.drawImage(image, .{ .x = 60, .y = 10 });
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+ff.drawImage(image, ff.Point.new(60, 10));
+```
+
+{{< /tab >}}
+{{< tab "C" >}}
+
+```c
+Point p = {60, 10};
+draw_image(image, p);
+```
+
+{{< /tab >}}
+{{< tab "C++" >}}
+
+```c++
+draw_image(image, {60, 10});
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+firefly.draw_image(image, firefly.p(60, 10))
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+@firefly.draw_image(image, Point::new(60, 10));
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+firefly.draw_image(image, {x=60, y=10})
+```
+
+{{< /tab >}}
+{{< /tabs >}}
 
 If the image uses a custom color palette, you can add the palette into the `palettes` table in `firefly.toml` and reference it in the `file`:
 

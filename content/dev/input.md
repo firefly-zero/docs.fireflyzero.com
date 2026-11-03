@@ -287,3 +287,7 @@ Depending on how you want your app feel, there are some common patterns on readi
 1. **DPad** (directional pad). Sometimes you just want to know if it is up, down, left, or right. And sometimes maybe also diagonal movements too (upper-right, lower-left, etc). This is useful for games on square grid (like [Blutti](https://catalog.fireflyzero.com/olle.blutti)) and also for porting retro games designed for DPad. See the [DPad](#dpad) section above.
 
 Many new players use the touchpad like a stick: putting their finger in the middle and then sliding it in the direction they want to move. This is why in all SDKs, when you convert `Pad` into `DPad4`/`DPad8`, there is a dead zone in the middle where we don't consider the touch to be in any specific direction.
+
+## Menu
+
+...
