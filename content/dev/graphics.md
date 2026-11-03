@@ -332,7 +332,7 @@ using @firefly {type Point, type Style};
         stroke_color: DarkBlue,
         stroke_width: 1,
     },
-)
+);
 ```
 
 {{< /tab >}}
@@ -670,6 +670,88 @@ raw = [int(byte.strip()) for byte in data.text.split(',')]
 
 In Firefly, you can load a spritesheet as an `Image` and then select and render individual sprites as `SubImage` as covered in the [Images](#-images) section.
 
+### 9️⃣ Nine-slice
+
+The [9-slice scaling](https://en.wikipedia.org/wiki/9-slice_scaling) in graphics is a cool technique for rendering pretty boxes. In it, you take a rectangle image and split it into 9 segments:
+
+![9-slice example input](/9slice1.svg)
+
+Then to fill an area with this image you place the corners unchanged and repeat all segments in between:
+
+![9-slice example output](/9slice2.svg)
+
+To draw a 9-slice in Firefly, you load the box as an `Image`, select the middle segment (the green 5 in the example above) as a `SubImage`, and pass it into `draw_nine_slice`:
+
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+```rust
+let sub = image.sub(Point::new(10, 10), Size::new(10, 10));
+draw_nine_slice(sub, Point::new(120, 100), Size::new(50, 40));
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+sub := image.Sub(firefly.P(10, 10), firefly.S(10, 10))
+firefly.DrawNineSlice(sub, firefly.P(120, 100), firefly.S(50, 40))
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+const sub = image.sub(.{10, 10}, .{10, 10});
+ff.drawNineSlice(sub, .{120, 100}, .{50, 40});
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+const sub = image.sub(Point.new(10, 10), Size.new(10, 10));
+ff.drawNineSlice(sub, Point.new(120, 100), Size.new(50, 40));
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+Point p1 = {10, 10};
+Size s1 = {10, 10};
+SubImage sub = image.sub(p1, s1);
+Point p2 = {120, 100};
+Size s2 = {50, 40};
+draw_nine_slice(sub, p2, s2);
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+sub := firefly.sub(image, firefly.p(10, 10), firefly.s(10, 10))
+firefly.draw_nine_slice(sub, firefly.p(120, 100), firefly.s(50, 40))
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+let sub = image.sub(Point::new(10, 10), Size::new(10, 10));
+@firefly.draw_nine_slice(sub, Point::new(120, 100), Size::new(50, 40));
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+-- TODO
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
 ## 🔗 Additional resources
 
 If you're looking for 2D pixel sprites for your game, check out:
@@ -695,7 +777,7 @@ Our Pixel Editor is designed to be as simple as possible. If you're looking for 
 
 Lastly, a few more helpful tools:
 
-* [Map editor](https://thorbjorn.itch.io/tiled)
+* [Level editor](https://thorbjorn.itch.io/tiled)
 * [Creature generator](https://0x72.itch.io/pixeldudesmaker)
 * [Creature editor](https://kenney.itch.io/creature-mixer)
 * [Avatar editor](https://kenney.itch.io/avatar-mixer)
