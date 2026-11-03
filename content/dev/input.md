@@ -290,4 +290,154 @@ Many new players use the touchpad like a stick: putting their finger in the midd
 
 ## Menu
 
-...
+If you press the `menu` button on the device (`Tab` on emulator), Firefly opens a game menu where you can restart or exit the app, take a screenshot, or adjust the master volume. Apps can add their own custom menu actions using `add_menu_item` (and remove them using `remove_menu_item`). Then the player select the custom item, the `handle_menu` callback function is called with the item ID that was passed into `add_menu_item`.
+
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+```rust
+#[unsafe(no_mangle)]
+extern "C" fn boot() {
+    add_menu_item(1, "open inventory");
+}
+
+#[unsafe(no_mangle)]
+extern "C" fn handle_menu(i: i32) {
+    if i == 1 {
+        open_inventory();
+    }
+}
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+func init() {
+    firefly.Boot = boot
+    firefly.HandleMenu = handleMenu
+}
+
+func boot() {
+    firefly.AddMenuItem(1, "open inventory")
+}
+
+func handleMenu(i int32) {
+    if i == 1 {
+        openInventory()
+    }
+}
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+pub export fn boot() void {
+    ff.addMenuItem(1, "open inventory");
+}
+
+pub export fn handle_menu(i: i32) void {
+    if (i == 1) {
+        openInventory();
+    }
+}
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+export function boot(): void {
+   ff.addMenuItem(1, "open inventory");
+}
+
+export function handle_menu(i: i32): void {
+    if (i == 1) {
+        openInventory();
+    }
+}
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+BOOT void boot()
+{
+    add_menu_item(1, "open inventory");
+}
+
+HANDLE_MENU void handle_menu(int32_t i)
+{
+    if (i == 1) {
+        open_inventory();
+    }
+}
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+@(export = true)
+boot :: proc "contextless" () {
+    context = runtime.default_context()
+    add_menu_item(1, "open inventory")
+}
+
+@(export = true)
+handle_menu :: proc "contextless" (i i32) {
+    context = runtime.default_context()
+    if i == 1 {
+        open_inventory()
+    }
+}
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+pub fn boot() -> Unit {
+    @firefly.add_menu_item(1, "open inventory");
+}
+
+pub fn handle_menu(i: i32) -> Unit {
+    if i == 1 {
+        open_inventory();
+    }
+}
+```
+
+`moon.pkg.json`:
+
+```json
+{
+  "link": {
+    "wasm": {
+      "exports": ["boot", "handle_menu"]
+    }
+  }
+}
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+function boot()
+    firefly.add_menu_item(1, "open inventory")
+end
+
+function handle_menu(i: i32)
+    if i == 1 then
+        open_inventory()
+    end
+end
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
+Lastly, you can trigger opening the menu using `open_menu`, which might be useful for in-game tutorials.
