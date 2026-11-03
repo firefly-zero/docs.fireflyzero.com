@@ -615,7 +615,78 @@ font = { path = "eg_6x9.fff" }
 
 Now you can load the font from ROM as you load images and call `draw_text` with the text you want to render and the font.
 
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+```rust
+draw_text("Welcome, adventurer!", &font, Point::new(60, 10));
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+firefly.DrawText("Welcome, adventurer!", font, firefly.P(60, 10))
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+ff.drawText("Welcome, adventurer!", font, .{ .x = 60, .y = 10 });
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+ff.drawText("Welcome, adventurer!", font, ff.Point.new(60, 10));
+```
+
+{{< /tab >}}
+{{< tab "C" >}}
+
+```c
+Point p = {60, 10};
+draw_text("Welcome, adventurer!", font, p);
+```
+
+{{< /tab >}}
+{{< tab "C++" >}}
+
+```c++
+draw_text("Welcome, adventurer!", font, {60, 10});
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+firefly.draw_text("Welcome, adventurer!", font, firefly.p(60, 10))
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+@firefly.draw_text("Welcome, adventurer!", font, Point::new(60, 10));
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+firefly.draw_text("Welcome, adventurer!", font, {x=60, y=10})
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
+{{< hint info >}}
 The text does not automatically wrap. If you need word wrapping, you should add new lines into the text yourself.
+{{< /hint >}}
+
+If you want to include in your app a link, you can use `draw_qr` to render a QR code.
 
 ## 🖌 Canvas
 
