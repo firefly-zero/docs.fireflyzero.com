@@ -517,6 +517,77 @@ firefly.draw_image(image, {x=60, y=10})
 {{< /tab >}}
 {{< /tabs >}}
 
+You can also select an image region using `Image.sub` and then draw it using `draw_sub_image` which is particularly useful for [tiling](#-tiling):
+
+{{< tabs >}}
+{{< tab "Rust" >}}
+
+```rust
+let sub = image.sub(Point::new(10, 10), Size::new(10, 10));
+draw_sub_image(sub, Point::new(120, 100));
+```
+
+{{< /tab >}}
+{{< tab "Go" >}}
+
+```go
+sub := image.Sub(firefly.P(10, 10), firefly.S(10, 10))
+firefly.DrawSubImage(sub, firefly.P(120, 100))
+```
+
+{{< /tab >}}
+{{< tab "Zig" >}}
+
+```zig
+const sub = image.sub(.{10, 10}, .{10, 10});
+ff.drawSubImage(sub, .{120, 100});
+```
+
+{{< /tab >}}
+{{< tab "TS" >}}
+
+```ts
+const sub = image.sub(Point.new(10, 10), Size.new(10, 10));
+ff.drawSubImage(sub, Point.new(120, 100));
+```
+
+{{< /tab >}}
+{{< tab "C/C++" >}}
+
+```c
+Point p1 = {10, 10};
+Size s1 = {10, 10};
+SubImage sub = image.sub(p1, s1);
+Point p2 = {120, 100};
+draw_sub_image(sub, p2);
+```
+
+{{< /tab >}}
+{{< tab "Odin" >}}
+
+```odin
+sub := firefly.sub(image, firefly.p(10, 10), firefly.s(10, 10))
+firefly.draw_sub_image(sub, firefly.p(120, 100))
+```
+
+{{< /tab >}}
+{{< tab "MoonBit" >}}
+
+```moonbit
+let sub = image.sub(Point::new(10, 10), Size::new(10, 10));
+@firefly.draw_sub_image(sub, Point::new(120, 100));
+```
+
+{{< /tab >}}
+{{< tab "Lua" >}}
+
+```lua
+-- TODO
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
 If the image uses a custom color palette, you can add the palette into the `palettes` table in `firefly.toml` and reference it in the `file`:
 
 ```toml
