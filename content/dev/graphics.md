@@ -544,7 +544,7 @@ let image = Image::new(Size::new(120, 120), Black)
 
 Any image (both loaded from a file or created from scratch) can be set as a "canvas". When a canvas is set (using `set_canvas`), almost all subsequent drawing operations will target that image instead of the screen. To make the functions target the screen again, call `unset_canvas`.
 
-Canvas is useful for image manipulation and for drawing from scratch some complex images that should be persisted between multiple frames. For example, it can store dirt on a character, bullet marks on walls, debries on the ground, randomly generated terrain, etc.
+Canvas is useful for image manipulation and for drawing from scratch some complex images that should be persisted between multiple frames. For example, it can store dirt on a character, bullet marks on walls, debris on the ground, randomly generated terrain, etc.
 
 {{< tabs >}}
 {{< tab "Rust" >}}
@@ -622,16 +622,60 @@ firefly.unset_canvas()
 {{< /tab >}}
 {{< /tabs >}}
 
+Some of the functions most commonly used with canvas:
+
+* `flip_x`: flip the image horizontally.
+* `flip_y`: flip the image vertically.
+* `flip_x` + `flip_y`: rotate the image 180 degrees.
+* `clear_screen`: fill the image with a color.
+* `draw_point` (and other `draw_` functions): draw on the image.
+
 {{< hint warning >}}
 Currently, `draw_text`, `draw_image`, and `draw_sub_image` don't support canvas but it might change in the future. Don't call these functions when you have a canvas set!
 {{< /hint >}}
+
+## 🪟 Tiling
+
+### 🧱 Creating levels
+
+Most of the retro games use "sprites": A collection of small square images (usually 8x8 or 16x16 pixels) which are used to tile the screen as a square grid to form the game level.
+
+{{% details "Tiled level example" %}}
+![tiling example](/tiling.png)
+{{% /details %}}
+
+Sprites are typically all packed on a single image called "spritesheet" (or "atlas").
+
+{{% details "Spritesheet example" %}}
+![atlas example](/atlas.png)
+{{% /details %}}
+
+To create such levels, you can download an existing spritesheet (for example, from [itch.io](https://itch.io/game-assets/tag-pixel-art)), pick the sprites that you want to use in any image editor (I use [Pinta](https://www.pinta-project.com/releases/)), and arrange them using a level editor (like [Tiled](https://thorbjorn.itch.io/tiled) or [LDtk](https://github.com/deepnight/ldtk)). You can then load the exported level directly as JSON but I prefer to convert it first to bytes (where eah byte is the sprite ID) using a simple Python script which significantly reduces the game size.
+
+{{% details "Python script" %}}
+
+```python
+import xml.etree.ElementTree as xml
+from pathlib import Path
+
+assets_dir = Path(__file__).parent / 'assets'
+tree = xml.parse(assets_dir / 'level.tmx')
+root = tree.getroot()
+data = root.findall('layer')[0].findall('data')[0]
+raw = [int(byte.strip()) for byte in data.text.split(',')]
+(assets_dir / 'level.bin').write_bytes(bytes(raw))
+```
+
+{{% /details %}}
+
+In Firefly, you can load a spritesheet as an `Image` and then select and render individual sprites as `SubImage` as covered in the [Images](#-images) section.
 
 ## 🔗 Additional resources
 
 If you're looking for 2D pixel sprites for your game, check out:
 
 * [2D assets by Kenney](https://www.kenney.nl/assets/category:2D). Our favorite is [1-Bit Pack](https://www.kenney.nl/assets/1-bit-pack).
-* [2D assets on itch.io](https://itch.io/game-assets/tag-2d).
+* [Pixel Art assets on itch.io](https://itch.io/game-assets/tag-pixel-art). Use tags `8x8` and `16x16` to filter by the desired sprite size (16x16 is prettier but occupies more space on the screen).
 * [OpenGameArt.org](https://opengameart.org/art-search-advanced?keys=&field_art_type_tid%5B%5D=9&sort_by=count&sort_order=DESC).
 
 Some assets might have too many colors or a color palette that you don't like. Use [Palette Quantizer](https://lospec.com/palette-quantizer/) to map any assets to any color palette.
@@ -656,4 +700,3 @@ Lastly, a few more helpful tools:
 * [Creature editor](https://kenney.itch.io/creature-mixer)
 * [Avatar editor](https://kenney.itch.io/avatar-mixer)
 * [Spaceship/plane editor](https://kenney.itch.io/ship-mixer)
-* [Pack multiple sprites into one atlas](https://free-tex-packer.com/)
