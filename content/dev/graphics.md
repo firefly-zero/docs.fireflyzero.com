@@ -991,6 +991,7 @@ Our Pixel Editor is designed to be as simple as possible. If you're looking for 
 * [Aseprite](https://www.aseprite.org/)
 * [Pixelorama](https://pixelorama.org/)
 * [PixiEditor](https://pixieditor.net/)
+* [SimplePixelArt](https://simplepixelart.com/editor) (runs in the browser, supports custom palettes)
 
 Lastly, a few more helpful tools:
 
